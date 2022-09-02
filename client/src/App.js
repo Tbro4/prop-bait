@@ -1,29 +1,17 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import SaveIcon from "@material-ui/icons/Save";
-import DeleteIcon from "@material-ui/icons/Delete";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <ButtonGroup>
-          <Button startIcon={<SaveIcon />} variant="contained" color="primary">
-            Save
-          </Button>
-          <Button
-            startIcon={<DeleteIcon />}
-            variant="contained"
-            color="secondary"
-          >
-            Discard
-          </Button>
-        </ButtonGroup>
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
