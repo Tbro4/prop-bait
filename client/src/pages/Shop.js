@@ -1,15 +1,16 @@
 import React from "react";
 import AppBarTop from "../components/AppBarTop/AppBarTop";
 import AppBarBottom from "../components/AppBarBottom/AppBarBottom";
+import ShopHome from "../components/ShopHome/ShopHome";
 
-const Home = () => {
+const Shop = () => {
   return (
     <div className="App">
       <AppBarTop />
-
+      <ShopHome />
       <AppBarBottom />
     </div>
   );
 };
 
-export default Home;
+export default Shop;
