@@ -3,6 +3,7 @@ import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+import { Link } from "react-router-dom";
 
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
@@ -57,11 +58,18 @@ export default function PrimarySearchAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component="div"
-            sx={{ display: { xs: "block", sm: "block" } }}
+            component={Link}
+            to="/"
+            sx={{
+              display: { xs: "block", sm: "block" },
+              textDecoration: "none",
+              boxShadow: "none",
+              color: "white",
+            }}
           >
             &#123;prop&#125; bait
           </Typography>
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
