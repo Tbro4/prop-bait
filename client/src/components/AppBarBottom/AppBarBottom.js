@@ -8,9 +8,10 @@ import Paper from "@mui/material/Paper";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
 export default function FixedBottomNavigation() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState();
   const ref = React.useRef(null);
 
   return (
@@ -34,12 +35,23 @@ export default function FixedBottomNavigation() {
           }}
         >
           <BottomNavigationAction
-            href="/Shop"
+            component={Link}
+            to="/Shop"
             label="Shop"
             icon={<MenuIcon />}
           />
-          <BottomNavigationAction label="Account" icon={<AccountCircle />} />
-          <BottomNavigationAction label="Cart" icon={<ShoppingCartIcon />} />
+          <BottomNavigationAction
+            component={Link}
+            to="/Account"
+            label="Account"
+            icon={<AccountCircle />}
+          />
+          <BottomNavigationAction
+            component={Link}
+            to="/Cart"
+            label="Cart"
+            icon={<ShoppingCartIcon />}
+          />
         </BottomNavigation>
       </Paper>
     </Box>
