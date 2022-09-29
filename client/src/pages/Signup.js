@@ -28,16 +28,11 @@ const Signup = () => {
     console.log(formState);
 
     try {
-      console.log("Trying...");
-
       const { data } = await addUser({
         variables: { ...formState },
       });
-      console.log(data);
-      console.log("Made it through const data");
 
       Auth.login(data.addUser.token);
-      console.log("Made it through Auth.login");
     } catch (e) {
       console.error(e);
     }
@@ -45,7 +40,6 @@ const Signup = () => {
 
   return (
     <>
-      <br></br>
       <main className="flex-row justify-center mb-4">
         <div className="col-12 col-lg-10">
           <div className="card">

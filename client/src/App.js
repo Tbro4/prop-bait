@@ -45,7 +45,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Container maxWidth="xs">
+        <Container>
+          <AppBarTop />
+          <AppBarBottom />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Shop" element={<Shop />} />
@@ -54,8 +56,6 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} />
           </Routes>
-          <AppBarTop />
-          <AppBarBottom />
         </Container>
       </Router>
     </ApolloProvider>

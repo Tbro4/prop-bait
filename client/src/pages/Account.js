@@ -2,24 +2,38 @@
 import React from "react";
 import { Button, Container, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 const Account = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
-      <Container>
-        <Stack spacing={2}>
-          <Button variant="contained" component={Link} to="/Login">
-            Login
+      {Auth.loggedIn() ? (
+        <>
+          <p>USUHH {Auth.getProfile().data.username}</p>
+          <Button variant="contained" onClick={logout}>
+            Logout
           </Button>
-          <Button variant="contained" component={Link} to="/Signup">
-            Signup
-          </Button>
-        </Stack>
-      </Container>
+        </>
+      ) : (
+        <Container>
+          <Stack spacing={2}>
+            <Button variant="contained" component={Link} to="/Login">
+              Login
+            </Button>
+            <Button variant="contained" component={Link} to="/Signup">
+              Signup
+            </Button>
+          </Stack>
+        </Container>
+      )}
     </>
   );
 };
