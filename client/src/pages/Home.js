@@ -7,98 +7,306 @@ import Tackle from "../images/tackle.jpg";
 import Lures from "../images/lures.jpg";
 import Tools from "../images/tools.jpg";
 import Clothing from "../images/clothing.jpg";
+import { Typography } from "@mui/material";
+import Image from "mui-image";
+import zIndex from "@mui/material/styles/zIndex";
+
+function handleClick(event) {
+  console.log(event.target);
+  console.log(event.target.name);
+}
 
 const Home = () => {
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", zIndex: 0 }}>
       <Box
         sx={{
           display: "grid",
           gridAutoFlow: "row",
           gridTemplateColumns: "repeat(2, 1fr)",
-          gridTemplateRows: "repeat(8, 1fr)",
+          gridTemplateRows: "repeat(7, 1fr)",
           gap: 1.5,
+          zIndex: 0,
         }}
       >
         <Box
-          component="img"
           sx={{
-            height: "100%",
-            maxWidth: "100%",
+            // height: "100%",
+            // maxWidth: "100%",
             gridColumn: "1 / 3",
-            gridRow: "1 / 3",
+            gridRow: "1/3",
           }}
-          alt="man fishing"
-          src={TopPic}
-        />
-
+        >
+          <Image
+            fit="fill"
+            duration={200}
+            src={TopPic}
+            alt="man fishing"
+            onClick={handleClick}
+          />
+          <Box
+            sx={{
+              position: "relative",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              bgcolor: "rgba(0, 0, 0, 0.54)",
+              color: "white",
+            }}
+          >
+            <Typography
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                right: 0,
+                margin: "5px",
+              }}
+              variant="h5"
+            >
+              Shop Sales
+            </Typography>
+          </Box>
+        </Box>
         <Box
-          component="img"
           sx={{
-            height: "100%",
-            maxWidth: "100%",
+            // height: "100%",
+            // maxWidth: "100%",
             gridColumn: "1 / 2",
             gridRow: "3 / 5",
           }}
-          alt="man fishing"
-          src={Poles}
-        />
+        >
+          <Image
+            fit="fill"
+            duration={200}
+            src={Poles}
+            alt="fishing poles"
+            onClick={handleClick}
+          />
+          <Box
+            sx={{
+              position: "relative",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              bgcolor: "rgba(0, 0, 0, 0.54)",
+              color: "white",
+            }}
+          >
+            <Typography
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                right: 0,
+                margin: "5px",
+              }}
+              variant="h5"
+            >
+              Rods
+            </Typography>
+          </Box>
+        </Box>
         <Box
-          component="img"
           sx={{
-            height: "100%",
-            maxWidth: "100%",
+            // height: "100%",
+            // maxWidth: "100%",
             gridColumn: "2",
             gridRow: "3",
           }}
-          alt="man fishing"
-          src={Reels}
-        />
+        >
+          <Image
+            fit="fill"
+            duration={200}
+            src={Reels}
+            alt="fishing reel"
+            onClick={handleClick}
+          />
+          <Box
+            sx={{
+              position: "relative",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              bgcolor: "rgba(0, 0, 0, 0.54)",
+              color: "white",
+            }}
+          >
+            <Typography
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                right: 0,
+                margin: "5px",
+              }}
+              variant="h5"
+            >
+              Reels
+            </Typography>
+          </Box>
+        </Box>
         <Box
-          component="img"
           sx={{
-            height: "100%",
-            maxWidth: "100%",
+            // height: "100%",
+            // maxWidth: "100%",
             gridColumn: "2",
             gridRow: "4",
           }}
-          alt="man fishing"
-          src={Lures}
-        />
+        >
+          <Image
+            fit="fill"
+            duration={200}
+            src={Lures}
+            alt="fishing lures"
+            onClick={handleClick}
+          />
+          <Box
+            sx={{
+              position: "relative",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              bgcolor: "rgba(0, 0, 0, 0.54)",
+              color: "white",
+            }}
+          >
+            <Typography
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                right: 0,
+                margin: "5px",
+              }}
+              variant="h5"
+            >
+              Lures
+            </Typography>
+          </Box>
+        </Box>
+
         <Box
-          component="img"
           sx={{
-            height: "100%",
-            maxWidth: "100%",
+            //   height: "100%",
+            //   maxWidth: "100%",
             gridColumn: "1",
             gridRow: "5",
           }}
-          alt="man fishing"
-          src={Tackle}
-        />
-        <Box
-          component="img"
+        >
+          <Image
+            fit="fill"
+            duration={200}
+            src={Tackle}
+            alt="fishing tackle"
+            onClick={handleClick}
+          />
+          <Box
+            sx={{
+              position: "relative",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              bgcolor: "rgba(0, 0, 0, 0.54)",
+              color: "white",
+            }}
+          >
+            <Typography
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                right: 0,
+                margin: "5px",
+              }}
+              variant="h5"
+            >
+              Tackle
+            </Typography>
+          </Box>
+        </Box>
+        {/* <Box
           sx={{
             height: "100%",
             maxWidth: "100%",
             gridColumn: "1",
             gridRow: "6",
           }}
-          alt="man fishing"
-          src={Clothing}
-        />
-
-        <Box
           component="img"
+          src={Tackle}
+          alt="tackle"
+        /> */}
+        <Box
           sx={{
             height: "100%",
             maxWidth: "100%",
+            gridColumn: "1",
+            gridRow: "6",
+          }}
+        >
+          <Image
+            fit="fill"
+            duration={200}
+            src={Clothing}
+            alt="outdoor clothing"
+            onClick={handleClick}
+          />
+          <Box
+            sx={{
+              position: "relative",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              bgcolor: "rgba(0, 0, 0, 0.54)",
+              color: "white",
+            }}
+          >
+            <Typography
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                right: 0,
+                margin: "5px",
+              }}
+              variant="h5"
+            >
+              Clothing
+            </Typography>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            // height: "100%",
+            // maxWidth: "100%",
             gridColumn: "2",
             gridRow: "5/7",
           }}
-          alt="man fishing"
-          src={Tools}
-        />
+        >
+          <Image
+            fit="fill"
+            duration={200}
+            src={Tools}
+            alt="multi-tool pliars"
+            onClick={handleClick}
+          />
+          <Box
+            sx={{
+              position: "relative",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              bgcolor: "rgba(0, 0, 0, 0.54)",
+              color: "white",
+            }}
+          >
+            <Typography
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                right: 0,
+                margin: "5px",
+              }}
+              variant="h5"
+            >
+              Tools
+            </Typography>
+          </Box>
+        </Box>
       </Box>
     </div>
   );

@@ -9,6 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import zIndex from "@mui/material/styles/zIndex";
 
 export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState();
@@ -16,8 +17,6 @@ export default function FixedBottomNavigation() {
 
   return (
     <Box sx={{ pb: 7 }} ref={ref}>
-      <CssBaseline />
-
       <Paper
         sx={{
           position: "fixed",
