@@ -24,6 +24,14 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  type Product {
+    _id: ID
+    name: String
+    price: String
+    description: String
+    brand: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -35,6 +43,7 @@ const typeDefs = gql`
     thoughts(username: String): [Thought]
     thought(thoughtId: ID!): Thought
     me: User
+    products: [Product]!
   }
 
   type Mutation {
