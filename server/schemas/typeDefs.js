@@ -8,6 +8,14 @@ const typeDefs = gql`
     password: String
   }
 
+  type Product {
+    _id: ID
+    name: String
+    price: String
+    description: String
+    brand: String
+  }
+
   type Auth {
     token: ID!
     user: User
