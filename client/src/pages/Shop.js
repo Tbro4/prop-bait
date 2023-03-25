@@ -8,9 +8,10 @@ import { QUERY_PRODUCTS } from "../utils/queries";
 
 const Shop = () => {
   const { loading, error, data } = useQuery(QUERY_PRODUCTS);
+  console.log(loading);
   const products = data?.products || [];
+
   console.log(products);
-  console.log("error: " + error);
 
   return (
     <>
