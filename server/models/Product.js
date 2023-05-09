@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const productSchema = new Schema({
   name: {
     type: String,
-    required: "product needs a name",
+    required: true,
     trim: true,
   },
   price: {
@@ -35,7 +35,7 @@ const productSchema = new Schema({
 
   image: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   hasMeasurement: {},

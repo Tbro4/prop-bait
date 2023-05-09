@@ -5,10 +5,11 @@ import Poles from "../images/poles2.jpg";
 import Reels from "../images/reels2.jpg";
 import Tackle from "../images/tackle.jpg";
 import Lures from "../images/lures.jpg";
-import Tools from "../images/tools.jpg";
-import Clothing from "../images/clothing.jpg";
+import Accessories from "../images/tools.jpg";
+import Line from "../images/clothing.jpg";
 import { Typography } from "@mui/material";
 import Image from "mui-image";
+import { Link } from "react-router-dom";
 import zIndex from "@mui/material/styles/zIndex";
 
 function handleClick(event) {
@@ -30,9 +31,9 @@ const Home = () => {
         }}
       >
         <Box
+          component={Link}
+          to={"/Shop"}
           sx={{
-            // height: "100%",
-            // maxWidth: "100%",
             gridColumn: "1 / 3",
             gridRow: "1/3",
           }}
@@ -242,8 +243,8 @@ const Home = () => {
           <Image
             fit="fill"
             duration={200}
-            src={Clothing}
-            alt="outdoor clothing"
+            src={Line}
+            alt="fishing line"
             onClick={handleClick}
           />
           <Box
@@ -265,7 +266,7 @@ const Home = () => {
               }}
               variant="h5"
             >
-              Clothing
+              Line
             </Typography>
           </Box>
         </Box>
@@ -280,7 +281,7 @@ const Home = () => {
           <Image
             fit="fill"
             duration={200}
-            src={Tools}
+            src={Accessories}
             alt="multi-tool pliars"
             onClick={handleClick}
           />
@@ -303,7 +304,7 @@ const Home = () => {
               }}
               variant="h5"
             >
-              Tools
+              Accessories
             </Typography>
           </Box>
         </Box>
