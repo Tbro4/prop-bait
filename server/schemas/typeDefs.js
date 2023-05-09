@@ -14,6 +14,8 @@ const typeDefs = gql`
     price: String
     description: String
     brand: String
+    category: String
+    subCategory: String
   }
 
   type Auth {
@@ -22,6 +24,8 @@ const typeDefs = gql`
   }
 
   type Query {
+    productsBySubCategory(subCategory: String!): [Product]!
+
     users: [User]
     user(username: String!): User
     products: [Product]
@@ -30,14 +34,6 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-  }
-
-  type Product {
-    _id: ID
-    name: String!
-    description: String!
-    brand: String!
-    image: String!
   }
 `;
 

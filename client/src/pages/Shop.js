@@ -4,13 +4,22 @@ import { useQuery } from "@apollo/client";
 
 import ShopHome from "../components/ShopHome/ShopHome";
 
-import { QUERY_PRODUCTS } from "../utils/queries";
+import {
+  QUERY_ALL_PRODUCTS,
+  QUERY_PRODUCTS,
+  QUERY_PRODUCTS_BY_SUBCATEGORY,
+} from "../utils/queries";
 
 const Shop = () => {
-  const { loading, error, data } = useQuery(QUERY_PRODUCTS);
-  const products = data?.products || [];
-  console.log(products);
-  console.log("error: " + error);
+  const subCategory = "Spinning Rods";
+  const { loading, error, data } = useQuery(QUERY_PRODUCTS_BY_SUBCATEGORY, {
+    variables: { subCategory },
+  });
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const products = data?.productsBySubCategory || [];
 
   return (
     <>

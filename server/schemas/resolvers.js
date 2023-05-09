@@ -13,6 +13,9 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
+    productsBySubCategory: async (parent, { subCategory }) => {
+      return Product.find({ subCategory });
+    },
   },
 
   Mutation: {

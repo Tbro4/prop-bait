@@ -36,6 +36,7 @@ export default function FixedBottomNavigation() {
           <BottomNavigationAction
             component={Link}
             to="/Shop"
+            category={"Fishing Rods"}
             label="Shop"
             icon={<MenuIcon />}
           />

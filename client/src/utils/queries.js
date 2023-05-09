@@ -1,5 +1,31 @@
 import { gql } from "@apollo/client";
 
+export const QUERY_PRODUCTS_BY_SUBCATEGORY = gql`
+  query ProductsBySubCategory($subCategory: String!) {
+    productsBySubCategory(subCategory: $subCategory) {
+      _id
+      brand
+      category
+      subCategory
+      name
+      price
+    }
+  }
+`;
+export const QUERY_ALL_PRODUCTS = gql`
+  query Query {
+    products {
+      _id
+      name
+      price
+      description
+      brand
+      category
+      subCategory
+    }
+  }
+`;
+
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
@@ -11,17 +37,6 @@ export const QUERY_USER = gql`
         thoughtText
         createdAt
       }
-    }
-  }
-`;
-
-export const QUERY_PRODUCTS = gql`
-  query Query {
-    products {
-      _id
-      name
-      description
-      brand
     }
   }
 `;
