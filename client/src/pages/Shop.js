@@ -20,6 +20,7 @@ const Shop = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   const products = data?.productsBySubCategory || [];
+  console.log(products);
 
   return (
     <>
