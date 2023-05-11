@@ -25,6 +25,9 @@ const server = new ApolloServer({
 
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
+
+  app.use(express.static("src/images"));
+
   app.use(
     "/graphql",
     cors(),

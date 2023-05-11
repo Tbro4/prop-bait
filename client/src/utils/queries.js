@@ -9,6 +9,7 @@ export const QUERY_PRODUCTS_BY_SUBCATEGORY = gql`
       subCategory
       name
       price
+      image
     }
   }
 `;

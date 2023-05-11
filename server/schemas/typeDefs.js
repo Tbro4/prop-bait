@@ -16,6 +16,7 @@ const typeDefs = gql`
     brand: String
     category: String
     subCategory: String
+    image: String
   }
 
   type Auth {
