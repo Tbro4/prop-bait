@@ -1,5 +1,5 @@
 const { GraphQLError } = require("graphql");
-const { User, Product } = require("../models");
+const { User, Product, ProductSubCategory } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -15,6 +15,9 @@ const resolvers = {
     },
     productsBySubCategory: async (parent, { subCategory }) => {
       return Product.find({ subCategory });
+    },
+    subCategoryByCategory: async (parent, { category }) => {
+      return ProductSubCategory.find({ category });
     },
   },
 

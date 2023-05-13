@@ -19,6 +19,13 @@ const typeDefs = gql`
     image: String
   }
 
+  type ProductSubCategory {
+    _id: ID
+    category: String
+    subCategory: String
+    image: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -26,6 +33,8 @@ const typeDefs = gql`
 
   type Query {
     productsBySubCategory(subCategory: String!): [Product]!
+
+    subCategoryByCategory(category: String!): [ProductSubCategory]!
 
     users: [User]
     user(username: String!): User
