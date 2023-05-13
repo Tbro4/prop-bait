@@ -11,7 +11,7 @@ import {
 } from "../utils/queries";
 
 const Shop = () => {
-  const subCategory = "Spinning Rods";
+  const subCategory = "Fish Cleaning & Processing";
   const { loading, error, data } = useQuery(QUERY_PRODUCTS_BY_SUBCATEGORY, {
     variables: { subCategory },
   });

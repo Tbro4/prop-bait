@@ -1,5 +1,3 @@
-import Shimano from "../../images/ShimanoSpeedMasterSurf.jpeg";
-
 const ShopHome = ({ products }) => {
   if (!products.length) {
     return <h3>No Products Yet</h3>;

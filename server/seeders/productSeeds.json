@@ -1295,7 +1295,7 @@
     "brand": "Strike King",
     "category": "Fishing Line",
     "subCategory": "Braided & Super Line",
-    "image": "Strike King CONTRA Fluorocarbon Fishing Line .jpg",
+    "image": "Strike King CONTRA Fluorocarbon Fishing Line.jpg",
     "hasMeasurement": {
       "spoolSize": "150 yd."
     },
@@ -1415,7 +1415,7 @@
     "brand": "Berkley",
     "category": "Fishing Line",
     "subCategory": "Fluorocarbon",
-    "image": "Berkley Trilene 100% Fluorocarbon Ice Line.jpeg",
+    "image": "Berkley Trilene Fluorocarbon Ice Line.jpeg",
     "hasMeasurement": {
       "spoolSize": "125 yd."
     },
@@ -1469,13 +1469,13 @@
     ]
   },
   {
-    "name": "Gamma Edge 100% Fluorocarbon Line",
+    "name": "Gamma Edge Fluorocarbon Line",
     "price": "20.99",
     "description": "Gamma Edge 100% Fluorocarbon Line is the one that can do it all. Nearly invisible and with high strength, Gamma's exclusive manufacturing process provides a true competitive edge by also allowing for easier, longer, and accurate casts.",
     "brand": "Gamma",
     "category": "Fishing Line",
     "subCategory": "Fluorocarbon",
-    "image": "Gamma Edge 100% Fluorocarbon Line.jpeg",
+    "image": "Gamma Edge Fluorocarbon Line.jpeg",
     "hasMeasurement": {
       "spoolSize": "125 yd."
     },
