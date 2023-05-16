@@ -1,316 +1,64 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import TopPic from "../images/homepage.jpg";
-import Poles from "../images/poles2.jpg";
-import Reels from "../images/reels2.jpg";
-import Tackle from "../images/tackle.jpg";
-import Lures from "../images/lures.jpg";
-import Accessories from "../images/tools.jpg";
-import Line from "../images/clothing.jpg";
-import { Typography } from "@mui/material";
-import Image from "mui-image";
-import { Link } from "react-router-dom";
-import zIndex from "@mui/material/styles/zIndex";
-
-function handleClick(event) {
-  console.log(event.target);
-  console.log(event.target.name);
-}
+import React, { useState } from "react";
+import MainCategories from "../components/MainCategories/MainCategories";
+import SubCategories from "../components/SubCategories/SubCategories";
+import Products from "../components/Products/Products";
+import Product from "../components/Product/Product";
 
 const Home = () => {
-  return (
-    <div style={{ width: "100%", zIndex: 0 }}>
-      <Box
-        sx={{
-          display: "grid",
-          gridAutoFlow: "row",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gridTemplateRows: "repeat(7, 1fr)",
-          gap: 1.5,
-          zIndex: 0,
-        }}
-      >
-        <Box
-          component={Link}
-          to={"/Shop"}
-          sx={{
-            gridColumn: "1 / 3",
-            gridRow: "1/3",
-          }}
-        >
-          <Image
-            fit="fill"
-            duration={200}
-            src={TopPic}
-            alt="man fishing"
-            onClick={handleClick}
-          />
-          <Box
-            sx={{
-              position: "relative",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              bgcolor: "rgba(0, 0, 0, 0.54)",
-              color: "white",
-            }}
-          >
-            <Typography
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                right: 0,
-                margin: "5px",
-              }}
-              variant="h5"
-            >
-              Shop Sales
-            </Typography>
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            // height: "100%",
-            // maxWidth: "100%",
-            gridColumn: "1 / 2",
-            gridRow: "3 / 5",
-          }}
-        >
-          <Image
-            fit="fill"
-            duration={200}
-            src={Poles}
-            alt="fishing poles"
-            onClick={handleClick}
-          />
-          <Box
-            sx={{
-              position: "relative",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              bgcolor: "rgba(0, 0, 0, 0.54)",
-              color: "white",
-            }}
-          >
-            <Typography
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                right: 0,
-                margin: "5px",
-              }}
-              variant="h5"
-            >
-              Rods
-            </Typography>
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            // height: "100%",
-            // maxWidth: "100%",
-            gridColumn: "2",
-            gridRow: "3",
-          }}
-        >
-          <Image
-            fit="fill"
-            duration={200}
-            src={Reels}
-            alt="fishing reel"
-            onClick={handleClick}
-          />
-          <Box
-            sx={{
-              position: "relative",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              bgcolor: "rgba(0, 0, 0, 0.54)",
-              color: "white",
-            }}
-          >
-            <Typography
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                right: 0,
-                margin: "5px",
-              }}
-              variant="h5"
-            >
-              Reels
-            </Typography>
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            // height: "100%",
-            // maxWidth: "100%",
-            gridColumn: "2",
-            gridRow: "4",
-          }}
-        >
-          <Image
-            fit="fill"
-            duration={200}
-            src={Lures}
-            alt="fishing lures"
-            onClick={handleClick}
-          />
-          <Box
-            sx={{
-              position: "relative",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              bgcolor: "rgba(0, 0, 0, 0.54)",
-              color: "white",
-            }}
-          >
-            <Typography
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                right: 0,
-                margin: "5px",
-              }}
-              variant="h5"
-            >
-              Lures
-            </Typography>
-          </Box>
-        </Box>
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-        <Box
-          sx={{
-            //   height: "100%",
-            //   maxWidth: "100%",
-            gridColumn: "1",
-            gridRow: "5",
-          }}
-        >
-          <Image
-            fit="fill"
-            duration={200}
-            src={Tackle}
-            alt="fishing tackle"
-            onClick={handleClick}
-          />
-          <Box
-            sx={{
-              position: "relative",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              bgcolor: "rgba(0, 0, 0, 0.54)",
-              color: "white",
-            }}
-          >
-            <Typography
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                right: 0,
-                margin: "5px",
-              }}
-              variant="h5"
-            >
-              Tackle
-            </Typography>
-          </Box>
-        </Box>
-        {/* <Box
-          sx={{
-            height: "100%",
-            maxWidth: "100%",
-            gridColumn: "1",
-            gridRow: "6",
-          }}
-          component="img"
-          src={Tackle}
-          alt="tackle"
-        /> */}
-        <Box
-          sx={{
-            height: "100%",
-            maxWidth: "100%",
-            gridColumn: "1",
-            gridRow: "6",
-          }}
-        >
-          <Image
-            fit="fill"
-            duration={200}
-            src={Line}
-            alt="fishing line"
-            onClick={handleClick}
-          />
-          <Box
-            sx={{
-              position: "relative",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              bgcolor: "rgba(0, 0, 0, 0.54)",
-              color: "white",
-            }}
-          >
-            <Typography
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                right: 0,
-                margin: "5px",
-              }}
-              variant="h5"
-            >
-              Line
-            </Typography>
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            // height: "100%",
-            // maxWidth: "100%",
-            gridColumn: "2",
-            gridRow: "5/7",
-          }}
-        >
-          <Image
-            fit="fill"
-            duration={200}
-            src={Accessories}
-            alt="multi-tool pliars"
-            onClick={handleClick}
-          />
-          <Box
-            sx={{
-              position: "relative",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              bgcolor: "rgba(0, 0, 0, 0.54)",
-              color: "white",
-            }}
-          >
-            <Typography
-              sx={{
-                position: "absolute",
-                bottom: 0,
-                right: 0,
-                margin: "5px",
-              }}
-              variant="h5"
-            >
-              Accessories
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
+  console.log("Selected Category:" + selectedCategory);
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    setSelectedSubCategory(null);
+    setSelectedProduct(null);
+  };
+
+  const handleSubCategoryClick = (subCategory) => {
+    setSelectedSubCategory(subCategory);
+    setSelectedProduct(null);
+  };
+
+  const handleProductClick = (product) => {
+    console.log("handleProdcutClick prop value: " + product);
+    setSelectedProduct(product);
+  };
+
+  return (
+    <div>
+      {!selectedCategory && (
+        <MainCategories onCategoryClick={handleCategoryClick} />
+      )}
+      {selectedCategory && !selectedSubCategory && (
+        <SubCategories
+          category={selectedCategory}
+          onSubCategoryClick={handleSubCategoryClick}
+        />
+      )}
+      {selectedSubCategory && !selectedProduct && (
+        <Products
+          subCategory={selectedSubCategory}
+          onProductClick={handleProductClick}
+        />
+      )}
+      {selectedProduct && <Product productId={selectedProduct} />}
     </div>
   );
 };
 
 export default Home;
+
+// In this example, the Home component maintains the state for the currently selected category, subcategory, and product using the useState hook. It also provides callback functions (handleCategoryClick, handleSubCategoryClick, handleProductClick) that will be passed down to the child components as props.
+
+// When a category is clicked in the MainCategories component, the handleCategoryClick function updates the state with the selected category and resets the subcategory and product states. Similarly, when a subcategory is clicked in the SubCategories component, the handleSubCategoryClick function updates the state with the selected subcategory and resets the product state.
+
+// The Products component is rendered when a subcategory is selected, and the Product component is rendered when a product is selected. The selectedCategory, selectedSubCategory, and selectedProduct states are passed down to the child components as props to ensure the correct data is displayed.
+
+// In this updated version, the MainCategories component is conditionally rendered using the negation operator ! before selectedCategory. This means that MainCategories will only be displayed when selectedCategory is null or false.
+
+// Once a category is selected (selectedCategory is truthy), MainCategories will no longer be rendered, and the SubCategories component will be displayed. Similarly, when a subcategory is selected (selectedSubCategory is truthy), the SubCategories component will disappear, and the Products component will be rendered. Finally, when a product is selected (selectedProduct is truthy), the Product component will be displayed, and the other components will not be rendered.
+
+// This way, only one of the four components (MainCategories, SubCategories, Products, or Product) will be visible at any given time based on the selected state.

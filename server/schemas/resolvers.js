@@ -10,6 +10,9 @@ const resolvers = {
     products: async () => {
       return Product.find();
     },
+    productById: async (parent, { productId }) => {
+      return Product.findById(productId);
+    },
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },

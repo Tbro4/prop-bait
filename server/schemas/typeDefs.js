@@ -36,6 +36,8 @@ const typeDefs = gql`
 
     subCategoryByCategory(category: String!): [ProductSubCategory]!
 
+    productById(productId: ID!): Product
+
     users: [User]
     user(username: String!): User
     products: [Product]
