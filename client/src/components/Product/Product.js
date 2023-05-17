@@ -20,10 +20,7 @@ const Product = ({ productId }) => {
   return (
     <div>
       <h3>{product.name}</h3>
-      <img
-        src={require(`../../images/${product.image}`).default}
-        alt={product.name}
-      />
+      <img src={require(`../../images/${product.image}`)} alt={product.name} />
       <p>Price: {product.price}</p>
       <p>Description: {product.description}</p>
     </div>

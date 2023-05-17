@@ -16,7 +16,6 @@ const Products = ({ subCategory, onProductClick }) => {
   }
 
   const products = data?.productsBySubCategory || [];
-  console.log(products);
 
   const handleProductClick = (productId) => {
     // Pass the clicked product ID to the parent component
@@ -29,11 +28,10 @@ const Products = ({ subCategory, onProductClick }) => {
         <div key={product._id} onClick={() => handleProductClick(product._id)}>
           <h3>{product.name}</h3>
           <img
-            src={require(`../../images/${product.image}`).default}
+            src={require(`../../images/${product.image}`)}
             alt={product.name}
           />
           <p>{product.price}</p>
-          {/* Render additional product details as needed */}
         </div>
       ))}
     </div>
