@@ -9,8 +9,6 @@ const Home = () => {
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  console.log("Selected Category:" + selectedCategory);
-
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
     setSelectedSubCategory(null);
@@ -23,7 +21,6 @@ const Home = () => {
   };
 
   const handleProductClick = (product) => {
-    console.log("handleProdcutClick prop value: " + product);
     setSelectedProduct(product);
   };
 

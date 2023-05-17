@@ -29,8 +29,9 @@ const SubCategories = ({ category, onSubCategoryClick }) => {
           onClick={() => handleSubCategoryClick(subCategory.subCategory)}
         >
           <h3>{subCategory.subCategory}</h3>
+
           <img
-            src={require(`../../images/${subCategory.image}`).default}
+            src={require(`../../images/${subCategory.image}`)}
             alt={subCategory.subCategory}
           />
         </div>
