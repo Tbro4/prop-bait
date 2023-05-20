@@ -1,6 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
+
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 
@@ -9,7 +9,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
-import zIndex from "@mui/material/styles/zIndex";
 
 export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState();
@@ -23,6 +22,7 @@ export default function FixedBottomNavigation() {
           bottom: 0,
           left: 0,
           right: 0,
+          zIndex: 9999,
         }}
         elevation={3}
       >
