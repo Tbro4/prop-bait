@@ -1,7 +1,7 @@
 import React from "react";
 import "./MainCategories.css"; // Import the CSS file for styling
 
-import TopPic from "../../images/homepage.jpg";
+import TopPic from "../../images/homepage.jpeg";
 import Poles from "../../images/poles2.jpg";
 import Reels from "../../images/reels2.jpg";
 import Tackle from "../../images/tackle.jpg";
@@ -14,7 +14,7 @@ const MainCategories = ({ onCategoryClick }) => {
   return (
     <div className="main-categories">
       <div
-        className="main-category"
+        className="main-category sales"
         onClick={() => onCategoryClick("Shop Sales")}
       >
         <img className="category-image" src={TopPic} alt="man fishing" />
@@ -25,7 +25,7 @@ const MainCategories = ({ onCategoryClick }) => {
         </div>
       </div>
       <div
-        className="main-category"
+        className="main-category rods"
         onClick={() => onCategoryClick("Fishing Rods")}
       >
         <img className="category-image" src={Poles} alt="fishing poles" />
@@ -36,7 +36,7 @@ const MainCategories = ({ onCategoryClick }) => {
         </div>
       </div>
       <div
-        className="main-category"
+        className="main-category reels"
         onClick={() => onCategoryClick("Fishing Reels")}
       >
         <img className="category-image" src={Reels} alt="fishing reel" />
@@ -47,7 +47,7 @@ const MainCategories = ({ onCategoryClick }) => {
         </div>
       </div>
       <div
-        className="main-category"
+        className="main-category lures"
         onClick={() => onCategoryClick("Fishing Lures")}
       >
         <img className="category-image" src={Lures} alt="fishing lures" />
@@ -58,7 +58,7 @@ const MainCategories = ({ onCategoryClick }) => {
         </div>
       </div>
       <div
-        className="main-category"
+        className="main-category tackle"
         onClick={() => onCategoryClick("Fishing Tackle")}
       >
         <img className="category-image" src={Tackle} alt="fishing tackle" />
@@ -69,7 +69,7 @@ const MainCategories = ({ onCategoryClick }) => {
         </div>
       </div>
       <div
-        className="main-category"
+        className="main-category line"
         onClick={() => onCategoryClick("Fishing Line")}
       >
         <img className="category-image" src={Line} alt="fishing line" />
@@ -80,7 +80,7 @@ const MainCategories = ({ onCategoryClick }) => {
         </div>
       </div>
       <div
-        className="main-category"
+        className="main-category accessories"
         onClick={() => onCategoryClick("Fishing Accessories")}
       >
         <img
