@@ -25,7 +25,7 @@ const Products = ({ subCategory, onProductClick }) => {
 
   return (
     <>
-      <h1>{products[0].name}</h1>
+      <h1>{products[0].subCategory}</h1>
       <div className="products">
         {products.map((product) => (
           <div
