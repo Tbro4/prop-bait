@@ -1,0 +1,26 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /* 2 elements in a row on a small screen */
+  grid-gap: 20px; /* spacing between grid items */
+  justify-items: center; /* center align items horizontally */
+  align-items: center; /* center align items vertically */
+}
+
+@media (min-width: 768px) {
+  /* medium to large screen styles */
+  .products {
+    grid-template-columns: repeat(3, 1fr); /* 3 elements in a row */
+  }
+}
+
+.products img {
+  width: 100%; /* ensure the image fills its container */
+  height: auto; /* maintain aspect ratio and prevent distortion */
+}
+
+h1 {
+  text-align: center;
+}
