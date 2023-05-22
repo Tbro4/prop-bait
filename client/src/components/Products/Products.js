@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS_BY_SUBCATEGORY } from "../../utils/queries";
+import "./Products.css";
 
 const Products = ({ subCategory, onProductClick }) => {
   const { loading, error, data } = useQuery(QUERY_PRODUCTS_BY_SUBCATEGORY, {
@@ -23,18 +24,24 @@ const Products = ({ subCategory, onProductClick }) => {
   };
 
   return (
-    <div>
-      {products.map((product) => (
-        <div key={product._id} onClick={() => handleProductClick(product._id)}>
-          <h3>{product.name}</h3>
-          <img
-            src={require(`../../images/${product.image}`)}
-            alt={product.name}
-          />
-          <p>{product.price}</p>
-        </div>
-      ))}
-    </div>
+    <>
+      <h1>{products[0].name}</h1>
+      <div className="products">
+        {products.map((product) => (
+          <div
+            key={product._id}
+            onClick={() => handleProductClick(product._id)}
+          >
+            <h3>{product.name}</h3>
+            <img
+              src={require(`../../images/${product.image}`)}
+              alt={product.name}
+            />
+            <p>{product.price}</p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
