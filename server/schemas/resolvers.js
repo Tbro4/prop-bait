@@ -13,14 +13,21 @@ const resolvers = {
     productById: async (parent, { productId }) => {
       return Product.findById(productId);
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username });
+    // productsByCategory: async (parent, { category }) => {
+    //   return Product.find(category);
+    // },
+    productsByCategory: async (parent, { category }) => {
+      return Product.find({ category: category });
     },
+
     productsBySubCategory: async (parent, { subCategory }) => {
       return Product.find({ subCategory });
     },
     subCategoryByCategory: async (parent, { category }) => {
       return ProductSubCategory.find({ category });
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username });
     },
   },
 

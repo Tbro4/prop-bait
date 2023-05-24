@@ -1,31 +1,57 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_SUBCATEGORIES_BY_CATEGORY } from "../../utils/queries";
+import {
+  QUERY_SUBCATEGORIES_BY_CATEGORY,
+  QUERY_PRODUCTS_BY_CATEGORY,
+} from "../../utils/queries";
 import "./SubCategories.css";
 
-const SubCategories = ({ category, onSubCategoryClick }) => {
-  const { loading, error, data } = useQuery(QUERY_SUBCATEGORIES_BY_CATEGORY, {
+const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
+  const {
+    loading: subCategoryLoading,
+    error: subCategoryError,
+    data: subCategoryData,
+  } = useQuery(QUERY_SUBCATEGORIES_BY_CATEGORY, {
     variables: { category },
   });
 
-  if (loading) {
+  const {
+    loading: productsLoading,
+    error: productsError,
+    data: productsData,
+  } = useQuery(QUERY_PRODUCTS_BY_CATEGORY, {
+    variables: { category },
+  });
+
+  if (subCategoryLoading || productsLoading) {
     return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
+  if (subCategoryError || productsError) {
+    return (
+      <div>
+        Error: {subCategoryError && subCategoryError.message}
+        {productsError && productsError.message}
+      </div>
+    );
   }
 
-  const subCategories = data?.subCategoryByCategory || [];
+  const subCategories = subCategoryData?.subCategoryByCategory || [];
+  const products = productsData?.productsByCategory || [];
+
   console.log(subCategories);
+  console.log(products);
 
   const handleSubCategoryClick = (subCategory) => {
     onSubCategoryClick(subCategory);
   };
 
+  const handleProductClick = (productId) => {
+    onProductClick(productId);
+  };
+
   return (
     <>
-      <h1>{subCategories[0].category}</h1>
       <div className="sub-categories">
         {subCategories.map((subCategory) => (
           <div
@@ -33,10 +59,25 @@ const SubCategories = ({ category, onSubCategoryClick }) => {
             onClick={() => handleSubCategoryClick(subCategory.subCategory)}
           >
             <h3>{subCategory.subCategory}</h3>
-
             <img
               src={require(`../../images/${subCategory.image}`)}
               alt={subCategory.subCategory}
+            />
+          </div>
+        ))}
+      </div>
+
+      <h2>{subCategories[0].category}</h2>
+      <div className="products">
+        {products.map((product) => (
+          <div
+            key={product._id}
+            onClick={() => handleProductClick(product._id)}
+          >
+            <h3>{product.name}</h3>
+            <img
+              src={require(`../../images/${product.image}`)}
+              alt={product.product}
             />
           </div>
         ))}

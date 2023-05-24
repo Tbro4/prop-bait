@@ -34,6 +34,8 @@ const typeDefs = gql`
   type Query {
     productsBySubCategory(subCategory: String!): [Product]!
 
+    productsByCategory(category: String!): [Product]!
+
     subCategoryByCategory(category: String!): [ProductSubCategory]!
 
     productById(productId: ID!): Product

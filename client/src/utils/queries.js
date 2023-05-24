@@ -13,6 +13,19 @@ export const QUERY_PRODUCTS_BY_SUBCATEGORY = gql`
     }
   }
 `;
+export const QUERY_PRODUCTS_BY_CATEGORY = gql`
+  query ProductsByCategory($category: String!) {
+    productsByCategory(category: $category) {
+      _id
+      brand
+      category
+      subCategory
+      name
+      price
+      image
+    }
+  }
+`;
 export const QUERY_PRODUCT_BY_ID = gql`
   query ProductById($productId: ID!) {
     productById(productId: $productId) {
