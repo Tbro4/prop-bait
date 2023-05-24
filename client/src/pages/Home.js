@@ -3,6 +3,8 @@ import MainCategories from "../components/MainCategories/MainCategories";
 import SubCategories from "../components/SubCategories/SubCategories";
 import Products from "../components/Products/Products";
 import Product from "../components/Product/Product";
+import Cart from "../components/Cart/Cart";
+import Account from "../components/Account/Account";
 
 const Home = ({
   view,
@@ -28,9 +30,11 @@ const Home = ({
           </button>
         </>
       )}
+
       {view === "mainCategories" && (
         <MainCategories onCategoryClick={onCategoryClick} />
       )}
+
       {view === "subCategories" && (
         <SubCategories
           category={selectedCategory}
@@ -38,13 +42,19 @@ const Home = ({
           onProductClick={onProductClick}
         />
       )}
+
       {view === "products" && (
         <Products
           subCategory={selectedSubCategory}
           onProductClick={onProductClick}
         />
       )}
+
       {view === "product" && <Product productId={selectedProduct} />}
+
+      {view === "cart" && <Cart />}
+
+      {view === "account" && <Account />}
     </div>
   );
 };

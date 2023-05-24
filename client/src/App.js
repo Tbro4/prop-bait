@@ -7,12 +7,12 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Account from "./pages/Account";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import AppBarTop from "./components/AppBarTop/AppBarTop";
-import AppBarBottom from "./components/AppBarBottom/AppBarBottom";
-import Cart from "./pages/Cart";
+// import Account from "./components/Account/Account";
+// import Signup from "./components/Signup/Signup";
+// import Login from "./components/Login/Login";
+// import AppBarTop from "./components/AppBarTop/AppBarTop";
+// import AppBarBottom from "./components/AppBarBottom/AppBarBottom";
+// import Cart from "./components/Cart/Cart";
 import { Container } from "@mui/system";
 import AppContainer from "./components/AppContainer/AppContainer";
 
@@ -45,14 +45,14 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Container>
-          <AppBarTop />
-          <AppBarBottom />
+          {/* <AppBarTop />
+          <AppBarBottom /> */}
           <Routes>
             <Route path="/" element={<AppContainer />} />
-            <Route path="/Account" element={<Account />} />
+            {/* <Route path="/Account" element={<Account />} />
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Login" element={<Login />} />
-            <Route path="/Signup" element={<Signup />} />
+            <Route path="/Signup" element={<Signup />} /> */}
           </Routes>
         </Container>
       </Router>
