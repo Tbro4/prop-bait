@@ -7,9 +7,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-export default function FixedBottomNavigation({ view, onViewChange }) {
+export default function FixedBottomNavigation({ view, setView }) {
   const handleNavigation = (newView) => {
-    onViewChange(newView);
+    setView(newView);
   };
 
   return (

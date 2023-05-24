@@ -5,9 +5,12 @@ import Products from "../components/Products/Products";
 import Product from "../components/Product/Product";
 import Cart from "../components/Cart/Cart";
 import Account from "../components/Account/Account";
+import Login from "../components/Login/Login";
+import Signup from "../components/Signup/Signup";
 
 const Home = ({
   view,
+  setView,
   selectedCategory,
   selectedSubCategory,
   selectedProduct,
@@ -54,7 +57,11 @@ const Home = ({
 
       {view === "cart" && <Cart />}
 
-      {view === "account" && <Account />}
+      {view === "account" && <Account view={view} setView={setView} />}
+
+      {view === "login" && <Login />}
+
+      {view === "signup" && <Signup />}
     </div>
   );
 };

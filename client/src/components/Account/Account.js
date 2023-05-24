@@ -2,18 +2,14 @@ import React from "react";
 import { Button, Container, Stack } from "@mui/material";
 import Auth from "../../utils/auth";
 
-const Account = ({ onResetView }) => {
+const Account = ({ setView }) => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
 
-  const handleLoginClick = () => {
-    onResetView();
-  };
-
-  const handleSignupClick = () => {
-    onResetView();
+  const handleNavigation = (newView) => {
+    setView(newView);
   };
 
   return (
@@ -32,10 +28,16 @@ const Account = ({ onResetView }) => {
       ) : (
         <Container>
           <Stack spacing={2}>
-            <Button variant="contained" onClick={handleLoginClick}>
+            <Button
+              variant="contained"
+              onClick={() => handleNavigation("login")}
+            >
               Login
             </Button>
-            <Button variant="contained" onClick={handleSignupClick}>
+            <Button
+              variant="contained"
+              onClick={() => handleNavigation("signup")}
+            >
               Signup
             </Button>
           </Stack>

@@ -50,9 +50,10 @@ const AppContainer = () => {
   return (
     <div>
       <AppBarTop />
-      <AppBarBottom view={view} onViewChange={setView} />
+      <AppBarBottom view={view} setView={setView} />
       <Home
         view={view}
+        setView={setView}
         selectedCategory={selectedCategory}
         selectedSubCategory={selectedSubCategory}
         selectedProduct={selectedProduct}
