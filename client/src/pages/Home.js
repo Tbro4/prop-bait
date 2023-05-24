@@ -13,7 +13,6 @@ const Home = ({
   onCategoryClick,
   onSubCategoryClick,
   onProductClick,
-  onResetView,
   onGoBack,
 }) => {
   const handleGoBack = () => {
@@ -36,6 +35,7 @@ const Home = ({
         <SubCategories
           category={selectedCategory}
           onSubCategoryClick={onSubCategoryClick}
+          onProductClick={onProductClick}
         />
       )}
       {view === "products" && (
@@ -45,13 +45,6 @@ const Home = ({
         />
       )}
       {view === "product" && <Product productId={selectedProduct} />}
-      {/* {view !== "mainCategories" && (
-        <>
-          <button onClick={handleGoBack}>Go Back</button>
-
-          <div style={{ paddingBottom: "20px", marginBottom: "40px" }}></div>
-        </>
-      )} */}
     </div>
   );
 };

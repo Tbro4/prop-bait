@@ -1,4 +1,31 @@
 .sub-categories {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping to multiple rows */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+  margin-bottom: 20px;
+  width: 100%; /* Ensure the container takes up full width */
+}
+
+.sub-categories > div {
+  flex-shrink: 2; /* Prevent items from shrinking */
+  margin-right: 20px; /* Add some spacing between items */
+  max-width: 100%; /* Limit the width of each item */
+}
+
+.sub-categories img {
+  max-width: 100%; /* Ensure the images fit within their container */
+  height: auto; /* Maintain aspect ratio and prevent distortion */
+}
+
+@media (min-width: 768px) {
+  /* medium to large screen styles */
+  .sub-categories {
+    overflow-x: unset; /* Disable horizontal scrolling */
+    margin-bottom: 0;
+  }
+}
+
+.products {
   display: grid;
   grid-template-columns: repeat(
     2,
@@ -11,16 +38,18 @@
 
 @media (min-width: 768px) {
   /* medium to large screen styles */
-  .sub-categories {
+
+  .products {
     grid-template-columns: repeat(3, 1fr); /* 3 elements in a row */
   }
 }
 
-.sub-categories img {
+.products img {
   width: 100%; /* ensure the image fills its container */
   height: auto; /* maintain aspect ratio and prevent distortion */
 }
 
-h1 {
+h2,
+h3 {
   text-align: center;
 }
