@@ -23,6 +23,7 @@ const Home = ({
   const handleGoBack = () => {
     onGoBack(previousView);
   };
+  console.log("View: " + view);
 
   return (
     <div>
@@ -55,13 +56,13 @@ const Home = ({
 
       {view === "product" && <Product productId={selectedProduct} />}
 
-      {view === "cart" && <Cart />}
+      {view === "cart" && <Cart view={view} setView={setView} />}
 
       {view === "account" && <Account view={view} setView={setView} />}
 
-      {view === "login" && <Login />}
+      {view === "login" && <Login view={view} setView={setView} />}
 
-      {view === "signup" && <Signup />}
+      {view === "signup" && <Signup view={view} setView={setView} />}
     </div>
   );
 };

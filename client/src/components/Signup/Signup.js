@@ -6,7 +6,7 @@ import { ADD_USER } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 
-const Signup = () => {
+const Signup = ({ setView }) => {
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -25,7 +25,6 @@ const Signup = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await addUser({
@@ -33,6 +32,7 @@ const Signup = () => {
       });
 
       Auth.login(data.addUser.token);
+      setView("account");
     } catch (e) {
       console.error(e);
     }

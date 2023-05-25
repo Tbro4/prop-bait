@@ -5,7 +5,7 @@ import { LOGIN_USER } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 
-const Login = (props) => {
+const Login = ({ props, setView }) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
@@ -29,6 +29,7 @@ const Login = (props) => {
       });
 
       Auth.login(data.login.token);
+      setView("account");
     } catch (e) {
       console.error(e);
     }
