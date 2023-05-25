@@ -1,21 +1,19 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
-
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-
 import Paper from "@mui/material/Paper";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link } from "react-router-dom";
 
-export default function FixedBottomNavigation() {
-  const [value, setValue] = React.useState();
-  const ref = React.useRef(null);
+export default function FixedBottomNavigation({ view, setView }) {
+  const handleNavigation = (newView) => {
+    setView(newView);
+  };
 
   return (
-    <Box sx={{ pb: 7 }} ref={ref}>
+    <Box sx={{ pb: 7 }}>
       <Paper
         sx={{
           position: "fixed",
@@ -26,31 +24,21 @@ export default function FixedBottomNavigation() {
         }}
         elevation={3}
       >
-        <BottomNavigation
-          showLabels={false}
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        >
+        <BottomNavigation showLabels={false} value={view}>
           <BottomNavigationAction
-            component={Link}
-            to={"/"}
-            category={"Fishing Rods"}
             label="Shop"
             icon={<MenuIcon />}
+            onClick={() => handleNavigation("mainCategories")}
           />
           <BottomNavigationAction
-            component={Link}
-            to="/Account"
             label="Account"
             icon={<AccountCircle />}
+            onClick={() => handleNavigation("account")}
           />
           <BottomNavigationAction
-            component={Link}
-            to="/Cart"
             label="Cart"
             icon={<ShoppingCartIcon />}
+            onClick={() => handleNavigation("cart")}
           />
         </BottomNavigation>
       </Paper>

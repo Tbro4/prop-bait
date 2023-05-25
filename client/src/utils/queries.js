@@ -51,6 +51,20 @@ export const QUERY_SUBCATEGORIES_BY_CATEGORY = gql`
     }
   }
 `;
+export const QUERY_PRODUCTS_BY_KEYWORD = gql`
+  query ProductsByKeyword($keyword: String!) {
+    productsByKeyword(keyword: $keyword) {
+      _id
+      brand
+      category
+      subCategory
+      name
+      price
+      image
+    }
+  }
+`;
+
 export const QUERY_ALL_PRODUCTS = gql`
   query Query {
     products {

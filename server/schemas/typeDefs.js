@@ -40,6 +40,8 @@ const typeDefs = gql`
 
     productById(productId: ID!): Product
 
+    productsByKeyword(keyword: String!): [Product]!
+
     users: [User]
     user(username: String!): User
     products: [Product]

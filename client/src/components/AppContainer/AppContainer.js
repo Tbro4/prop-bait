@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Home from "../../pages/Home";
+import AppBarTop from "../AppBarTop/AppBarTop";
+import AppBarBottom from "../AppBarBottom/AppBarBottom";
 
 const AppContainer = () => {
   const [view, setView] = useState("mainCategories");
@@ -47,8 +49,11 @@ const AppContainer = () => {
 
   return (
     <div>
+      <AppBarTop />
+      <AppBarBottom view={view} setView={setView} />
       <Home
         view={view}
+        setView={setView}
         selectedCategory={selectedCategory}
         selectedSubCategory={selectedSubCategory}
         selectedProduct={selectedProduct}

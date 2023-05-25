@@ -79,6 +79,7 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
               src={require(`../../images/${product.image}`)}
               alt={product.product}
             />
+            <h4>{product.price}</h4>
           </div>
         ))}
       </div>

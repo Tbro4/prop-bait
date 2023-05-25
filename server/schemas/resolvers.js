@@ -13,9 +13,7 @@ const resolvers = {
     productById: async (parent, { productId }) => {
       return Product.findById(productId);
     },
-    // productsByCategory: async (parent, { category }) => {
-    //   return Product.find(category);
-    // },
+
     productsByCategory: async (parent, { category }) => {
       return Product.find({ category: category });
     },
@@ -25,6 +23,17 @@ const resolvers = {
     },
     subCategoryByCategory: async (parent, { category }) => {
       return ProductSubCategory.find({ category });
+    },
+    productsByKeyword: async (parent, { keyword }) => {
+      const regex = new RegExp(keyword, "i");
+      return Product.find({
+        $or: [
+          { brand: regex },
+          { category: regex },
+          { subCategory: regex },
+          { name: regex },
+        ],
+      });
     },
     user: async (parent, { username }) => {
       return User.findOne({ username });
