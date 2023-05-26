@@ -15,14 +15,24 @@ const Account = ({ setView }) => {
   return (
     <>
       <br />
-      <br />
-      <br />
-      <br />
+
       {Auth.loggedIn() ? (
         <>
-          <p>USUHH {Auth.getProfile().data.username}</p>
+          <h2>Hello, {Auth.getProfile().data.username}</h2>
           <Button variant="contained" onClick={logout}>
             Logout
+          </Button>
+          <Button variant="contained" onClick={() => handleNavigation("list")}>
+            View List
+          </Button>
+          <Button variant="contained" onClick={() => handleNavigation("cart")}>
+            View Cart
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => handleNavigation("mainCategories")}
+          >
+            Shop
           </Button>
         </>
       ) : (
