@@ -27,13 +27,17 @@ const Home = ({
 
   return (
     <div>
-      {view !== "mainCategories" && (
-        <>
-          <button onClick={handleGoBack} style={{ marginTop: "10px" }}>
-            Go Back
-          </button>
-        </>
-      )}
+      {view !== "mainCategories" &&
+        view !== "account" &&
+        view !== "cart" &&
+        view !== "login" &&
+        view !== "signup" && (
+          <>
+            <button onClick={handleGoBack} style={{ marginTop: "10px" }}>
+              Go Back
+            </button>
+          </>
+        )}
 
       {view === "mainCategories" && (
         <MainCategories onCategoryClick={onCategoryClick} />
