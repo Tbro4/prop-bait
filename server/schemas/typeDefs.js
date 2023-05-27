@@ -31,6 +31,13 @@ const typeDefs = gql`
     user: User
   }
 
+  type SearchOptions {
+    brand: [String]
+    category: [String]
+    subCategory: [String]
+    name: [String]
+  }
+
   type Query {
     productsBySubCategory(subCategory: String!): [Product]!
 
@@ -41,6 +48,8 @@ const typeDefs = gql`
     productById(productId: ID!): Product
 
     productsByKeyword(keyword: String!): [Product]!
+
+    searchOptions(keyword: String!): SearchOptions
 
     users: [User]
     user(username: String!): User
