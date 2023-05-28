@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -7,6 +8,8 @@ import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import { useLazyQuery } from "@apollo/client";
+import { QUERY_PRODUCTS_BY_KEYWORD } from "../../utils/queries";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -46,9 +49,53 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const SearchOptions = styled("div")(({ theme }) => ({
+  position: "absolute",
+  top: "calc(100% + 8px)",
+  left: 0,
+  width: "100%",
+  maxHeight: "200px",
+  overflowY: "auto",
+  backgroundColor: theme.palette.background.paper,
+  boxShadow: theme.shadows[1],
+  borderRadius: theme.shape.borderRadius,
+  zIndex: 1,
+}));
+
+const SearchOptionItem = styled("div")(({ theme }) => ({
+  padding: theme.spacing(1),
+  cursor: "pointer",
+  color: theme.palette.text.primary,
+  "&:hover": {
+    backgroundColor: theme.palette.action.hover,
+  },
+}));
+
 export default function AppBarTop({ onResetView }) {
+  const [searchOptions, setSearchOptions] = useState([]);
+  const [getSearchOptions, { data }] = useLazyQuery(QUERY_PRODUCTS_BY_KEYWORD);
+
+  const handleSearchInputChange = (event) => {
+    const keyword = event.target.value;
+    if (keyword.trim() !== "") {
+      getSearchOptions({ variables: { keyword } });
+    } else {
+      setSearchOptions([]);
+    }
+  };
+
+  useEffect(() => {
+    if (data && data.productsByKeyword) {
+      setSearchOptions(data.productsByKeyword);
+    }
+  }, [data]);
+
   const handleLogoClick = () => {
     onResetView();
+  };
+
+  const handleOptionClick = (option) => {
+    console.log(option);
   };
 
   return (
@@ -77,7 +124,20 @@ export default function AppBarTop({ onResetView }) {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
+              onChange={handleSearchInputChange}
             />
+            {searchOptions.length > 0 && (
+              <SearchOptions>
+                {searchOptions.map((option) => (
+                  <SearchOptionItem
+                    key={option._id}
+                    onClick={() => handleOptionClick(option)}
+                  >
+                    {option.name}
+                  </SearchOptionItem>
+                ))}
+              </SearchOptions>
+            )}
           </Search>
         </Toolbar>
       </AppBar>
