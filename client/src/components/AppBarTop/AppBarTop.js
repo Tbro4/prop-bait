@@ -49,6 +49,28 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const SearchOptions = styled("div")(({ theme }) => ({
+  position: "absolute",
+  top: "calc(100% + 8px)",
+  left: 0,
+  width: "100%",
+  maxHeight: "200px",
+  overflowY: "auto",
+  backgroundColor: theme.palette.background.paper,
+  boxShadow: theme.shadows[1],
+  borderRadius: theme.shape.borderRadius,
+  zIndex: 1,
+}));
+
+const SearchOptionItem = styled("div")(({ theme }) => ({
+  padding: theme.spacing(1),
+  cursor: "pointer",
+  color: theme.palette.text.primary,
+  "&:hover": {
+    backgroundColor: theme.palette.action.hover,
+  },
+}));
+
 export default function AppBarTop({ onResetView }) {
   const [searchOptions, setSearchOptions] = useState([]);
   const [getSearchOptions, { data }] = useLazyQuery(QUERY_PRODUCTS_BY_KEYWORD);
@@ -105,16 +127,16 @@ export default function AppBarTop({ onResetView }) {
               onChange={handleSearchInputChange}
             />
             {searchOptions.length > 0 && (
-              <ul>
+              <SearchOptions>
                 {searchOptions.map((option) => (
-                  <li
+                  <SearchOptionItem
                     key={option._id}
                     onClick={() => handleOptionClick(option)}
                   >
                     {option.name}
-                  </li>
+                  </SearchOptionItem>
                 ))}
-              </ul>
+              </SearchOptions>
             )}
           </Search>
         </Toolbar>
