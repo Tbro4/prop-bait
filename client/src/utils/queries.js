@@ -65,17 +65,6 @@ export const QUERY_PRODUCTS_BY_KEYWORD = gql`
   }
 `;
 
-export const QUERY_SEARCH_OPTIONS = gql`
-  query SearchOptions($keyword: String!) {
-    searchOptions(keyword: $keyword) {
-      brand
-      category
-      subCategory
-      name
-    }
-  }
-`;
-
 export const QUERY_ALL_PRODUCTS = gql`
   query Query {
     products {

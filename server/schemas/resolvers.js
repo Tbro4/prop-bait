@@ -35,18 +35,7 @@ const resolvers = {
         ],
       });
     },
-    searchOptions: async (parent, { keyword }) => {
-      const regex = new RegExp(`^${keyword}`, "i");
-      const options = {
-        brand: await Product.distinct("brand", { brand: regex }),
-        category: await Product.distinct("category", { category: regex }),
-        subCategory: await ProductSubCategory.distinct("subCategory", {
-          subCategory: regex,
-        }),
-        name: await Product.distinct("name", { name: regex }),
-      };
-      return options;
-    },
+
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
