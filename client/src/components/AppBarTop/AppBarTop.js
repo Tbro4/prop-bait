@@ -54,7 +54,7 @@ const SearchOptions = styled("div")(({ theme }) => ({
   top: "calc(100% + 8px)",
   left: 0,
   width: "100%",
-  maxHeight: "200px",
+  maxHeight: "250px",
   overflowY: "auto",
   backgroundColor: theme.palette.background.paper,
   boxShadow: theme.shadows[1],
@@ -62,30 +62,60 @@ const SearchOptions = styled("div")(({ theme }) => ({
   zIndex: 1,
 }));
 
-const SearchOptionItem = styled("div")(({ theme }) => ({
-  padding: theme.spacing(1),
-  cursor: "pointer",
-  color: theme.palette.text.primary,
-  "&:hover": {
-    backgroundColor: theme.palette.action.hover,
-  },
-}));
+const SearchOptionItem = styled("div")(
+  ({ theme, isCategory, isSubcategory }) => ({
+    padding: theme.spacing(1),
+    cursor: "pointer",
+    color: theme.palette.text.primary,
+    "&:hover": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    fontWeight: isCategory ? "bold" : "normal",
+    fontStyle: isSubcategory ? "italic" : "normal",
+  })
+);
 
 export default function AppBarTop({ onResetView }) {
   const [searchOptions, setSearchOptions] = useState([]);
   const [getSearchOptions, { data }] = useLazyQuery(QUERY_PRODUCTS_BY_KEYWORD);
+  const [showOptions, setShowOptions] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
 
   const handleSearchInputChange = (event) => {
     const keyword = event.target.value;
+    setSearchInput(keyword);
     if (keyword.trim() !== "") {
       getSearchOptions({ variables: { keyword } });
+      setShowOptions(true);
     } else {
       setSearchOptions([]);
+      setShowOptions(false);
+    }
+  };
+
+  const handleOutsideClick = (event) => {
+    if (!event.target.closest("#search-options")) {
+      setSearchInput("");
+      setSearchOptions([]);
+      setShowOptions(false);
     }
   };
 
   useEffect(() => {
+    if (showOptions) {
+      document.addEventListener("click", handleOutsideClick);
+    } else {
+      document.removeEventListener("click", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [showOptions]);
+
+  useEffect(() => {
     if (data && data.productsByKeyword) {
+      console.log(data);
       setSearchOptions(data.productsByKeyword);
     }
   }, [data]);
@@ -96,6 +126,9 @@ export default function AppBarTop({ onResetView }) {
 
   const handleOptionClick = (option) => {
     console.log(option);
+    setSearchInput("");
+    setSearchOptions([]);
+    setShowOptions(false);
   };
 
   return (
@@ -124,10 +157,48 @@ export default function AppBarTop({ onResetView }) {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
-              onChange={handleSearchInputChange}
+              onChange={(event) => handleSearchInputChange(event)}
+              value={searchInput}
             />
-            {searchOptions.length > 0 && (
-              <SearchOptions>
+            {showOptions && searchOptions.length > 0 && (
+              <SearchOptions id="search-options">
+                {/* Display Categories */}
+                {searchOptions
+                  .reduce((acc, option) => {
+                    const { category } = option;
+                    if (!acc.includes(category)) {
+                      acc.push(category);
+                    }
+                    return acc;
+                  }, [])
+                  .map((category, index) => (
+                    <SearchOptionItem
+                      key={`category-${index}`}
+                      onClick={() => handleOptionClick({ category })}
+                      isCategory
+                    >
+                      {category}
+                    </SearchOptionItem>
+                  ))}
+                {/* Display Subcategories */}
+                {searchOptions
+                  .reduce((acc, option) => {
+                    const { subCategory } = option;
+                    if (!acc.includes(subCategory)) {
+                      acc.push(subCategory);
+                    }
+                    return acc;
+                  }, [])
+                  .map((subCategory, index) => (
+                    <SearchOptionItem
+                      key={`subcategory-${index}`}
+                      onClick={() => handleOptionClick({ subCategory })}
+                      isSubcategory
+                    >
+                      {subCategory}
+                    </SearchOptionItem>
+                  ))}
+                {/* Display Individual Products */}
                 {searchOptions.map((option) => (
                   <SearchOptionItem
                     key={option._id}
