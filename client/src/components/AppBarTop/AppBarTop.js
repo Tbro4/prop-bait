@@ -62,6 +62,11 @@ const SearchOptions = styled("div")(({ theme }) => ({
   zIndex: 1,
 }));
 
+const Separator = styled("div")(({ theme }) => ({
+  borderBottom: "1px solid " + theme.palette.divider,
+  margin: theme.spacing(1, 0),
+}));
+
 const SearchOptionItem = styled("div")(
   ({ theme, isCategory, isSubcategory }) => ({
     padding: theme.spacing(1),
@@ -171,15 +176,23 @@ export default function AppBarTop({ onResetView }) {
                     }
                     return acc;
                   }, [])
-                  .map((category, index) => (
-                    <SearchOptionItem
-                      key={`category-${index}`}
-                      onClick={() => handleOptionClick({ category })}
-                      isCategory
-                    >
-                      {category}
-                    </SearchOptionItem>
-                  ))}
+                  .map((category, index, array) => {
+                    const isLastCategory = index === array.length - 1;
+
+                    return (
+                      <>
+                        <SearchOptionItem
+                          key={`category-${index}`}
+                          onClick={() => handleOptionClick({ category })}
+                          isCategory
+                        >
+                          {category}
+                        </SearchOptionItem>
+                        {isLastCategory && <Separator />}
+                      </>
+                    );
+                  })}
+
                 {/* Display Subcategories */}
                 {searchOptions
                   .reduce((acc, option) => {
@@ -189,15 +202,23 @@ export default function AppBarTop({ onResetView }) {
                     }
                     return acc;
                   }, [])
-                  .map((subCategory, index) => (
-                    <SearchOptionItem
-                      key={`subcategory-${index}`}
-                      onClick={() => handleOptionClick({ subCategory })}
-                      isSubcategory
-                    >
-                      {subCategory}
-                    </SearchOptionItem>
-                  ))}
+                  .map((subCategory, index, array) => {
+                    const isLastSubcategory = index === array.length - 1;
+
+                    return (
+                      <>
+                        <SearchOptionItem
+                          key={`subcategory-${index}`}
+                          onClick={() => handleOptionClick({ subCategory })}
+                          isSubcategory
+                        >
+                          {subCategory}
+                        </SearchOptionItem>
+                        {isLastSubcategory && <Separator />}
+                      </>
+                    );
+                  })}
+
                 {/* Display Individual Products */}
                 {searchOptions.map((option) => (
                   <SearchOptionItem

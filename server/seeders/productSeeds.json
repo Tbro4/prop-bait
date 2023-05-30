@@ -4,7 +4,7 @@
     "price": "159.99",
     "description": "When you fish with the Shimano SpeedMaster Surf Spinning Rod, you can handle anything that swims along the coast! This surf rod was designed to help anglers cast farther into deeper waters while remaining safely on the shore.",
     "brand": "Shimano",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Spinning Rods",
     "image": "ShimanoSpeedMasterSurf.jpeg",
     "hasMeasurement": {
@@ -19,7 +19,7 @@
     "price": "219.99",
     "description": "Reach maximum hook-setting power with the St. Croix Triumph Surf Spinning Rod! St. Croix pushed this rod's sensitivity to the max with their lightweight and strong SCII carbon blanks.",
     "brand": "St. Croix",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Spinning Rods",
     "image": "St. Croix Triumph Surf Spinning Rod.jpg",
     "hasMeasurement": {
@@ -34,7 +34,7 @@
     "price": "270.00",
     "description": "The St. Croix Avid Trek Spinning Rod sacrifices nothing to give you the best in performance and versatility! This rod is made on a durable and premium high-modulus SCIII carbon blank. ",
     "brand": "St. Croix",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Spinning Rods",
     "image": "St. Croix Avid Trek Spinning Rod.jpg",
     "hasMeasurement": {
@@ -49,7 +49,7 @@
     "price": "364.99",
     "description": "The G. Loomis IMX-PRO Bass Spinning Rod is a tournament-level rod designed to meet fishing-specific techniques for jigging, working worms through lily pads, and fishing shaky head rigs!",
     "brand": "G. Loomis",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Spinning Rods",
     "image": "G. Loomis IMX-PRO Bass Spinning Rod.jpg",
     "hasMeasurement": {
@@ -64,7 +64,7 @@
     "price": "219.99",
     "description": "The Cashion ICON Series Spinning Rod is made to be extremely sensitive with many features anglers love. Made with perfectly matched tip actions to ensure pin-point controlled casting with the right amount of power, these rods are perfect for a range of techniques.",
     "brand": "Cashion",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Spinning Rods",
     "image": "Cashion ICON Series Spinning Rod.jpg",
     "hasMeasurement": {
@@ -79,7 +79,7 @@
     "price": "79.99",
     "description": "Daiwa Presso Ultralight Spinning Pack Rods feature superior ultralight actions. The Presso series rods have a great combination of casting power with light lures and shock absorbing action to handle strong fish on ultra-fine lines.",
     "brand": "Daiwa",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Spinning Rods",
     "image": "Daiwa Presso Ultralight Spinning Pack Rod.jpeg",
     "hasMeasurement": {
@@ -94,7 +94,7 @@
     "price": "139.99",
     "description": "The Daiwa Ardito-TR Spinning & Casting Combo Travel Rod offer you the best of both spinning and casting! This amazing rod comes with a interchangeable mid-section so you can quickly and easily change from spinning to casting while on the go.",
     "brand": "Daiwa",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Casting Rods",
     "image": "Daiwa Ardito-TR Spinning & Casting Combo Travel Rod.jpeg",
     "hasMeasurement": {
@@ -109,7 +109,7 @@
     "price": "190.00",
     "description": "Achieve that sweet victory with the St. Croix Victory Casting Rod! This rod is designed with a super high-modulus hybrid carbon fiber blank that helps deliver maximum power.",
     "brand": "St. Croix",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Casting Rods",
     "image": "St. Croix Victory Casting Rod.jpg",
     "hasMeasurement": {
@@ -124,7 +124,7 @@
     "price": "344.99",
     "description": "The G. Loomis IMX-PRO Bass Casting Rod is constructed of high-modulus, high-performance material and innovative technology! The IMX-PRO offers anglers a rod with strategic scrim placement, which means you'll get the exact tapers and flex you need for your favored fishing technique.",
     "brand": "G. Loomis",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Casting Rods",
     "image": "G. Loomis IMX-PRO Bass Casting Rod.jpg",
     "hasMeasurement": {
@@ -139,7 +139,7 @@
     "price": "129.99",
     "description": "Daiwa Ardito-TR Travel Casting Rods provide anglers with a high quality, sensitive rods great for all kind of travel. These rods utilize a V-Flex ferrule joint system providing a smooth, powerful action.",
     "brand": "Daiwa",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Casting Rods",
     "image": "Daiwa Ardito-TR Travel Casting Rod.jpeg",
     "hasMeasurement": {
@@ -154,7 +154,7 @@
     "price": "96.99",
     "description": "The Lamiglas Pro XP Bass Casting Rod is a tournament tested and proven fishing rod collection that is within the affordable reach of the average bass angler. The XP Bass line was already among Lamiglas' best-selling, and the Pro XP Casting rods are revamped with improved guides, reel seats, labels, and visual appeal. ",
     "brand": "Lamiglas",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Casting Rods",
     "image": "Lamiglas Pro XP Bass Casting Rod.jpg",
     "hasMeasurement": {
@@ -169,7 +169,7 @@
     "price": "112.99",
     "description": "The Lamiglas X-11 Salmon & Steelhead Casting Rod collection features a broad scope of one and two-piece rods in both cork and graphite handle options that are designed for specific fishing techniques.",
     "brand": "Lamiglas",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Casting Rods",
     "image": "Lamiglas X-11 Salmon & Steelhead Casting Rod.jpeg",
     "hasMeasurement": {
@@ -183,7 +183,7 @@
     "price": "114.74",
     "description": "Lamiglas Insane Surf Casting Rods feature Lamiglas' new approach to design and performance that combines perfectly tuned actions with cutting-edge technology. These rods are equipped with new X-Flock handles with heat shrunk grips that are tougher than steel, yet soft and comfortable.",
     "brand": "Lamiglas",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Casting Rods",
     "image": "Lamiglas Insane Surf Casting Rod.jpeg",
     "hasMeasurement": {
@@ -198,7 +198,7 @@
     "price": "145.00",
     "description": "The newly revamped St. Croix Mojo Bass Casting Rod is the new rod to have for any bass-fishing enthusiast. Featuring Integrated Poly Curve (IPC) mandrel technology and a split-grip/premium-grade cork handle, this rod is more balanced, sensitive, and lighter than ever before.",
     "brand": "St. Croix",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Casting Rods",
     "image": "St. Croix Mojo Bass Glass Casting Rod.jpeg",
     "hasMeasurement": {
@@ -213,7 +213,7 @@
     "price": "130.00",
     "description": "The St. Croix Eyecon Walleye Trolling Rod is a superior trolling rod for walleye anglers. Its blank features a unique composition of SCII graphite and linear S-glass for an incredibly responsive rod with a moderate action.",
     "brand": "St. Croix",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Trolling Rods",
     "image": "St. Croix Eyecon Walleye Trolling Rod.jpeg",
     "hasMeasurement": {
@@ -228,7 +228,7 @@
     "price": "134.99",
     "description": "One of the most trusted names in freshwater trolling just keeps getting better, with the Shimano Talora A Trolling Rod! The Talora has a sturdy, durable blank that can hold up to the pressures of trolling without compromising on its incredible sensitivity.",
     "brand": "Shimano",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Trolling Rods",
     "image": "Shimano Talora A Trolling Rod.jpg",
     "hasMeasurement": {
@@ -243,7 +243,7 @@
     "price": "54.99",
     "description": "Daiwa Great Lakes Trolling Rods are specially designed and crafted to provide exceptional results while trolling in the Great Lakes and other large, open waters.",
     "brand": "Daiwa",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Trolling Rods",
     "image": "Daiwa Great Lakes Trolling Rod.jpeg",
     "hasMeasurement": {
@@ -258,7 +258,7 @@
     "price": "99.99",
     "description": "The Shimano Compre Walleye Trolling Rod is designed with walleye anglers in mind. These Shimano walleye trolling rods are built specifically for use with inline planer boards. ",
     "brand": "Shimano",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Trolling Rods",
     "image": "Shimano Compre Walleye Trolling Rod.jpg",
     "hasMeasurement": {
@@ -273,7 +273,7 @@
     "price": "29.99",
     "description": "From a series that has proven its worth, the Shimano TDR Downrigger C Trolling Rod is built to endure. Assembled with a durable Aeroglass Blank Construction, this rod will put in the work so you can enjoy your catch!",
     "brand": "Shimano",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Trolling Rods",
     "image": "Shimano TDR Downrigger C Trolling Rod.jpeg",
     "hasMeasurement": {
@@ -288,7 +288,7 @@
     "price": "49.99",
     "description": "The Daiwa RG Walleye Trolling Rod features a tough, yet flexible GLATECH construction. This combines a super lightweight fiberglass composite with a graphite material and a high-density uni-directional fiberglass.",
     "brand": "Daiwa",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Trolling Rods",
     "image": "Daiwa RG Walleye Trolling Rod.jpeg",
     "hasMeasurement": {
@@ -303,7 +303,7 @@
     "price": "94.99",
     "description": "The Okuma Dead Eye Pro Trolling Rod is designed from the insight of some of the leading walleye tournament anglers to fashion technique-specific walleye trolling and jigging rods.",
     "brand": "Okuma",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Trolling Rods",
     "image": "Okuma Dead Eye Pro Trolling Rod.jpeg",
     "hasMeasurement": {
@@ -318,7 +318,7 @@
     "price": "249.00",
     "description": "Not only has the Orvis Clearwater Freshwater Fly Rod gotten a significant overhaul, but it still is one of the best fly rods you can have for the price point! Each Clearwater Rod has been uniquely designed to suit your exact style and purpose.",
     "brand": "Orvis",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Fly Rods",
     "image": "Orvis Clearwater Freshwater Fly Rod.jpg",
     "hasMeasurement": {
@@ -332,7 +332,7 @@
     "price": "598.00",
     "description": "Power and perfection, two words that best describe the Orvis Recon Freshwater Fly Rod! This rod is ready to work! Featuring a modern shadow green blank and covert black nickel hardware, these rods are lightweight and robust. ",
     "brand": "Orvis",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Fly Rods",
     "image": "Orvis Recon Freshwater Fly Rod.jpeg",
     "hasMeasurement": {
@@ -346,7 +346,7 @@
     "price": "190.00",
     "description": "Beginner and intermediate fly anglers, you need to check out the St. Croix Mojo Trout Fly Rod! From one of the best fly rod makers in the business, this rod is designed with top-quality features at a mid-level price range. ",
     "brand": "St. Croix",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Fly Rods",
     "image": "St. Croix Mojo Trout Fly Rod.jpg",
     "hasMeasurement": {
@@ -361,7 +361,7 @@
     "price": "330.00",
     "description": "The St. Croix Imperial USA Fly Rod is a lightweight, fast action fly rod designed for maximum performance and value. This rod features a combination of high-modulus, high-strain SCIV and premium quality SCII graphite, making it incredibly light, fast, and efficient for most any fly fishing situation.",
     "brand": "St. Croix",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Fly Rods",
     "image": "St. Croix Imperial USA Fly Rod.jpg",
     "hasMeasurement": {
@@ -376,7 +376,7 @@
     "price": "874.99",
     "description": "The G. Loomis NRX+ Freshwater Fly Rod is just the fly rod to take on sustained winds, water currents, and other obstacles nature throws at anglers! To lessen the house odds nature holds over us all, G. Loomis combined three technologies - its Mega+ graphite matrix, GL8 resin structure, and multi-taper process - to craft the NRX+ Freshwater Fly Rod.",
     "brand": "G. Loomis",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Fly Rods",
     "image": "G. Loomis NRX+ Freshwater Fly Rod.jpg",
     "hasMeasurement": {
@@ -391,7 +391,7 @@
     "price": "549.99",
     "description": "Put a G. Loomis IMX-PRO Creek Fly Rod in your hands when you want to explore smaller and tighter streams! Whether you're escaping crowded waters or the trout are migrating in search of cooler temperatures, the creeks are calling!",
     "brand": "G. Loomis",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Fly Rods",
     "image": "G. Loomis IMX-PRO Creek Fly Rod.jpg",
     "hasMeasurement": {
@@ -406,7 +406,7 @@
     "price": "650.00",
     "description": "The Sage SONIC Fly Rod is the perfect multiple application tool for anglers looking to throw dry flies, nymphs, and streamers. The SONIC Fly is made with Konnetic technology to improve accuracy, line speed, and control.",
     "brand": "Sage",
-    "category": "Fishing Rods",
+    "category": "Rods",
     "subCategory": "Fly Rods",
     "image": "Sage SONIC Fly Rod.jpeg",
     "hasMeasurement": {
@@ -420,7 +420,7 @@
     "price": "239.99",
     "description": "Over a decade of engineering advancements have gone into making the Shimano Vanford Spinning Reel! This reel is designed with Shimano's G Free Body, which allows the reel to sit closer to the rod, moving its center of gravity and your hand's positions. ",
     "brand": "Shimano",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Spinning Reels",
     "image": "Shimano Vanford Spinning Reel.jpeg",
     "hasMeasurement": {
@@ -436,7 +436,7 @@
     "price": "199.99",
     "description": "The body of the reel has been developed to move the reel's center of gravity closer to the rod, cutting down on fatigue and enhancing casting comfort. The cold-forged HAGANE pinion gear system has been crafted with the highest tolerance for those hard fighting fish!",
     "brand": "Shimano",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Spinning Reels",
     "image": "Shimano Stradic FL Spinning Reel.jpg",
     "hasMeasurement": {
@@ -452,7 +452,7 @@
     "price": "99.99",
     "description": "The Daiwa Fuego LT Spinning Reel is constructed of a lighter and tougher material to maximize performance. The Magseal feature will keep water and debris from getting inside the reel for a smooth delivery. ",
     "brand": "Daiwa",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Spinning Reels",
     "image": "Daiwa Fuego LT Spinning Reel.jpeg",
     "hasMeasurement": {
@@ -468,7 +468,7 @@
     "price": "99.99",
     "description": "The Daiwa Tatula LT Spinning Reel is constructed from a high-density carbon strain material giving the reel awesome strength and durability. The air rotor design is lighter than conventional construction material, making this reel one of the lightest on the market.",
     "brand": "Daiwa",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Spinning Reels",
     "image": "Daiwa Tatula LT Spinning Reel.jpg",
     "hasMeasurement": {
@@ -484,7 +484,7 @@
     "price": "99.99",
     "description": "The Lew's KVD Spinning Reel is the perfect tournament worthy reel at a price you'll love! Outfitted with an S-curve oscillation system and a stainless-steel bail wire around the C40 carbon skeletal speed rotor, this reel has a flawless start-up and enhanced line lay for a smooth performance!",
     "brand": "Lew's",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Spinning Reels",
     "image": "Lew's KVD Spinning Reel.jpeg",
     "hasMeasurement": {
@@ -500,7 +500,7 @@
     "price": "109.99",
     "description": "The Lew's Mach Crush Spinning Reel, just as its baitcasting relative, is loaded with features aimed to give you a lightweight reel you can cast for distance and is powerful enough to anchor the fight from larger fish. The Mach Crush is as smooth as melted butter due to an outstanding 11-bearing system (10 ball bearings and a Zero Reverse one-way clutch bearing). ",
     "brand": "Lew's",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Spinning Reels",
     "image": "Lew's Mach Crush Spinning Reel.jpeg",
     "hasMeasurement": {
@@ -516,7 +516,7 @@
     "price": "84.99",
     "description": "The Okuma Ceymar HD Spinning Reel expands the top-selling Ceymar family with a lightweight crossover fresh and saltwater design packed with features. The frame, side plate, and rotor resist corrosion for safe use in saltwater.",
     "brand": "Okuma",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Spinning Reels",
     "image": "Okuma Ceymar HD Spinning Reel.jpg",
     "hasMeasurement": {
@@ -532,7 +532,7 @@
     "price": "189.99",
     "description": "The Shimano Curado K Low-Profile Casting Reel is lightweight yet designed to be aggressive and powerful. This reel is loaded with advanced technology, providing anglers with high-level performance all in one package.",
     "brand": "Shimano",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Casting Reels",
     "image": "Shimano Curado K Low-Profile Casting Reel.jpg",
     "hasMeasurement": {
@@ -548,7 +548,7 @@
     "price": "99.99",
     "description": "Attention tournament anglers! Your new favorite casting reel is here! The Shimano SLX Low-Profile Casting Reel combines a compact body with a deep spool. The rigid aluminum frame provides a solid platform that virtually eliminates body flexing, allowing you to put the cranking power where you need it most!",
     "brand": "Shimano",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Casting Reels",
     "image": "Shimano SLX Low-Profile Casting Reel.jpeg",
     "hasMeasurement": {
@@ -564,7 +564,7 @@
     "price": "169.99",
     "description": "Lew's Mach Crush SLP Low-Profile Casting Reel is designed for those who take their fishing seriously and desire all advancements at this price point to gain an edge. A Mach Crush SLP baitcasting reel depends upon a 10-bearing high speed 7.5:1 gear ratio within the super low profile design.",
     "brand": "Lew's",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Casting Reels",
     "image": "Lew's Mach Crush SLP Low-Profile Casting Reel.jpg",
     "hasMeasurement": {
@@ -580,7 +580,7 @@
     "price": "149.99",
     "description": "Rugged and powerful, the Lew's KVD LFS Low-Profile Casting Reel is the reel you've been waiting for! Designed with a one-piece aluminum frame and graphite side plates, this reel is rigid, powerful, and comfortable in your hand!",
     "brand": "Lew's",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Casting Reels",
     "image": "Lew's KVD LFS Low-Profile Casting Reel.jpeg",
     "hasMeasurement": {
@@ -596,7 +596,7 @@
     "price": "349.99",
     "description": "The Daiwa Zillion SV TW G Casting Reel is made with a strong weightless aluminum body that you have to feel to believe! The Zillion SV TW G is designed with the T-Wing System meaning the line guide is larger, wider, and less restrictive, allowing for increased casting distance and an ultra-smooth retrieve with little line resistance.",
     "brand": "Daiwa",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Casting Reels",
     "image": "Daiwa Zillion SV TW G Casting Reel.jpg",
     "hasMeasurement": {
@@ -612,7 +612,7 @@
     "price": "249.99",
     "description": "A successful pitch and flip presentation needs a perfect jig and some good distance to have the best success, which is why you can rely on the Daiwa Tatula Elite P/F Low-Profile Casting Reel to give you the best chance at nailing it! ",
     "brand": "Daiwa",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Casting Reels",
     "image": "Daiwa Tatula Elite PF Low-Profile Casting Reel.jpg",
     "hasMeasurement": {
@@ -628,7 +628,7 @@
     "price": "179.99",
     "description": "Okuma Cold Water Low-Profile Line Counter Casting Reels are the most versatile salmon reels on the market today. They can be used for trolling, back trolling, back bouncing, and casting floats.",
     "brand": "Okuma",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Casting Reels",
     "image": "Okuma Cold Water Low-Profile Line Counter Casting Reel.jpg",
     "hasMeasurement": {
@@ -644,7 +644,7 @@
     "price": "219.99",
     "description": "The Shimano Tekota A Levelwind Line Counter Reel is a robust salt and freshwater reel! Improving upon the original Tekota line, the Tekota A features COREPROTECT water resistance to increase corrosion resistance, as well as a loud clicker, easy-to-replace anti-fogging lens, and ergonomic S-Compact body design. ",
     "brand": "Shimano",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Trolling Reels",
     "image": "Shimano Tekota A Levelwind Line Counter Reel.jpg",
     "hasMeasurement": {
@@ -660,7 +660,7 @@
     "price": "104.99",
     "description": "Okuma Convector Line Counter Reels offer premium components and performance at a value price. These powerful reels are built with aluminum and stainless steel at all critical stress points, plus a Mechanical Stabilization System, to help maintain alignment.",
     "brand": "Okuma",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Trolling Reels",
     "image": "Okuma Convector Line Counter Reel.jpeg",
     "hasMeasurement": {
@@ -676,7 +676,7 @@
     "price": "129.99",
     "description": "Okuma Cold Water Line Counter Reels feature corrosion resistant frame and side plates. The Cold Water series from Okuma sport quality external components including, an aluminum spool engage lever, ratcheting aluminum star drag, a titanium coated wide-mouth levelwind, machined aluminum spool and a stamped aluminum power handle featuring an ergonomic non-slip rubber grip.",
     "brand": "Okuma",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Trolling Reels",
     "image": "Okuma Cold Water Line Counter Reel.jpg",
     "hasMeasurement": {
@@ -692,7 +692,7 @@
     "price": "109.99",
     "description": "Daiwa Sealine SG Line Counter Reels feature three ball bearings and aluminum spools along with built-in, direct drive precision line counters. These reels are great for setting trolling patterns for Salmon, Trout or Walleye.",
     "brand": "Daiwa",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Trolling Reels",
     "image": "Daiwa Sealine SG-3B Line Counter Reel.jpeg",
     "hasMeasurement": {
@@ -708,7 +708,7 @@
     "price": "74.99",
     "description": "Daiwa Accudepth Plus-B Line Counter Trolling Reels are an updated version of the standard Accudepth reels. These reels feature a built-in direct drive line counter ideal for downrigger, diving planers, or flat line trolling.",
     "brand": "Daiwa",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Trolling Reels",
     "image": "Daiwa Accudepth Plus-B Line Counter Trolling Reel.jpeg",
     "hasMeasurement": {
@@ -724,7 +724,7 @@
     "price": "109.99",
     "description": "Daiwa Sealine SLW Levelwind Reels offer a true value in a trolling reel with the capacity to handle for Great Lake trolling with lead core and copper wire lines. These reels are built for reliable service in freshwater or saltwater.",
     "brand": "Daiwa",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Trolling Reels",
     "image": "Daiwa Sealine Levelwind Reel.jpeg",
     "hasMeasurement": {
@@ -740,7 +740,7 @@
     "price": "259.99",
     "description": "The Penn Fathom II Levelwind Conventional Reel's heavy-duty construction and reliable gears make it a powerful ally for everyone, from casual boat fishers to charter boat captains. The main focus of this reel is to make it easier to clean and repair on the go.",
     "brand": "Penn",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Trolling Reels",
     "image": "Penn Fathom II Levelwind Conventional Reel.jpeg",
     "hasMeasurement": {
@@ -755,7 +755,7 @@
     "price": "379.99",
     "description": "Designed to balance perfectly with lighter rods, the Orvis Mirage LT Fly Reel is your new favorite reel. Small but mighty, this reel features a powerful, maintenance-free carbon and stainless steel disc drag system. ",
     "brand": "Orvis",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Fly Reels",
     "image": "Orvis Mirage LT Fly Reel.jpeg",
     "hasMeasurement": {
@@ -771,7 +771,7 @@
     "price": "98.00",
     "description": "Expand on your arsenal with the Orvis Clearwater Large Arbor Fly Reel! This is a die-cast reel with a powerful inline and Carbon-to-Stainless stacked disc drag system, allowing it to compete with machined reels for a fraction of the cost! ",
     "brand": "Orvis",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Fly Reels",
     "image": "Orvis Clearwater Large Arbor Fly Reel.jpeg",
     "hasMeasurement": {
@@ -786,7 +786,7 @@
     "price": "149.99",
     "description": "Redington Behemoth Fly Reels are truly stunning reels that combine quality with style. The die-cast construction provides strength and durability, plus unmatched aesthetics for a whole new look and feel.",
     "brand": "Redington",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Fly Reels",
     "image": "Redington Behemoth Fly Reel.jpg",
     "hasMeasurement": {
@@ -801,7 +801,7 @@
     "price": "279.99",
     "description": "The Redington TILT Euro Nymph Fly Reel gives a unique advantage to anglers: it can be customized to any fly rod for this popular trout fishing technique! The TILT Reel comes with three, one-ounce removable weights, letting you adjust the weight of the reel and dial into any rod! ",
     "brand": "Redington",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Fly Reels",
     "image": "Redington TILT Euro Nymph Fly Reel.jpg",
     "hasMeasurement": {
@@ -816,7 +816,7 @@
     "price": "259.99",
     "description": "Waterworks Lamson Remix Fly Reels utilize a hybrid construction combining a free-form design structure of a cast aluminum spool with the integrity of a CNC fully machined case. ",
     "brand": "Waterworks",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Fly Reels",
     "image": "Waterworks Lamson Remix Fly Reel.jpg",
     "hasMeasurement": {
@@ -831,7 +831,7 @@
     "price": "269.99",
     "description": "This heavy-duty version of the Remix gives you a full cage design without sacrificing performance. The Waterworks Lamson Remix HD Fly Reel combines a pressure-cast aluminum spool with a CNC-machined case for the ultimate hybrid of structural rigidity and durability. ",
     "brand": "Waterworks",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Fly Reels",
     "image": "Waterworks Lamson Remix HD Fly Reel.jpeg",
     "hasMeasurement": {
@@ -846,7 +846,7 @@
     "price": "359.99",
     "description": "Take your fishing to a new level with the Waterworks Lamson Guru S-Series Fly Reel! Waterworks Lamson designed this reel at a great price while still holding to their superior quality. It has been designed with open porting to reduce weight and a curved cross-section for structural stability.",
     "brand": "Waterworks",
-    "category": "Fishing Reels",
+    "category": "Reels",
     "subCategory": "Fly Reels",
     "image": "Waterworks Lamson Guru S-Series Fly Reel.jpg",
     "hasMeasurement": {
@@ -861,7 +861,7 @@
     "price": "4.99",
     "description": "To get those big Bass out of hiding, sometimes you need to get in the weeds. The Z-Man CrossEyeZ Football Jig is the jig to do just that! This jig features the traditional football-shaped head that gets it to the bottom quickly and a molded v-shaped weedguard that prevents it from getting hung up on weeds, rocks, or debris.",
     "brand": "Z-Man",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Jigs",
     "image": "Z-Man CrossEyeZ Football Jig.jpg",
     "hasMeasurement": {
@@ -887,7 +887,7 @@
     "price": "4.99",
     "description": "The Z-Man Micro Finesse ShroomZ jighead takes its cue from the traditional Z-Man mushroom design but in a miniature size configured to pair with Z-Man Micro Finesse ElaZtech BaitZ. The Micro finesse style mushroom jighead has a welded wire keeper that allows for easy bait-rigging and securely pinning Micro Finesse baits.",
     "brand": "Z-Man",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Jigs",
     "image": "Z-Man Micro Finesse ShroomZ Jig Heads.jpeg",
     "hasMeasurement": {
@@ -917,7 +917,7 @@
     "price": "4.99",
     "description": "Use a Berkley Flipping Jig with its broad, flat Arkie-style jig head in heavy cover conditions. Berkley teamed with one of the early pioneers of the flipping technique, Gary Klein, to create this versatile bass flipping jig.",
     "brand": "Berkley",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Jigs",
     "image": "Berkley Texas CRaw.jpeg",
     "hasMeasurement": {
@@ -947,7 +947,7 @@
     "price": "3.79",
     "description": "Strike King Mr. Crappie Krappie Kickers are designed with a Slabalicious body and a micro skirt for superb presentation. The Slabalicious bodies are made of soft plastic and have incredible paddle tail action. Each jig has a bright chartreuse, spear-shaped head that penetrates deep into heavy cover and weeds.",
     "brand": "Strike King",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Jigs",
     "image": "Strike King Cajun Cricket.jpg",
     "hasMeasurement": {
@@ -977,7 +977,7 @@
     "price": "6.99",
     "description": "Dreamweaver DW Spoons are designed and tested by professional fishermen to give the best possible action. These spoons are the top of choice for anglers throughout the Great Lakes and oceans.",
     "brand": "Dreamweaver",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Spoons",
     "image": "Dreamweaver Double UV.jpeg",
     "hasMeasurement": {
@@ -1007,7 +1007,7 @@
     "price": "3.49",
     "description": "Acme Little Cleo Spoons are very versatile, taking various species of gamefish around the world. Acme Little Cleo Spoons are available in a wide variety of sizes and colors suitable for use on a variety of gamefish, ranging from trout and panfish to stripers, pike, and muskie.",
     "brand": "ACME",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Spoons",
     "image": "ACME Blue Silver.jpeg",
     "hasMeasurement": {
@@ -1038,7 +1038,7 @@
     "price": "2.99",
     "description": "The ACME Tackle Kastmaster series is among the most recognizable fishing lure collections ever designed - and with good reason. It's a good bet that you already know this one. ACME Kastmasters have put fish into the boat for years and everything from panfish to bass, walleye to striper, trout to salmon.",
     "brand": "ACME",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Spoons",
     "image": "ACME Tiger Glow.jpeg",
     "hasMeasurement": {
@@ -1069,7 +1069,7 @@
     "price": "4.79",
     "description": "The ACME Rattlin Spinmaster Spinner propels spinning lure design through a flutter blade outfitted with a High Speed Accelerator and a proprietary six ball bearing rattle chamber that is activated by a rotating and pulsating cam. What you get is a spinning lure that sends vibrations and sound through the water to draw in fish near and far!",
     "brand": "ACME",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Spinners",
     "image": "ACME Beetle Juice.jpeg",
     "hasMeasurement": {
@@ -1099,7 +1099,7 @@
     "price": "5.29",
     "description": "For over 50 years, Panther Martin Classic Regular Series Spinners have been chosen by anglers as their choice of spinner because they have proven themselves irresistible to all species of gamefish. Whether you are fishing for small trout or panfish or casting for bass and pike, these spinners are a must have item for you tackle box.",
     "brand": "Panther Martin",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Spinners",
     "image": "Panther Black Zebra.jpg",
     "hasMeasurement": {
@@ -1129,7 +1129,7 @@
     "price": "8.49",
     "description": "The Rapala DT Dives-To Crankbait utilizes high-quality balsa wood with strategically placed internal weights to produce a perfectly balanced bait. The body features a tapered fuselage and thin tail that creates the ultimate side-to-side crankbait action.",
     "brand": "Rapala",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Crankbaits",
     "image": "Rapala Baby Bass.jpeg",
     "hasMeasurement": {
@@ -1159,7 +1159,7 @@
     "price": "6.99",
     "description": "The Strike King KVD Square Bill Crankbait was designed by pro angler and BassMaster champion, Kevin VanDam. This crankbait features a square bill design that creates an erratic wandering action and helps deflect it off cover to better entice strikes. ",
     "brand": "Strike King",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Crankbaits",
     "image": "Strike King Black Back.jpeg",
     "hasMeasurement": {
@@ -1189,7 +1189,7 @@
     "price": "6.49",
     "description": "A Strike King Rage Swimmer Soft Swimbait is a worthy soft bait that closely mimics the shapes of forage baits found naturally in the world of bass. These shapes - a sleek nose cone and a softly ribbed body - replicate natural contours and actions that provoke an immediate reaction to the frantic vibrations of its thumper tail design. ",
     "brand": "Strike King",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Swimbaits",
     "image": "Strike King Fire Craw.jpeg",
     "hasMeasurement": {
@@ -1211,7 +1211,7 @@
     "price": "3.49",
     "description": "The popular Mr. Crappie Scizzor Shad Jig has shed the jig and is now available to add to your favorite hook or jig head. The Scizzor Shad body features the Mr. Crappie signature balls and twin tails for twice the action. ",
     "brand": "Strike King",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Swimbaits",
     "image": "Strike King Glimmer Blue.jpeg",
     "hasMeasurement": {
@@ -1237,7 +1237,7 @@
     "price": "7.99",
     "description": "When versatility is what you need, look no further than the FishLab Bio-Gill Soft Rigged Swimbait! This unique swimbait features a T-tail design and a top jig hook. The specific angle of the hook works to decrease the downward angle, which increases your hookset ratio! ",
     "brand": "FishLab",
-    "category": "Fishing Lures",
+    "category": "Lures",
     "subCategory": "Swimbaits",
     "image": "FishLab Dark Bluegill.jpeg",
     "hasMeasurement": {
@@ -1263,7 +1263,7 @@
     "price": "33.99",
     "description": "The Cortland Master Braid Bulk Spool is an excellent versatile line to keep on hand. This braid is constructed from high-quality gel-spun fibers to create a durable and tough super braid anglers can trust.",
     "brand": "Cortland",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Braided & Super Line",
     "image": "Cortland Master Braid Bulk Spool.jpeg",
     "hasMeasurement": {
@@ -1289,13 +1289,13 @@
     ]
   },
   {
-    "name": "Strike King CONTRA Braided Fishing Line",
+    "name": "Strike King CONTRA Braided Line",
     "price": "11.99",
-    "description": "Strike King CONTRA Braid Fishing Line checks all the boxes for strength, durability, handling, and value. Strike King turned to MLF pro angler Andy Montgomery, who earned a degree in engineering, to join the team to develop CONTRA. ",
+    "description": "Strike King CONTRA Braid Line checks all the boxes for strength, durability, handling, and value. Strike King turned to MLF pro angler Andy Montgomery, who earned a degree in engineering, to join the team to develop CONTRA. ",
     "brand": "Strike King",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Braided & Super Line",
-    "image": "Strike King CONTRA Fluorocarbon Fishing Line.jpg",
+    "image": "Strike King CONTRA Fluorocarbon Line.jpg",
     "hasMeasurement": {
       "spoolSize": "150 yd."
     },
@@ -1323,7 +1323,7 @@
     "price": "19.99",
     "description": "Berkley FireLine Thermally Fused Superline is optimized for the spinning reels that you take to the ice. Fireline Superline is rounder with a more consistent line structure that holds less ice for fewer freeze-ups.",
     "brand": "Berkley",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Braided & Super Line",
     "image": "Berkley FireLine Thermally Fused Superline.jpg",
     "hasMeasurement": {
@@ -1353,7 +1353,7 @@
     "price": "8.99",
     "description": "Berkley FireLine Fused Ice Superline is now smoother casting and more sensitive than prior editions but retains unmatched abrasion resistance. The 8-strand fused technology to create this smooth handling Superline advances a toughness that is 5X stronger than typical braided lines. ",
     "brand": "Berkley",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Braided & Super Line",
     "image": "Berkley FireLine Fused Ice Superline.jpg",
     "hasMeasurement": {
@@ -1383,7 +1383,7 @@
     "price": "7.99",
     "description": "Berkley Vanish Fluorocarbon Line is the most flexible, easiest casting fluorocarbon on the market today. Vanish 100% fluorocarbon has a similar refractive index to water, so fish can't see it.",
     "brand": "Berkley",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Fluorocarbon",
     "image": "Berkley Vanish Fluorocarbon Line.jpeg",
     "hasMeasurement": {
@@ -1413,7 +1413,7 @@
     "price": "6.99",
     "description": "Berkley Trilene 100% Fluorocarbon Ice Line features a cold weather formula, processed for high impact strength and manageability while ice fishing. Like all fluorocarbon lines, Trilene 100% Fluorocarbon Ice line has a light refraction close to that of water for stealthy presentations and invisibility.",
     "brand": "Berkley",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Fluorocarbon",
     "image": "Berkley Trilene Fluorocarbon Ice Line.jpeg",
     "hasMeasurement": {
@@ -1439,13 +1439,13 @@
     ]
   },
   {
-    "name": "Strike King CONTRA Fluorocarbon Fishing Line",
+    "name": "Strike King CONTRA Fluorocarbon Line",
     "price": "11.99",
-    "description": "Strike King CONTRA Fluorocarbon Fishing Line gives you the incredible handling characteristics demanded by Strike King pro anglers. And it's yours without the high cost generally associated with high-quality, performance-minded fluorocarbon. ",
+    "description": "Strike King CONTRA Fluorocarbon Line gives you the incredible handling characteristics demanded by Strike King pro anglers. And it's yours without the high cost generally associated with high-quality, performance-minded fluorocarbon. ",
     "brand": "Strike King",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Fluorocarbon",
-    "image": "Strike King CONTRA Fluorocarbon Fishing Line.jpg",
+    "image": "Strike King CONTRA Fluorocarbon Line.jpg",
     "hasMeasurement": {
       "spoolSize": "125 yd."
     },
@@ -1473,7 +1473,7 @@
     "price": "20.99",
     "description": "Gamma Edge 100% Fluorocarbon Line is the one that can do it all. Nearly invisible and with high strength, Gamma's exclusive manufacturing process provides a true competitive edge by also allowing for easier, longer, and accurate casts.",
     "brand": "Gamma",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Fluorocarbon",
     "image": "Gamma Edge Fluorocarbon Line.jpeg",
     "hasMeasurement": {
@@ -1503,7 +1503,7 @@
     "price": "4.99",
     "description": "Berkley Trilene XL Monofilament Line offers a high performance, low memory formulation to deliver outstanding handling. This line offers exceptional smoothness and strength with less knots and kinks, giving you a less stressful, more productive experience.",
     "brand": "Berkley",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Monofilament",
     "image": "Berkley Trilene XL Monofilament Line.jpeg",
     "hasMeasurement": {
@@ -1533,7 +1533,7 @@
     "price": "3.49",
     "description": "Berkley Trilene XT Monofilament Line offers improved abrasion resistance, knot strength, wet strength, and shock resistance. This formula of XT monofilament is 47% more flexible and performs better than previous generations of XT.",
     "brand": "Berkley",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Monofilament",
     "image": "Berkley Trilene XT Monofilament Line.jpg",
     "hasMeasurement": {
@@ -1563,7 +1563,7 @@
     "price": "13.99",
     "description": "Maxima Ultragreen Monofilament Line is known worldwide for its consistent diameter, exceptional test and knot strength, and how moss green color that is practically invisible to fish.",
     "brand": "Maxima",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Monofilament",
     "image": "Maxima Ultragreen Monofilament Line.jpg",
     "hasMeasurement": {
@@ -1593,7 +1593,7 @@
     "price": "13.99",
     "description": "Maxima Chameleon Monofilament Line features the unique property of changing hues to match the color of its surroundings for invisibility in lightly stained or muddy waters.",
     "brand": "Maxima",
-    "category": "Fishing Line",
+    "category": "Line",
     "subCategory": "Monofilament",
     "image": "Maxima Chameleon Monofilament Line.jpg",
     "hasMeasurement": {
@@ -1623,7 +1623,7 @@
     "price": "3.49",
     "description": "Gamakatsu Octopus Hooks are known around the world for performance, durability and reliability. These hooks are made from high quality, high carbon steel specifically made for the demands that a fishing hook can endure. ",
     "brand": "Gamakatsu",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Hooks",
     "image": "Gamakatsu Octopus Hooks.jpeg",
     "options": [
@@ -1646,7 +1646,7 @@
     "price": "4.99",
     "description": "Megabass Katsuage Out-Barb Treble Hooks feature a precisely engineered out-barb design to better catch fish while jerk bait fishing. The lightweight, sticky-sharp design provides superior hooksets. Replace the treble hooks on your favorite lures with the Megabass Katsuage Hooks and catch more fish!",
     "brand": "Megabass",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Hooks",
     "image": "Megabass Katsuage Out-Barb Treble Hooks.jpeg",
     "options": [
@@ -1663,7 +1663,7 @@
     "price": "3.49",
     "description": "VMC Neko Hooks are made from high-carbon steel with a super-sharp point and a long shank. The Neko has a resin sealed eye to keep your line secure and not slip off. ",
     "brand": "VMC",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Hooks",
     "image": "VMC Neko Hooks.jpeg",
     "options": [
@@ -1686,7 +1686,7 @@
     "price": "7.99",
     "description": "Strike King Tour Grade Tungsten Drop Shot Weights are designed to enhance the drop shotting experience. The high density of the tungsten improves feel while the smaller size decreases drag, lessening hangups.",
     "brand": "Strike King",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Weights & Sinkers",
     "image": "Strike King Tour Grade Tungsten Drop Shot Weights.jpeg",
     "options": [
@@ -1706,7 +1706,7 @@
     "price": "2.49",
     "description": "Water Gremlin makes the finest split shot. Water Gremlin Lead Round Split Shot are of consistent quality with clean jaws which hold firmly and do not cause damage to the line if used properly.",
     "brand": "Water Gremlin",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Weights & Sinkers",
     "image": "Water Gremlin Lead Round Split Shot.jpg",
     "options": [
@@ -1726,7 +1726,7 @@
     "price": "2.49",
     "description": "Water Gremlin Lead Swivel Sinkers are used for trolling or bottom fishing with live bait . These weights are premium quality with a swivel made from looped brass wire. These weights are offered in small plastic resealable packs.",
     "brand": "Water Gremlin",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Weights & Sinkers",
     "image": "Water Gremlin Lead Swivel Sinkers.jpg",
     "options": [
@@ -1746,7 +1746,7 @@
     "price": "2.49",
     "description": "Bullet Weights Slip Sinkers have a concave base that fits a worm's nose tightly. These sinkers are made of lead and are weedless.",
     "brand": "Bullet",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Weights & Sinkers",
     "image": "Bullet Weights Slip Sinkers.jpeg",
     "options": [
@@ -1766,7 +1766,7 @@
     "price": "2.99",
     "description": "Thill Wobble Bobbers feature an aerodynamic shape and internal weighting system makes them the longest-casting slip float you can buy. The shape and weight design also gives the angler another advantage, each wave produces an exaggerated jigging action that is transferred to the bait or jig below.",
     "brand": "Thill",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Floats & Bobbers",
     "image": "Thill Wobble Bobber.jpeg",
     "options": [
@@ -1786,7 +1786,7 @@
     "price": "2.49",
     "description": "Spend a little time with an avid steelhead fisherman and you will quickly learn \"they never leave well enough alone.\" These Premium Steelhead Floats feature line-friendly latex tubing in place of the standard spring which holds tight without nicking your line.",
     "brand": "Thill",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Floats & Bobbers",
     "image": "Thill Steelhead Float.jpeg",
     "options": [
@@ -1803,7 +1803,7 @@
     "price": "4.49",
     "description": "Raven Premium Balsa Floats are now available for virtually any river condition and depth, thanks to the Raven float system. Sporting a high visibility red tip and a low visibility black body, these balsa floats feature a high strength one-piece, fiberglass stem.",
     "brand": "Raven",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Floats & Bobbers",
     "image": "Raven Premium Balsa Floats.jpg",
     "options": [
@@ -1826,7 +1826,7 @@
     "price": "4.49",
     "description": "Blood Run Tackle Balsa Floats are available in a variety of sizes and styles to match any condition; from extra deep to shallow depths, in fast and slow current conditions. These floats feature a super hi-vis top. Balsa Floats are perfect for steelhead and salmon float fishing with spinning, casting, and centerpin rods.",
     "brand": "Blood Run",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Floats & Bobbers",
     "image": "Blood Run Tackle Balsa Float.jpg",
     "options": [
@@ -1849,7 +1849,7 @@
     "price": "11.99",
     "description": "The SPRO Power Swivels are stronger than standard barrel swivels and offer super smooth rotation, tremendous strength and durability. Keep line twist to a minimum with these high-grade stainless steel swivels.",
     "brand": "SPRO",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Swivels & Snaps",
     "image": "SPRO Power Swivels.jpeg",
     "options": [
@@ -1876,7 +1876,7 @@
     "price": "3.49",
     "description": "SPRO Three Way Swivels are constructed of high-grade stainless steel to provide incredible strength and durability while keeping line twist to a minimum. These swivels are great for bottom rigs, kite fishing, or anywhere a three-way rig is required.",
     "brand": "SPRO",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Swivels & Snaps",
     "image": "SPRO Three Way Swivels.jpeg",
     "options": [
@@ -1896,7 +1896,7 @@
     "price": "6.99",
     "description": "The Gamakatsu Tournament Snap is part of the Gamakatsu G Finesse series which was designed by pro-angler Shin Fukae. These snaps are made of stainless steel and are designed for use on any species of fish out there. ",
     "brand": "Gamakatsu",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Swivels & Snaps",
     "image": "Gamakatsu Tournament Snaps.jpeg",
     "options": [
@@ -1915,7 +1915,7 @@
     "price": "16.99",
     "description": "Dreamweaver Swivel Snaps are smooth movement swivels that reduce line twist. Sizes 1, 2, and 3 have duo-lock snaps. Sizes 4, 6, 4/0, and Quick Change swivels have coastlock snaps.",
     "brand": "Dreamweaver",
-    "category": "Fishing Tackle",
+    "category": "Tackle",
     "subCategory": "Swivels & Snaps",
     "image": "Dreamweaver Swivel Snaps.jpeg",
     "options": [
@@ -1938,7 +1938,7 @@
     "price": "41.99",
     "description": "The Rapala High Contrast Digital Scale is equipped with features that will benefit all anglers. This water-resistant scale has eight storage locations to record the weight of each catch.",
     "brand": "Rapala",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Tools",
     "image": "Rapala High Contrast Digital Scale.jpeg"
   },
@@ -1947,7 +1947,7 @@
     "price": "69.99",
     "description": "The Ketch Products X Board measuring board is often one of the approved measuring devices for kayak fishing tournaments to meet current industry standards. In response to requests, Ketch placed the corresponding inch and half-inch numbers on the top of the X Board.",
     "brand": "Ketch",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Tools",
     "image": "Ketch Products X Board.jpg"
   },
@@ -1956,7 +1956,7 @@
     "price": "24.99",
     "description": "With the Shimano Brutas Silver Nickel Long Reach Pliers, you can tighten down that weight, pull that knot tight, or whatever you need with ease! Shimano crafted these long nose pliers to be able to reach more difficult to navigate areas, so you can just worry about getting back to catching that trophy!",
     "brand": "Shimano",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Tools",
     "image": "Shimano Brutas Silver Nickel Long Reach Pliers.jpeg"
   },
@@ -1965,7 +1965,7 @@
     "price": "20.99",
     "description": "The Orvis Scissor Forceps will help you keep a secure, comfortable hold! These are a strong pair of hemostatic forceps with built-in scissors. The handles have been double-dipped for extra comfort and a secure grip even when they're wet.",
     "brand": "Orvis",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Tools",
     "image": "Orvis Scissor Forceps.jpg"
   },
@@ -1974,7 +1974,7 @@
     "price": "24.99",
     "description": "An EZRED RealTree ANYWEAR Alkaline LED Neck Light is 200 lumens of lighting power around your neck for fishing in the dark! This revolutionary design is worn comfortably around your neck for hands-free access to all of your fishing gear during low-light periods.",
     "brand": "RealTree",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Tools",
     "image": "EZRED Realtree ANYWEAR Alkaline LED Neck Light.jpeg"
   },
@@ -1983,7 +1983,7 @@
     "price": "59.99",
     "description": "The Frabill Aqua-Life Personal Bait Station is the number one choice for maintaining minnows in hot summer or cold winter conditions. The hard shell construction is very durable, while the superior insulation keeps the water and bait cool and lively.",
     "brand": "Frabill",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Bait Storage",
     "image": "Frabill Aqua-Life Personal Bait Station.jpeg"
   },
@@ -1992,7 +1992,7 @@
     "price": "34.99",
     "description": "Clam Bait Buckets provide anglers with spill-proof bait keepers with an adjustable shoulder strap for easy transport. Because minnows are so sensitive to temperature extremes, these Bait Buckets also come with an insulated carry bag for all-season temperature protection.",
     "brand": "Clam",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Bait Storage",
     "image": "Clam Bait Bucket.jpg"
   },
@@ -2001,7 +2001,7 @@
     "price": "89.99",
     "description": "The Beckman Coated Fishing Net combines durability and functionality in a strong, fish-friendly net. The hoop utilizes an internal Y-Bar construction to add strength, rigidity, and directional stability.",
     "brand": "Beckman",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Landing Gear",
     "image": "Beckman Coated Fishing Net.jpeg"
   },
@@ -2010,7 +2010,7 @@
     "price": "134.99",
     "description": "Get those fish out of the water with some American pride with the Cumings Red White and Blue 'Murica Landing Net! This net has been redesigned to be lighter and deeper, making it a breeze to get those fish out of the water! ",
     "brand": "Cumings",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Landing Gear",
     "image": "Cumings Red White and Blue 'Murica Landing Net.jpg"
   },
@@ -2019,7 +2019,7 @@
     "price": "17.99",
     "description": "Losing or injuring fish will be a thing of the past when you use the TackleWorkz Donkey Leash! Designed specifically for kayak fishing, you can use the Donkey Leash to hold your fish while you get your hawg trough and camera ready. ",
     "brand": "TackleWorkz",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Landing Gear",
     "image": "TackleWorkz Fishing Donkey Leash.jpg"
   },
@@ -2028,7 +2028,7 @@
     "price": "68.99",
     "description": "The AFTCO x Böker Fishing Flex Fillet Knife is thinner and more flexible than the original AFTCO Filet Knife for more precise cutting on all sizes of game fish. In conjunction with Böker Germany, these premium fish fillet knives, available in 7 and 9-inch lengths, are made from 4116 German stainless steel with an upsweep design.",
     "brand": "AFTCO x Boker",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Fish Cleaning & Processing",
     "image": "AFTCO x Boker Fishing Flex Fillet Knife.jpeg"
   },
@@ -2037,7 +2037,7 @@
     "price": "18.99",
     "description": "Rapala Fish'n Fillet Knife is progressively tapered, ultra-sharp blades constructed of Scandinavian stainless steel that runs the entire length of the handle. The classic birch handles are durable and offer a sure grip. The handle design includes an exclusive \"lock notch\" that secures the tang to brass ferrule for firm and rigid cutting power.",
     "brand": "Rapala",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Fish Cleaning & Processing",
     "image": "Rapala Fish'n Fillet Knife.jpeg"
   },
@@ -2046,7 +2046,7 @@
     "price": "14.99",
     "description": "Protect your hands, and your catch, with the Fish Monkey Men's Fillet Gripper Gloves! These gloves are designed with a latex rubber palm with a wrinkle finish for extra grip! ",
     "brand": "Fish Monkey",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Fish Cleaning & Processing",
     "image": "Fish Monkey Men's Fillet Gripper Gloves.jpg"
   },
@@ -2055,7 +2055,7 @@
     "price": "29.99",
     "description": "The Fillet Away Fish Mat is a no-nonsense non-oil-absorbent fillet mat made of high-quality TPV, so you can clean fish without the smell absorbing into your mat. The non-porous material of the mat ensures easy cleaning, and the oil from your catch will wash off when you wash the mat. ",
     "brand": "Fillet Away",
-    "category": "Fishing Accessories",
+    "category": "Accessories",
     "subCategory": "Fish Cleaning & Processing",
     "image": "Fillet Away Fish Mat.jpeg"
   }

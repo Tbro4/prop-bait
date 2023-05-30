@@ -15,7 +15,7 @@ const MainCategories = ({ onCategoryClick }) => {
     <div className="main-categories">
       <div
         className="main-category sales"
-        onClick={() => onCategoryClick("Shop Sales")}
+        onClick={() => onCategoryClick("Sales")}
       >
         <img className="category-image" src={TopPic} alt="man fishing" />
         <div className="category-overlay">
@@ -26,7 +26,7 @@ const MainCategories = ({ onCategoryClick }) => {
       </div>
       <div
         className="main-category rods"
-        onClick={() => onCategoryClick("Fishing Rods")}
+        onClick={() => onCategoryClick("Rods")}
       >
         <img className="category-image" src={Poles} alt="fishing poles" />
         <div className="category-overlay">
@@ -37,7 +37,7 @@ const MainCategories = ({ onCategoryClick }) => {
       </div>
       <div
         className="main-category reels"
-        onClick={() => onCategoryClick("Fishing Reels")}
+        onClick={() => onCategoryClick("Reels")}
       >
         <img className="category-image" src={Reels} alt="fishing reel" />
         <div className="category-overlay">
@@ -48,7 +48,7 @@ const MainCategories = ({ onCategoryClick }) => {
       </div>
       <div
         className="main-category lures"
-        onClick={() => onCategoryClick("Fishing Lures")}
+        onClick={() => onCategoryClick("Lures")}
       >
         <img className="category-image" src={Lures} alt="fishing lures" />
         <div className="category-overlay">
@@ -59,7 +59,7 @@ const MainCategories = ({ onCategoryClick }) => {
       </div>
       <div
         className="main-category tackle"
-        onClick={() => onCategoryClick("Fishing Tackle")}
+        onClick={() => onCategoryClick("Tackle")}
       >
         <img className="category-image" src={Tackle} alt="fishing tackle" />
         <div className="category-overlay">
@@ -70,7 +70,7 @@ const MainCategories = ({ onCategoryClick }) => {
       </div>
       <div
         className="main-category line"
-        onClick={() => onCategoryClick("Fishing Line")}
+        onClick={() => onCategoryClick("Line")}
       >
         <img className="category-image" src={Line} alt="fishing line" />
         <div className="category-overlay">
@@ -81,7 +81,7 @@ const MainCategories = ({ onCategoryClick }) => {
       </div>
       <div
         className="main-category accessories"
-        onClick={() => onCategoryClick("Fishing Accessories")}
+        onClick={() => onCategoryClick("Accessories")}
       >
         <img
           className="category-image"
