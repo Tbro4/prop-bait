@@ -70,11 +70,11 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
             key={product._id}
             onClick={() => handleProductClick(product._id)}
           >
-            <h3>{product.name}</h3>
             <img
               src={require(`../../images/${product.image}`)}
               alt={product.product}
             />
+            <h3>{product.name}</h3>
             <h4>{product.price}</h4>
           </div>
         ))}
