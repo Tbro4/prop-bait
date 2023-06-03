@@ -57,7 +57,8 @@ const SearchOptions = styled("div")(({ theme }) => ({
   maxHeight: "250px",
   overflowY: "auto",
   backgroundColor: theme.palette.background.paper,
-  boxShadow: theme.shadows[1],
+  background: "#e0f7fa",
+  boxShadow: theme.shadows[3],
   borderRadius: theme.shape.borderRadius,
   zIndex: 1,
 }));
@@ -150,7 +151,7 @@ export default function AppBarTop({ onResetView }) {
               display: { xs: "block", sm: "block" },
               textDecoration: "none",
               boxShadow: "none",
-              color: "white",
+              color: "black",
             }}
           >
             &#123;prop&#125; bait

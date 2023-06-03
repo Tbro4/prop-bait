@@ -1,7 +1,20 @@
 import React, { useState } from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Home from "../../pages/Home";
 import AppBarTop from "../AppBarTop/AppBarTop";
 import AppBarBottom from "../AppBarBottom/AppBarBottom";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#00bcd4", // Color for AppBarTop
+    },
+    secondary: {
+      main: "#e0f7fa", // Color for AppBarBottom
+    },
+    // Add more color overrides or other theme options as needed
+  },
+});
 
 const AppContainer = () => {
   const [view, setView] = useState("mainCategories");
@@ -48,22 +61,24 @@ const AppContainer = () => {
   };
 
   return (
-    <div>
-      <AppBarTop />
-      <AppBarBottom view={view} setView={setView} />
-      <Home
-        view={view}
-        setView={setView}
-        selectedCategory={selectedCategory}
-        selectedSubCategory={selectedSubCategory}
-        selectedProduct={selectedProduct}
-        onCategoryClick={handleCategoryClick}
-        onSubCategoryClick={handleSubCategoryClick}
-        onProductClick={handleProductClick}
-        onGoBack={handleGoBack}
-        onResetView={handleResetView}
-      />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        <AppBarTop />
+        <AppBarBottom view={view} setView={setView} />
+        <Home
+          view={view}
+          setView={setView}
+          selectedCategory={selectedCategory}
+          selectedSubCategory={selectedSubCategory}
+          selectedProduct={selectedProduct}
+          onCategoryClick={handleCategoryClick}
+          onSubCategoryClick={handleSubCategoryClick}
+          onProductClick={handleProductClick}
+          onGoBack={handleGoBack}
+          onResetView={handleResetView}
+        />
+      </div>
+    </ThemeProvider>
   );
 };
 

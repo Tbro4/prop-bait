@@ -6,8 +6,10 @@ import Paper from "@mui/material/Paper";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useTheme } from "@mui/material/styles";
 
 export default function FixedBottomNavigation({ view, setView }) {
+  const theme = useTheme();
   const handleNavigation = (newView) => {
     setView(newView);
   };
@@ -24,7 +26,11 @@ export default function FixedBottomNavigation({ view, setView }) {
         }}
         elevation={3}
       >
-        <BottomNavigation showLabels={false} value={view}>
+        <BottomNavigation
+          showLabels={false}
+          value={view}
+          style={{ backgroundColor: theme.palette.secondary.main }}
+        >
           <BottomNavigationAction
             label="Shop"
             icon={<MenuIcon />}
