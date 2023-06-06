@@ -1,26 +1,25 @@
 .sub-categories {
   display: flex;
-  flex-wrap: nowrap; /* Prevent wrapping to multiple rows */
-  overflow-x: auto; /* Enable horizontal scrolling if needed */
+  flex-wrap: nowrap;
+  overflow-x: auto;
   margin-bottom: 20px;
-  width: 100%; /* Ensure the container takes up full width */
+  width: 100%;
 }
 
 .sub-categories > div {
-  flex-shrink: 2; /* Prevent items from shrinking */
-  margin-right: 20px; /* Add some spacing between items */
-  max-width: 100%; /* Limit the width of each item */
+  flex-shrink: 2;
+  margin-right: 20px;
+  max-width: 100%;
 }
 
 .sub-categories img {
-  max-width: 100%; /* Ensure the images fit within their container */
-  height: auto; /* Maintain aspect ratio and prevent distortion */
+  max-width: 100%;
+  height: auto;
 }
 
 @media (min-width: 768px) {
-  /* medium to large screen styles */
   .sub-categories {
-    overflow-x: unset; /* Disable horizontal scrolling */
+    overflow-x: unset;
     margin-bottom: 0;
   }
 }
@@ -32,26 +31,49 @@
   margin-top: 20px;
 }
 
-.products > div {
+.product {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.products img {
+.product-image {
+  position: relative;
+}
+
+.product-image img {
   max-width: 200px;
   max-height: 200px;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.2),
+    0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.product-info h4 {
+  margin: 5px 0;
+}
+
+.product-info button {
+  margin-top: 10px;
 }
 
 .products h3 {
   margin: 1px 0;
-  min-height: 3.5em; /* Adjust this value as needed for vertical alignment */
+  min-height: 3.5em;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* Number of lines to show */
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 16px; /* Default font size for larger screens */
+  font-size: 16px;
 }
 
 .products h4 {
@@ -61,6 +83,6 @@
 /* Media Query for smaller screens */
 @media (max-width: 768px) {
   .products h3 {
-    font-size: 14px; /* Reduced font size for smaller screens */
+    font-size: 14px;
   }
 }

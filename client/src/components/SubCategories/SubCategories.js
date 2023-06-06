@@ -39,9 +39,6 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
   const subCategories = subCategoryData?.subCategoryByCategory || [];
   const products = productsData?.productsByCategory || [];
 
-  console.log(subCategories);
-  console.log(products);
-
   const handleSubCategoryClick = (subCategory) => {
     onSubCategoryClick(subCategory);
   };
@@ -62,20 +59,24 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
           </div>
         ))}
       </div>
-
-      <h2>{subCategories[0].category}</h2>
+      <h1>{subCategories[0].category}</h1>
       <div className="products">
         {products.map((product) => (
           <div
             key={product._id}
+            className="product"
             onClick={() => handleProductClick(product._id)}
           >
-            <img
-              src={require(`../../images/${product.image}`)}
-              alt={product.product}
-            />
-            <h3>{product.name}</h3>
-            <h4>{product.price}</h4>
+            <div className="product-image">
+              <img
+                src={require(`../../images/${product.image}`)}
+                alt={product.product}
+              />
+            </div>
+            <div className="product-info">
+              <h3>{product.name}</h3>
+              <h4>{product.price}</h4>
+            </div>
           </div>
         ))}
       </div>
