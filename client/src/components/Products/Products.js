@@ -30,14 +30,19 @@ const Products = ({ subCategory, onProductClick }) => {
         {products.map((product) => (
           <div
             key={product._id}
+            className="product"
             onClick={() => handleProductClick(product._id)}
           >
-            <h3>{product.name}</h3>
-            <img
-              src={require(`../../images/${product.image}`)}
-              alt={product.name}
-            />
-            <p>{product.price}</p>
+            <div className="product-image">
+              <img
+                src={require(`../../images/${product.image}`)}
+                alt={product.name}
+              />
+            </div>
+            <div className="product-info">
+              <h3>{product.name}</h3>
+              <h4>{product.price}</h4>
+            </div>
           </div>
         ))}
       </div>

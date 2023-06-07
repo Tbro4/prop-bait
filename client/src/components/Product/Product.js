@@ -17,12 +17,23 @@ const Product = ({ productId }) => {
 
   const product = data?.productById;
 
+  const handleAddToCart = () => {
+    // Add your logic to handle adding the product to the cart here
+    console.log("Product added to cart:", product);
+  };
+
   return (
-    <div>
+    <div className="product">
+      <div className="product-image">
+        <img
+          src={require(`../../images/${product.image}`)}
+          alt={product.name}
+        />
+      </div>
       <h3>{product.name}</h3>
-      <img src={require(`../../images/${product.image}`)} alt={product.name} />
-      <p>Price: {product.price}</p>
+      <h4>{product.price}</h4>
       <p>Description: {product.description}</p>
+      <button onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
 };
