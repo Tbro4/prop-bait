@@ -45,8 +45,7 @@
 .product-image img {
   max-width: 200px;
   max-height: 200px;
-  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.2),
-    0px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .product-info {

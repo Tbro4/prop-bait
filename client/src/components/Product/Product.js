@@ -18,10 +18,15 @@ const Product = ({ productId }) => {
   const product = data?.productById;
 
   return (
-    <div>
+    <div className="product">
+      <div className="product-image">
+        <img
+          src={require(`../../images/${product.image}`)}
+          alt={product.name}
+        />
+      </div>
       <h3>{product.name}</h3>
-      <img src={require(`../../images/${product.image}`)} alt={product.name} />
-      <p>Price: {product.price}</p>
+      <h4>{product.price}</h4>
       <p>Description: {product.description}</p>
     </div>
   );
