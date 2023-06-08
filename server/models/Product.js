@@ -1,4 +1,55 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
+
+const optionSchema = new Schema(
+  {
+    _id: {
+      type: Types.ObjectId,
+      default: Types.ObjectId,
+    },
+
+    image: {
+      type: String,
+      required: false,
+      trim: true,
+    },
+    color: {
+      type: String,
+      required: false,
+      trim: true,
+    },
+    test: {
+      type: String,
+      required: false,
+      trim: true,
+    },
+    diameter: {
+      type: String,
+      required: false,
+      trim: true,
+    },
+    size: {
+      type: String,
+      required: false,
+      trim: true,
+    },
+    weight: {
+      type: String,
+      required: false,
+      trim: true,
+    },
+    length: {
+      type: String,
+      required: false,
+      trim: true,
+    },
+    type: {
+      type: String,
+      required: false,
+      trim: true,
+    },
+  },
+  { _id: false }
+);
 
 const productSchema = new Schema({
   name: {
@@ -16,7 +67,6 @@ const productSchema = new Schema({
     required: true,
     trim: true,
   },
-
   brand: {
     type: String,
     required: true,
@@ -32,13 +82,13 @@ const productSchema = new Schema({
     required: true,
     trim: true,
   },
-
   image: {
     type: String,
     required: false,
     trim: true,
   },
   hasMeasurement: {},
+  options: [optionSchema],
 });
 
 const Product = model("Product", productSchema);
