@@ -11,7 +11,7 @@ const resolvers = {
       return Product.find();
     },
     productById: async (parent, { productId }) => {
-      return Product.findById(productId);
+      return Product.findById(productId).populate("options");
     },
 
     productsByCategory: async (parent, { category }) => {

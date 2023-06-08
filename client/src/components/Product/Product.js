@@ -17,6 +17,8 @@ const Product = ({ productId }) => {
 
   const product = data?.productById;
 
+  console.log("Product data with options:", product);
+
   const handleAddToCart = () => {
     // Add your logic to handle adding the product to the cart here
     console.log("Product added to cart:", product);

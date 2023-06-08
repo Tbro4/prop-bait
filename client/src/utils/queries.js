@@ -37,6 +37,17 @@ export const QUERY_PRODUCT_BY_ID = gql`
       price
       image
       description
+      options {
+        _id
+        image
+        color
+        test
+        diameter
+        size
+        weight
+        length
+        type
+      }
     }
   }
 `;
