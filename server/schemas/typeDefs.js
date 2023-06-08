@@ -17,6 +17,7 @@ const typeDefs = gql`
     category: String
     subCategory: String
     image: String
+    hasMeasurement: HasMeasurement
     options: [Option]
   }
 
@@ -30,6 +31,27 @@ const typeDefs = gql`
     weight: String
     length: String
     type: String
+  }
+
+  type HasMeasurement {
+    length: String
+    pieces: String
+    power: String
+    depth: String
+    action: String
+    lineWeight: String
+    retrievalHand: String
+    handleType: String
+    gearRatio: String
+    bearings: String
+    weight: String
+    lineRetrieve: String
+    maxDrag: String
+    reelSize: String
+    diameter: String
+    reelWeight: String
+    lineCapacity: String
+    spoolSize: String
   }
 
   type ProductSubCategory {
