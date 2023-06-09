@@ -34,7 +34,7 @@ th {
 }
 
 /* Media query for small screens */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   .Singleproduct-info {
     flex-direction: column;
   }
