@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
 import "./Product.css";
 
 const Product = ({ productId }) => {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    setIsSmallScreen(mediaQuery.matches);
+
+    const handleScreenChange = (e) => setIsSmallScreen(e.matches);
+    mediaQuery.addEventListener("change", handleScreenChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleScreenChange);
+    };
+  }, []);
+
   const { loading, error, data } = useQuery(QUERY_PRODUCT_BY_ID, {
     variables: { productId },
   });
@@ -18,8 +32,6 @@ const Product = ({ productId }) => {
 
   const product = data?.productById;
 
-  console.log("Product data with options:", product);
-
   const handleAddToCart = () => {
     // Add your logic to handle adding the product to the cart here
     console.log("Product added to cart:", product);
@@ -32,24 +44,43 @@ const Product = ({ productId }) => {
       );
 
       if (measurements.length > 0) {
-        const keysRow = measurements.map(([key]) => <th key={key}>{key}</th>);
-        const valuesRow = measurements.map(([key, value]) => (
-          <td key={key}>{value}</td>
+        const tableHeaders = measurements.map(([key]) => (
+          <th key={key}>{key}</th>
         ));
 
-        return (
-          <div>
-            <h4>Measurements:</h4>
-            <table>
-              <thead>
-                <tr>{keysRow}</tr>
-              </thead>
-              <tbody>
-                <tr>{valuesRow}</tr>
-              </tbody>
-            </table>
-          </div>
-        );
+        const tableData = measurements.map(([, value]) => (
+          <td key={value}>{value}</td>
+        ));
+
+        if (isSmallScreen) {
+          const rows = measurements.map(([key, value]) => (
+            <tr key={key}>
+              <th>{key}:</th>
+              <td>{value}</td>
+            </tr>
+          ));
+
+          return (
+            <div>
+              <table>
+                <tbody>{rows}</tbody>
+              </table>
+            </div>
+          );
+        } else {
+          return (
+            <div>
+              <table>
+                <thead>
+                  <tr>{tableHeaders}</tr>
+                </thead>
+                <tbody>
+                  <tr>{tableData}</tr>
+                </tbody>
+              </table>
+            </div>
+          );
+        }
       }
     }
     return null;

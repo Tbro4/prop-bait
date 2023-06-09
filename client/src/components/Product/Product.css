@@ -17,8 +17,16 @@
   margin-left: 20px;
 }
 
+th {
+  font-weight: bold;
+}
+
+td {
+  font-weight: normal;
+}
+
 table {
-  width: 100%;
+  width: 70%;
   border-collapse: collapse;
 }
 
@@ -29,13 +37,34 @@ td {
   border-bottom: 1px solid #ddd;
 }
 
-th {
+th.horizontal-header {
   background-color: #f2f2f2;
 }
 
+td.vertical-value {
+  padding-left: 10px;
+}
+
 /* Media query for small screens */
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .Singleproduct-info {
     flex-direction: column;
+  }
+
+  table {
+    width: 25%;
+  }
+
+  th.horizontal-header,
+  td.horizontal-value {
+    display: none;
+  }
+
+  th.vertical-header {
+    background-color: #f2f2f2;
+  }
+
+  td.vertical-value {
+    padding-left: 0;
   }
 }
