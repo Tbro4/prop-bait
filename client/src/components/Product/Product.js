@@ -79,6 +79,7 @@ const Product = ({ productId }) => {
                   {option.image && (
                     <td>
                       <img
+                        className="option-image"
                         src={require(`../../images/${option.image}`)}
                         alt={option.color}
                       />
