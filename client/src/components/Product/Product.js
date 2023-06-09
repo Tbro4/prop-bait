@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
+import "./Product.css";
 
 const Product = ({ productId }) => {
   const { loading, error, data } = useQuery(QUERY_PRODUCT_BY_ID, {
@@ -27,21 +28,24 @@ const Product = ({ productId }) => {
   const renderMeasurements = () => {
     if (product?.hasMeasurement) {
       const measurements = Object.entries(product.hasMeasurement).filter(
-        ([key, value]) => value !== null
+        ([key, value]) => value !== null && key !== "__typename"
       );
 
       if (measurements.length > 0) {
+        const keysRow = measurements.map(([key]) => <th key={key}>{key}</th>);
+        const valuesRow = measurements.map(([key, value]) => (
+          <td key={key}>{value}</td>
+        ));
+
         return (
           <div>
             <h4>Measurements:</h4>
             <table>
+              <thead>
+                <tr>{keysRow}</tr>
+              </thead>
               <tbody>
-                {measurements.map(([key, value]) => (
-                  <tr key={key}>
-                    <td>{key}</td>
-                    <td>{value}</td>
-                  </tr>
-                ))}
+                <tr>{valuesRow}</tr>
               </tbody>
             </table>
           </div>
@@ -63,6 +67,8 @@ const Product = ({ productId }) => {
                 {Object.keys(product.options[0]).map(
                   (key) =>
                     key !== "image" &&
+                    key !== "_id" &&
+                    key !== "__typename" &&
                     product.options[0][key] !== null && <th key={key}>{key}</th>
                 )}
               </tr>
@@ -81,6 +87,8 @@ const Product = ({ productId }) => {
                   {Object.entries(option).map(
                     ([key, value]) =>
                       key !== "image" &&
+                      key !== "_id" &&
+                      key !== "__typename" &&
                       value !== null && <td key={key}>{value}</td>
                   )}
                 </tr>
