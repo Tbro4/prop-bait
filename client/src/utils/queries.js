@@ -37,6 +37,37 @@ export const QUERY_PRODUCT_BY_ID = gql`
       price
       image
       description
+      hasMeasurement {
+        length
+        pieces
+        power
+        depth
+        action
+        lineWeight
+        retrievalHand
+        handleType
+        gearRatio
+        bearings
+        weight
+        lineRetrieve
+        maxDrag
+        reelSize
+        diameter
+        reelWeight
+        lineCapacity
+        spoolSize
+      }
+      options {
+        _id
+        image
+        color
+        test
+        diameter
+        size
+        weight
+        length
+        type
+      }
     }
   }
 `;
