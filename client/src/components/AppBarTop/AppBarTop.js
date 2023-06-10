@@ -10,6 +10,8 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useLazyQuery } from "@apollo/client";
 import { QUERY_PRODUCTS_BY_KEYWORD } from "../../utils/queries";
+import PhishingIcon from "@mui/icons-material/Phishing";
+import "./AppBarTop.css";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -21,7 +23,7 @@ const Search = styled("div")(({ theme }) => ({
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("xs")]: {
-    marginLeft: theme.spacing(3),
+    marginLeft: theme.spacing(1),
     width: "auto",
   },
 }));
@@ -148,13 +150,15 @@ export default function AppBarTop({ onResetView }) {
             to="/"
             onClick={handleLogoClick}
             sx={{
-              display: { xs: "block", sm: "block" },
+              display: { xs: "flex", sm: "block" },
               textDecoration: "none",
               boxShadow: "none",
               color: "black",
+              paddingRight: "20px",
+              fontWeight: "600",
             }}
           >
-            &#123;prop&#125; bait
+            {"{prop} bait"}&nbsp;&nbsp;<i class="fi fi-bs-fishing-rod"></i>
           </Typography>
           <Search>
             <SearchIconWrapper>
