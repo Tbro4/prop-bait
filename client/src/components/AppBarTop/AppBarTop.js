@@ -133,7 +133,6 @@ export default function AppBarTop({
 
   useEffect(() => {
     if (data && data.productsByKeyword) {
-      console.log(data);
       setSearchOptions(data.productsByKeyword);
     }
   }, [data]);
@@ -143,7 +142,6 @@ export default function AppBarTop({
   };
 
   const handleOptionClick = (option) => {
-    console.log(option);
     setSearchInput("");
     setSearchOptions([]);
     setShowOptions(false);
