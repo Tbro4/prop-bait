@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Children } from "react";
 import { useState, useEffect } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
@@ -10,7 +10,6 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useLazyQuery } from "@apollo/client";
 import { QUERY_PRODUCTS_BY_KEYWORD } from "../../utils/queries";
-import PhishingIcon from "@mui/icons-material/Phishing";
 import "./AppBarTop.css";
 
 const Search = styled("div")(({ theme }) => ({
@@ -63,6 +62,12 @@ const SearchOptions = styled("div")(({ theme }) => ({
   boxShadow: theme.shadows[3],
   borderRadius: theme.shape.borderRadius,
   zIndex: 1,
+
+  "& > *": {
+    "&:not(:last-child)": {
+      borderBottom: "1px solid " + theme.palette.divider,
+    },
+  },
 }));
 
 const Separator = styled("div")(({ theme }) => ({
@@ -83,7 +88,12 @@ const SearchOptionItem = styled("div")(
   })
 );
 
-export default function AppBarTop({ onResetView }) {
+export default function AppBarTop({
+  onResetView,
+  onCategoryClick,
+  onSubCategoryClick,
+  onProductClick,
+}) {
   const [searchOptions, setSearchOptions] = useState([]);
   const [getSearchOptions, { data }] = useLazyQuery(QUERY_PRODUCTS_BY_KEYWORD);
   const [showOptions, setShowOptions] = useState(false);
@@ -123,7 +133,6 @@ export default function AppBarTop({ onResetView }) {
 
   useEffect(() => {
     if (data && data.productsByKeyword) {
-      console.log(data);
       setSearchOptions(data.productsByKeyword);
     }
   }, [data]);
@@ -133,10 +142,17 @@ export default function AppBarTop({ onResetView }) {
   };
 
   const handleOptionClick = (option) => {
-    console.log(option);
     setSearchInput("");
     setSearchOptions([]);
     setShowOptions(false);
+
+    if (option.category) {
+      onCategoryClick(option.category);
+    } else if (option.subCategory) {
+      onSubCategoryClick(option.subCategory);
+    } else {
+      onProductClick(option);
+    }
   };
 
   return (
@@ -158,7 +174,7 @@ export default function AppBarTop({ onResetView }) {
               fontWeight: "600",
             }}
           >
-            {"{prop} bait"}&nbsp;&nbsp;<i class="fi fi-bs-fishing-rod"></i>
+            {"{prop} bait"}&nbsp;<i className="fi fi-bs-fishing-rod"></i>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -172,67 +188,73 @@ export default function AppBarTop({ onResetView }) {
             />
             {showOptions && searchOptions.length > 0 && (
               <SearchOptions id="search-options">
-                {/* Display Categories */}
-                {searchOptions
-                  .reduce((acc, option) => {
-                    const { category } = option;
-                    if (!acc.includes(category)) {
-                      acc.push(category);
-                    }
-                    return acc;
-                  }, [])
-                  .map((category, index, array) => {
-                    const isLastCategory = index === array.length - 1;
+                {React.Children.toArray(
+                  // Display Categories
+                  searchOptions
+                    .reduce((acc, option) => {
+                      const { category } = option;
+                      if (!acc.includes(category)) {
+                        acc.push(category);
+                      }
+                      return acc;
+                    }, [])
+                    .map((category, index, array) => {
+                      const isLastCategory = index === array.length - 1;
 
-                    return (
-                      <>
+                      return (
+                        <>
+                          <SearchOptionItem
+                            key={`category-${index}`}
+                            onClick={() => handleOptionClick({ category })}
+                            isCategory
+                          >
+                            {category}
+                          </SearchOptionItem>
+                          {isLastCategory && <Separator />}
+                        </>
+                      );
+                    })
+                    // Display Subcategories
+                    .concat(
+                      searchOptions
+                        .reduce((acc, option) => {
+                          const { subCategory } = option;
+                          if (!acc.includes(subCategory)) {
+                            acc.push(subCategory);
+                          }
+                          return acc;
+                        }, [])
+                        .map((subCategory, index, array) => {
+                          const isLastSubcategory = index === array.length - 1;
+
+                          return (
+                            <>
+                              <SearchOptionItem
+                                key={`subcategory-${index}`}
+                                onClick={() =>
+                                  handleOptionClick({ subCategory })
+                                }
+                                isSubcategory
+                              >
+                                {subCategory}
+                              </SearchOptionItem>
+                              {isLastSubcategory && <Separator />}
+                            </>
+                          );
+                        })
+                    )
+                    // Display Individual Products
+                    .concat(
+                      searchOptions.map((option) => (
                         <SearchOptionItem
-                          key={`category-${index}`}
-                          onClick={() => handleOptionClick({ category })}
-                          isCategory
+                          key={option._id}
+                          onClick={() => handleOptionClick(option._id)}
                         >
-                          {category}
+                          {option.name}
                         </SearchOptionItem>
-                        {isLastCategory && <Separator />}
-                      </>
-                    );
-                  })}
-
-                {/* Display Subcategories */}
-                {searchOptions
-                  .reduce((acc, option) => {
-                    const { subCategory } = option;
-                    if (!acc.includes(subCategory)) {
-                      acc.push(subCategory);
-                    }
-                    return acc;
-                  }, [])
-                  .map((subCategory, index, array) => {
-                    const isLastSubcategory = index === array.length - 1;
-
-                    return (
-                      <>
-                        <SearchOptionItem
-                          key={`subcategory-${index}`}
-                          onClick={() => handleOptionClick({ subCategory })}
-                          isSubcategory
-                        >
-                          {subCategory}
-                        </SearchOptionItem>
-                        {isLastSubcategory && <Separator />}
-                      </>
-                    );
-                  })}
-
-                {/* Display Individual Products */}
-                {searchOptions.map((option) => (
-                  <SearchOptionItem
-                    key={option._id}
-                    onClick={() => handleOptionClick(option)}
-                  >
-                    {option.name}
-                  </SearchOptionItem>
-                ))}
+                      ))
+                    )
+                )}
               </SearchOptions>
             )}
           </Search>

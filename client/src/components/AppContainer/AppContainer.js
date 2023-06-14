@@ -63,7 +63,11 @@ const AppContainer = () => {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <AppBarTop />
+        <AppBarTop
+          onCategoryClick={handleCategoryClick}
+          onSubCategoryClick={handleSubCategoryClick}
+          onProductClick={handleProductClick}
+        />
         <AppBarBottom view={view} setView={setView} />
         <Home
           view={view}

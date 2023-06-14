@@ -23,7 +23,6 @@ const Home = ({
   const handleGoBack = () => {
     onGoBack(previousView);
   };
-  console.log("View: " + view);
 
   return (
     <div>
