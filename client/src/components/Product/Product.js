@@ -5,6 +5,7 @@ import "./Product.css";
 
 const Product = ({ productId }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [optionQuantities, setOptionQuantities] = useState({});
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
@@ -31,10 +32,23 @@ const Product = ({ productId }) => {
   }
 
   const product = data?.productById;
-
   const handleAddToCart = () => {
-    // Add your logic to handle adding the product to the cart here
-    console.log("Product added to cart:", product);
+    const selectedOptions = product.options.reduce((selected, option) => {
+      const quantity = optionQuantities[option._id];
+      if (quantity && parseInt(quantity) > 0) {
+        selected.push({
+          option: option,
+          quantity: parseInt(quantity),
+        });
+      }
+      return selected;
+    }, []);
+
+    if (selectedOptions.length > 0) {
+      console.log("Options added to cart:", selectedOptions);
+    } else {
+      console.log("No options selected.");
+    }
   };
 
   const renderMeasurements = () => {
@@ -100,7 +114,12 @@ const Product = ({ productId }) => {
                     key !== "image" &&
                     key !== "_id" &&
                     key !== "__typename" &&
-                    product.options[0][key] !== null && <th key={key}>{key}</th>
+                    product.options[0][key] !== null && (
+                      <React.Fragment key={key}>
+                        <th>{key}</th>
+                        <th>Quantity</th>
+                      </React.Fragment>
+                    )
                 )}
               </tr>
             </thead>
@@ -121,7 +140,25 @@ const Product = ({ productId }) => {
                       key !== "image" &&
                       key !== "_id" &&
                       key !== "__typename" &&
-                      value !== null && <td key={key}>{value}</td>
+                      value !== null && (
+                        <React.Fragment key={key}>
+                          <td>{value}</td>
+                          <td>
+                            <input
+                              type="number"
+                              min="0"
+                              value={optionQuantities[option._id] || ""}
+                              onChange={(e) => {
+                                const quantity = e.target.value;
+                                setOptionQuantities((prevState) => ({
+                                  ...prevState,
+                                  [option._id]: quantity,
+                                }));
+                              }}
+                            />
+                          </td>
+                        </React.Fragment>
+                      )
                   )}
                 </tr>
               ))}
