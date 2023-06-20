@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
 import "./Product.css";
+import AuthService from "../../utils/auth";
 
 const Product = ({ productId }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -33,6 +34,11 @@ const Product = ({ productId }) => {
 
   const product = data?.productById;
   const handleAddToCart = () => {
+    if (!AuthService.loggedIn()) {
+      console.log("Please login/signup"); // Display the message
+      return; // Exit the function
+    }
+
     const selectedOptions = product.options.reduce((selected, option) => {
       const quantity = optionQuantities[option._id];
       if (quantity && parseInt(quantity) > 0) {
