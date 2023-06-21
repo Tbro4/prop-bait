@@ -19,6 +19,19 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  cart: [
+    {
+      option: {
+        type: Schema.Types.ObjectId,
+        ref: "Option",
+      },
+      quantity: {
+        type: Number,
+        required: true,
+        default: 1,
+      },
+    },
+  ],
 });
 
 userSchema.pre("save", async function (next) {

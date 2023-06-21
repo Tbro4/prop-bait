@@ -64,6 +64,15 @@ const resolvers = {
 
       return { token, user };
     },
+    addToCart: async (parent, { userId, options }) => {
+      const user = await User.findByIdAndUpdate(
+        userId,
+        { $push: { cart: { $each: options } } },
+        { new: true }
+      ).populate("cart.option");
+
+      return user.cart;
+    },
   },
 };
 
