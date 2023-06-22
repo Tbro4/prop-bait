@@ -23,7 +23,7 @@ const userSchema = new Schema({
     {
       option: {
         type: Schema.Types.ObjectId,
-        ref: "Option",
+        ref: "Product",
       },
       quantity: {
         type: Number,
