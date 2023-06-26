@@ -64,6 +64,38 @@ const resolvers = {
 
       return { token, user };
     },
+    addToCart: async (parent, { userId, options }) => {
+      const user = await User.findById(userId);
+
+      // Check if the user exists
+      if (!user) {
+        throw new GraphQLError("User not found");
+      }
+
+      // Loop through the options to add/update quantities in the cart
+      for (const option of options) {
+        const existingCartItemIndex = user.cart.findIndex(
+          (item) => item.option.toString() === option.option
+        );
+
+        if (existingCartItemIndex !== -1) {
+          // If the option already exists, update the quantity
+          user.cart[existingCartItemIndex].quantity += option.quantity;
+        } else {
+          // If the option doesn't exist, add it to the cart
+          user.cart.push(option);
+        }
+      }
+
+      // Save the updated user object with the modified cart
+      const updatedUser = await user.save();
+
+      // Populate the option field in the cart items
+      await updatedUser.populate("cart.option").execPopulate();
+
+      // Return the updated cart items
+      return updatedUser.cart;
+    },
   },
 };
 

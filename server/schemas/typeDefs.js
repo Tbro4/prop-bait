@@ -6,6 +6,18 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    cart: [CartItem]
+  }
+
+  type CartItem {
+    _id: ID
+    option: Option
+    quantity: Int
+  }
+
+  input CartOptionInput {
+    option: ID
+    quantity: Int
   }
 
   type Product {
@@ -85,6 +97,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addToCart(userId: ID!, options: [CartOptionInput!]): [CartItem]
   }
 `;
 

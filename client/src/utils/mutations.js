@@ -23,3 +23,23 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_TO_CART = gql`
+  mutation addToCart($userId: ID!, $options: [CartOptionInput!]!) {
+    addToCart(userId: $userId, options: $options) {
+      _id
+      option {
+        _id
+        image
+        color
+        test
+        diameter
+        size
+        weight
+        length
+        type
+      }
+      quantity
+    }
+  }
+`;

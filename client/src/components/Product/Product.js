@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
+import { ADD_TO_CART } from "../../utils/mutations";
 import "./Product.css";
 import AuthService from "../../utils/auth";
 
 const Product = ({ productId }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [optionQuantities, setOptionQuantities] = useState({});
+  const [addToCart] = useMutation(ADD_TO_CART);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
@@ -33,17 +35,18 @@ const Product = ({ productId }) => {
   }
 
   const product = data?.productById;
-  const handleAddToCart = () => {
+
+  const handleAddToCart = async () => {
     if (!AuthService.loggedIn()) {
-      console.log("Please login/signup"); // Display the message
-      return; // Exit the function
+      console.log("Please login/signup");
+      return;
     }
 
     const selectedOptions = product.options.reduce((selected, option) => {
       const quantity = optionQuantities[option._id];
       if (quantity && parseInt(quantity) > 0) {
         selected.push({
-          option: option,
+          option: option._id,
           quantity: parseInt(quantity),
         });
       }
@@ -51,7 +54,17 @@ const Product = ({ productId }) => {
     }, []);
 
     if (selectedOptions.length > 0) {
-      console.log("Options added to cart:", selectedOptions);
+      try {
+        const { data } = await addToCart({
+          variables: {
+            userId: AuthService.getProfile().data._id,
+            options: selectedOptions,
+          },
+        });
+        console.log("Options added to cart:", data.addToCart);
+      } catch (error) {
+        console.log("Error adding to cart:", error);
+      }
     } else {
       console.log("No options selected.");
     }
