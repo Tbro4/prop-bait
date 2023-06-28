@@ -60,16 +60,32 @@ const Product = ({ productId }) => {
       return;
     }
 
-    const selectedOptions = product.options.reduce((selected, option) => {
-      const quantity = optionQuantities[option._id];
+    const selectedOptions = [];
+
+    if (product?.options && product.options.length > 0) {
+      // Handle selected options if options exist
+      selectedOptions.push(
+        ...product.options.reduce((selected, option) => {
+          const quantity = optionQuantities[option._id];
+          if (quantity && parseInt(quantity) > 0) {
+            selected.push({
+              option: option._id,
+              quantity: parseInt(quantity),
+            });
+          }
+          return selected;
+        }, [])
+      );
+    } else {
+      // Handle product without options
+      const quantity = optionQuantities["singleOption"];
       if (quantity && parseInt(quantity) > 0) {
-        selected.push({
-          option: option._id,
+        selectedOptions.push({
+          option: product._id,
           quantity: parseInt(quantity),
         });
       }
-      return selected;
-    }, []);
+    }
 
     if (selectedOptions.length > 0) {
       try {
@@ -206,8 +222,29 @@ const Product = ({ productId }) => {
           </table>
         </div>
       );
+    } else {
+      // Render a single quantity field if no options exist
+      return (
+        <div>
+          <h4>No options available</h4>
+          <label>Quantity:</label>
+          <input
+            type="number"
+            min="0"
+            value={optionQuantities["singleOption"] || ""}
+            onChange={(e) => {
+              const quantity = e.target.value;
+              setOptionQuantities((prevState) => ({
+                ...prevState,
+                singleOption: quantity,
+              }));
+            }}
+            ref={quantityInputRef}
+            onWheel={(e) => e.currentTarget.blur()}
+          />
+        </div>
+      );
     }
-    return null;
   };
 
   return (

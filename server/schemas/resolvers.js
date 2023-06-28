@@ -48,15 +48,23 @@ const resolvers = {
 
       return Promise.all(
         user.cart.map(async (cartItem) => {
-          const product = await Product.findOne({
+          let product = null;
+          let option = null;
+
+          // Search for options with the given ID
+          product = await Product.findOne({
             options: { $elemMatch: { _id: cartItem.option } },
           });
 
-          const option = product
-            ? product.options.find(
-                (opt) => opt._id.toString() === cartItem.option.toString()
-              )
-            : null;
+          if (!product) {
+            // If options not found, search for products with the given ID
+            product = await Product.findById(cartItem.option);
+          } else {
+            // If options found, retrieve the specific option
+            option = product.options.find(
+              (opt) => opt._id.toString() === cartItem.option.toString()
+            );
+          }
 
           return {
             _id: cartItem._id,
