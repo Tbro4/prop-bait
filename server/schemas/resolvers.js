@@ -1,5 +1,5 @@
 const { GraphQLError } = require("graphql");
-const { User, Product, ProductSubCategory } = require("../models");
+const { User, Product, Option, ProductSubCategory } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -39,6 +39,56 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
+    userCart: async (parent, { userId }) => {
+      const user = await User.findById(userId);
+
+      if (!user) {
+        throw new GraphQLError("User not found");
+      }
+
+      return Promise.all(
+        user.cart.map(async (cartItem) => {
+          const product = await Product.findOne({
+            options: { $elemMatch: { _id: cartItem.option } },
+          });
+
+          const option = product
+            ? product.options.find(
+                (opt) => opt._id.toString() === cartItem.option.toString()
+              )
+            : null;
+
+          return {
+            _id: cartItem._id,
+            option: option || null,
+            quantity: cartItem.quantity,
+            product: product || null,
+          };
+        })
+      );
+    },
+
+    // userCart: async (parent, { userId }) => {
+    //   const user = await User.findById(userId).populate({
+    //     path: "cart.option",
+    //     model: "Option",
+    //   });
+    //   console.log(user);
+
+    //   if (!user) {
+    //     throw new GraphQLError("User not found");
+    //   }
+
+    //   return user.cart.map(async (cartItem) => {
+    //     const product = await Product.findOne({ options: cartItem.option });
+    //     return {
+    //       _id: cartItem._id,
+    //       option: cartItem.option,
+    //       quantity: cartItem.quantity,
+    //       product: product || null,
+    //     };
+    //   });
+    // },
   },
 
   Mutation: {
