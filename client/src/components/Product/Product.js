@@ -9,6 +9,7 @@ const Product = ({ productId }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [optionQuantities, setOptionQuantities] = useState({});
   const [addToCart] = useMutation(ADD_TO_CART);
+
   //Using this to disable scrolling within a qty field (scroll was causing numbers to change unintentionally)
   const quantityInputRef = useRef(null);
 
@@ -153,10 +154,10 @@ const Product = ({ productId }) => {
                     product.options[0][key] !== null && (
                       <React.Fragment key={key}>
                         <th>{key}</th>
-                        <th>Quantity</th>
                       </React.Fragment>
                     )
                 )}
+                <th>Quantity</th>
               </tr>
             </thead>
             <tbody>
@@ -179,26 +180,26 @@ const Product = ({ productId }) => {
                       value !== null && (
                         <React.Fragment key={key}>
                           <td>{value}</td>
-                          <td>
-                            <input
-                              type="number"
-                              min="0"
-                              value={optionQuantities[option._id] || ""}
-                              onChange={(e) => {
-                                const quantity = e.target.value;
-                                setOptionQuantities((prevState) => ({
-                                  ...prevState,
-                                  [option._id]: quantity,
-                                }));
-                              }}
-                              ref={quantityInputRef} // Assign the ref to the input element
-                              onWheel={(e) => e.currentTarget.blur()} // Disable scrolling on wheel event
-                              // onKeyUp={(e) => e.currentTarget.blur()} // Disable scrolling on key up event
-                            />
-                          </td>
                         </React.Fragment>
                       )
                   )}
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      value={optionQuantities[option._id] || ""}
+                      onChange={(e) => {
+                        const quantity = e.target.value;
+                        setOptionQuantities((prevState) => ({
+                          ...prevState,
+                          [option._id]: quantity,
+                        }));
+                      }}
+                      ref={quantityInputRef} // Assign the ref to the input element
+                      onWheel={(e) => e.currentTarget.blur()} // Disable scrolling on wheel event
+                      // onKeyUp={(e) => e.currentTarget.blur()} // Disable scrolling on key up event
+                    />
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -221,7 +222,7 @@ const Product = ({ productId }) => {
         <div className="Singleproduct-details">
           <h3>{product.name}</h3>
           <h4>{product.price}</h4>
-          <p>Description: {product.description}</p>
+          <p>{product.description}</p>
         </div>
       </div>
       {renderMeasurements()}
