@@ -13,6 +13,7 @@ const typeDefs = gql`
     _id: ID
     option: Option
     quantity: Int
+    product: Product
   }
 
   input CartOptionInput {
@@ -92,6 +93,8 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     products: [Product]
+
+    userCart(userId: ID!): [CartItem]
   }
 
   type Mutation {

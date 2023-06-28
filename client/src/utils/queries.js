@@ -110,3 +110,22 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_USER_CART = gql`
+  query UserCart($userId: ID!) {
+    userCart(userId: $userId) {
+      _id
+      option {
+        _id
+        image
+        color
+      }
+      quantity
+      product {
+        name
+        price
+        image
+      }
+    }
+  }
+`;

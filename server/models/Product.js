@@ -92,5 +92,6 @@ const productSchema = new Schema({
 });
 
 const Product = model("Product", productSchema);
+const Option = model("Option", optionSchema);
 
-module.exports = Product;
+module.exports = { Product, Option };
