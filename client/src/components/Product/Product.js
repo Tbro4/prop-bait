@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
 import { ADD_TO_CART } from "../../utils/mutations";
@@ -9,6 +9,23 @@ const Product = ({ productId }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [optionQuantities, setOptionQuantities] = useState({});
   const [addToCart] = useMutation(ADD_TO_CART);
+  //Using this to disable scrolling within a qty field (scroll was causing numbers to change unintentionally)
+  const quantityInputRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = (e) => {
+      const { target } = e;
+      if (target === quantityInputRef.current) {
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: false });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
@@ -174,6 +191,9 @@ const Product = ({ productId }) => {
                                   [option._id]: quantity,
                                 }));
                               }}
+                              ref={quantityInputRef} // Assign the ref to the input element
+                              onWheel={(e) => e.currentTarget.blur()} // Disable scrolling on wheel event
+                              // onKeyUp={(e) => e.currentTarget.blur()} // Disable scrolling on key up event
                             />
                           </td>
                         </React.Fragment>
