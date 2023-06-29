@@ -119,6 +119,12 @@ export const QUERY_USER_CART = gql`
         _id
         image
         color
+        test
+        diameter
+        size
+        weight
+        length
+        type
       }
       quantity
       product {
