@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER_CART } from "../../utils/queries";
 import AuthService from "../../utils/auth";
@@ -12,25 +12,6 @@ const Cart = () => {
     variables: { userId },
   });
 
-  const cartContainerRef = useRef(null);
-
-  useEffect(() => {
-    if (cartContainerRef.current) {
-      const cartItems =
-        cartContainerRef.current.getElementsByClassName("cart-item-details");
-      let maxWidth = 0;
-
-      for (let i = 0; i < cartItems.length; i++) {
-        const width = cartItems[i].offsetWidth;
-        maxWidth = Math.max(maxWidth, width);
-      }
-
-      for (let i = 0; i < cartItems.length; i++) {
-        cartItems[i].style.width = `${maxWidth}px`;
-      }
-    }
-  }, [data]);
-
   if (loading) {
     return <p>Loading cart data...</p>;
   }
@@ -42,50 +23,61 @@ const Cart = () => {
   const userCart = data.userCart;
 
   return (
-    <div className="cart-container" ref={cartContainerRef}>
+    <div className="cart-container">
       <br />
       <h1>{profile.data.username}'s cart</h1>
 
-      {userCart.map((item) => (
-        <div key={item._id} className="cart-item">
-          {item.option && item.option.image ? (
-            <img
-              className="option-image cart-image"
-              src={require(`../../images/${item.option.image}`)}
-              alt="Product"
-            />
-          ) : (
-            <img
-              className="option-image cart-image"
-              src={require(`../../images/${item.product.image}`)}
-              alt="Product"
-            />
-          )}
-          <div className="cart-item-details">
-            <p className="cart-item-name">{item.product.name}</p>
-            {item.option &&
-              Object.entries(item.option).map(([key, value]) => {
-                if (
-                  value &&
-                  key !== "__typename" &&
-                  key !== "_id" &&
-                  key !== "image"
-                ) {
-                  return (
-                    <p key={key} className="cart-item-options">
-                      {key}: {value}
-                    </p>
-                  );
-                }
-                return null;
-              })}
-          </div>
-          <div className="cart-qty-price">
-            <p className="cart-item-quantity">Quantity: {item.quantity}</p>
-            <p className="cart-item-price">${item.product.price}</p>
-          </div>
+      <div className="cart-checkout">
+        <div className="cart-items">
+          {userCart.map((item) => (
+            <div key={item._id} className="cart-item">
+              {item.option && item.option.image ? (
+                <img
+                  className="option-image cart-image"
+                  src={require(`../../images/${item.option.image}`)}
+                  alt="Product"
+                />
+              ) : (
+                <img
+                  className="option-image cart-image"
+                  src={require(`../../images/${item.product.image}`)}
+                  alt="Product"
+                />
+              )}
+              <div className="cart-item-details">
+                <p className="cart-item-name">{item.product.name}</p>
+                {item.option &&
+                  Object.entries(item.option).map(([key, value]) => {
+                    if (
+                      value &&
+                      key !== "__typename" &&
+                      key !== "_id" &&
+                      key !== "image"
+                    ) {
+                      return (
+                        <p key={key} className="cart-item-options">
+                          {key}: {value}
+                        </p>
+                      );
+                    }
+                    return null;
+                  })}
+              </div>
+              <div className="cart-qty-price">
+                <p className="cart-item-quantity">Quantity: {item.quantity}</p>
+                <p className="cart-item-price">${item.product.price}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+        <div className="checkout">
+          <p>subtotal</p>
+          <p>shipping</p>
+          <p>tax</p>
+          <p>total</p>
+          <button>CHECKOUT</button>
+        </div>
+      </div>
     </div>
   );
 };
