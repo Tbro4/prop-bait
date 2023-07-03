@@ -22,6 +22,20 @@ const Cart = () => {
 
   const userCart = data.userCart;
 
+  let subtotal = 0;
+  let shippingRate = 0.03;
+  let taxRate = 0.05;
+
+  // Calculate subtotal
+  userCart.forEach((item) => {
+    const itemSubtotal = parseFloat(item.product.price) * item.quantity;
+    subtotal += itemSubtotal;
+  });
+
+  const taxAmount = subtotal * taxRate;
+  const shippingAmount = subtotal * shippingRate;
+  const totalCost = subtotal + shippingAmount + taxAmount;
+
   return (
     <div className="cart-container">
       <br />
@@ -76,11 +90,11 @@ const Cart = () => {
           ))}
         </div>
         <div className="checkout">
-          <p>subtotal</p>
-          <p>shipping</p>
-          <p>tax</p>
-          <p>total</p>
-          <button>CHECKOUT</button>
+          <p className="subtotal">subtotal: ${subtotal.toFixed(2)}</p>
+          <p className="shipping">shipping: ${shippingAmount.toFixed(2)}</p>
+          <p className="tax">tax: ${taxAmount.toFixed(2)}</p>
+          <p className="total">total: ${totalCost.toFixed(2)}</p>
+          <button className="checkout-button">CHECKOUT</button>
         </div>
       </div>
     </div>
