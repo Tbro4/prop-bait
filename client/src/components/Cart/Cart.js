@@ -63,9 +63,14 @@ const Cart = () => {
                     return null;
                   })}
               </div>
+
               <div className="cart-qty-price">
                 <p className="cart-item-quantity">Quantity: {item.quantity}</p>
                 <p className="cart-item-price">${item.product.price}</p>
+                <p className="cart-item-subtotal">
+                  Subtotal: $
+                  {parseFloat(item.product.price * item.quantity).toFixed(2)}
+                </p>
               </div>
             </div>
           ))}
