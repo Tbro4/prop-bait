@@ -106,6 +106,8 @@ const typeDefs = gql`
       cartItemId: ID!
       quantity: Int!
     ): CartItem
+
+    removeCartItem(userId: ID!, cartItemId: ID!): CartItem
   }
 `;
 

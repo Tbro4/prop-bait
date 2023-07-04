@@ -1,12 +1,16 @@
 import React from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_CART } from "../../utils/queries";
-import { UPDATE_CART_ITEM_QUANTITY } from "../../utils/mutations";
+import {
+  UPDATE_CART_ITEM_QUANTITY,
+  REMOVE_CART_ITEM,
+} from "../../utils/mutations";
 import AuthService from "../../utils/auth";
 import "./Cart.css";
 
 const Cart = () => {
   const [updateCartItemQuantity] = useMutation(UPDATE_CART_ITEM_QUANTITY);
+  const [removeCartItem] = useMutation(REMOVE_CART_ITEM);
   const profile = AuthService.getProfile();
   const userId = profile ? profile.data._id : null;
 
@@ -14,6 +18,18 @@ const Cart = () => {
     try {
       await updateCartItemQuantity({
         variables: { userId, cartItemId, quantity: newQuantity },
+        refetchQueries: [{ query: QUERY_USER_CART, variables: { userId } }],
+      });
+      // Optional: Show success message or perform any other action
+    } catch (err) {
+      // Handle error
+    }
+  };
+
+  const handleRemoveItem = async (cartItemId) => {
+    try {
+      await removeCartItem({
+        variables: { userId, cartItemId },
         refetchQueries: [{ query: QUERY_USER_CART, variables: { userId } }],
       });
       // Optional: Show success message or perform any other action
@@ -108,6 +124,12 @@ const Cart = () => {
                   Subtotal: $
                   {parseFloat(item.product.price * item.quantity).toFixed(2)}
                 </p>
+                <button
+                  className="remove-item-button"
+                  onClick={() => handleRemoveItem(item._id)}
+                >
+                  Remove
+                </button>
               </div>
             </div>
           ))}

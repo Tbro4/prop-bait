@@ -61,3 +61,13 @@ export const UPDATE_CART_ITEM_QUANTITY = gql`
     }
   }
 `;
+
+export const REMOVE_CART_ITEM = gql`
+  mutation removeCartItem($userId: ID!, $cartItemId: ID!) {
+    removeCartItem(userId: $userId, cartItemId: $cartItemId) {
+      _id
+      quantity
+      # Include any other fields you need in the response
+    }
+  }
+`;

@@ -190,6 +190,38 @@ const resolvers = {
       );
       return updatedCartItem;
     },
+    removeCartItem: async (parent, { userId, cartItemId }) => {
+      const user = await User.findById(userId);
+
+      // Check if the user exists
+      if (!user) {
+        throw new GraphQLError("User not found");
+      }
+
+      // Find the index of the cart item to remove
+      const cartItemIndex = user.cart.findIndex(
+        (item) => item._id.toString() === cartItemId
+      );
+
+      // Check if the cart item exists
+      if (cartItemIndex !== -1) {
+        // Remove the cart item from the cart array
+        user.cart.splice(cartItemIndex, 1);
+      } else {
+        throw new GraphQLError("Cart item not found");
+      }
+
+      // Save the updated user object with the modified cart
+      const updatedUser = await user.save();
+
+      // Populate the option field in the updated cart item
+      await updatedUser.populate("cart.option").execPopulate();
+
+      // Return the removed cart item
+      return updatedUser.cart.find(
+        (item) => item._id.toString() === cartItemId
+      );
+    },
   },
 };
 
