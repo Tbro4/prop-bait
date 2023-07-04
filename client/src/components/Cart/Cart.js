@@ -139,19 +139,19 @@ const Cart = () => {
         </div>
         <div className="checkout">
           <div className="subtotal-container">
-            <p className="subtotal">subtotal:</p>
+            <p className="subtotal">Subtotal:</p>
             <p className="subtotal-amount">${subtotal.toFixed(2)}</p>
           </div>
           <div className="shipping-container">
-            <p className="shipping">shipping:</p>
+            <p className="shipping">Shipping:</p>
             <p className="shipping-amount">${shippingAmount.toFixed(2)}</p>
           </div>
           <div className="tax-container">
-            <p className="tax">tax:</p>
+            <p className="tax">Est. tax:</p>
             <p className="tax-amount">${taxAmount.toFixed(2)}</p>
           </div>
           <div className="total-container">
-            <p className="total">total:</p>
+            <p className="total">TOTAL:</p>
             <p className="total-amount">${totalCost.toFixed(2)}</p>
           </div>
           <button className="checkout-button">CHECKOUT</button>
