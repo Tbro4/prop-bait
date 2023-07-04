@@ -110,19 +110,17 @@ const Cart = () => {
 
               <div className="cart-qty-price">
                 <p className="cart-item-quantity">
-                  Quantity:{" "}
+                  Qty:{" "}
                   <input
+                    className="qty-input"
                     type="number"
+                    min={0}
+                    max={99}
                     value={item.quantity}
                     onChange={(e) =>
                       handleQuantityChange(item._id, parseInt(e.target.value))
                     }
                   />
-                </p>
-                <p className="cart-item-price">${item.product.price}</p>
-                <p className="cart-item-subtotal">
-                  Subtotal: $
-                  {parseFloat(item.product.price * item.quantity).toFixed(2)}
                 </p>
                 <button
                   className="remove-item-button"
@@ -130,15 +128,32 @@ const Cart = () => {
                 >
                   Remove
                 </button>
+                <p className="cart-item-price">${item.product.price}</p>
+                <p className="cart-item-subtotal">
+                  Subtotal: $
+                  {parseFloat(item.product.price * item.quantity).toFixed(2)}
+                </p>
               </div>
             </div>
           ))}
         </div>
         <div className="checkout">
-          <p className="subtotal">subtotal: ${subtotal.toFixed(2)}</p>
-          <p className="shipping">shipping: ${shippingAmount.toFixed(2)}</p>
-          <p className="tax">tax: ${taxAmount.toFixed(2)}</p>
-          <p className="total">total: ${totalCost.toFixed(2)}</p>
+          <div className="subtotal-container">
+            <p className="subtotal">subtotal:</p>
+            <p className="subtotal-amount">${subtotal.toFixed(2)}</p>
+          </div>
+          <div className="shipping-container">
+            <p className="shipping">shipping:</p>
+            <p className="shipping-amount">${shippingAmount.toFixed(2)}</p>
+          </div>
+          <div className="tax-container">
+            <p className="tax">tax:</p>
+            <p className="tax-amount">${taxAmount.toFixed(2)}</p>
+          </div>
+          <div className="total-container">
+            <p className="total">total:</p>
+            <p className="total-amount">${totalCost.toFixed(2)}</p>
+          </div>
           <button className="checkout-button">CHECKOUT</button>
         </div>
       </div>

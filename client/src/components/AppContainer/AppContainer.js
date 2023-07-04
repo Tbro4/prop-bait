@@ -62,7 +62,13 @@ const AppContainer = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div>
+      <div
+        //CSS files can access these styles
+        style={{
+          "--primary-color": theme.palette.primary.main,
+          "--secondary-color": theme.palette.secondary.main,
+        }}
+      >
         <AppBarTop
           onCategoryClick={handleCategoryClick}
           onSubCategoryClick={handleSubCategoryClick}

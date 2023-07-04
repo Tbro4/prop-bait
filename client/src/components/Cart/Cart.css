@@ -24,7 +24,7 @@ h1 {
   align-items: flex-start;
   margin-bottom: 20px;
   padding-bottom: 2em;
-  border-bottom: 0.5px solid #00bcd4;
+  border-bottom: 0.5px solid var(--primary-color);
 }
 
 .cart-image {
@@ -58,7 +58,22 @@ h1 {
 .checkout {
   width: 25%;
   margin-top: 20px;
-  text-align: center;
+  /* text-align: center; */
+}
+
+.subtotal-container,
+.shipping-container,
+.tax-container,
+.total-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtotal,
+.shipping,
+.tax,
+.total {
+  padding-left: 2em;
 }
 
 .checkout p {
@@ -67,10 +82,15 @@ h1 {
 
 .checkout button {
   padding: 10px 20px;
-  background-color: #4caf50;
+  margin-top: 2em;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   cursor: pointer;
+}
+
+.qty-input {
+  width: 20px;
 }
 
 @media (max-width: 600px) {
@@ -119,7 +139,23 @@ h1 {
   }
 
   .checkout {
-    flex-wrap: wrap;
+    margin: 0px;
+    width: 100%;
+  }
+
+  .subtotal-amount,
+  .shipping-amount,
+  .tax-amount,
+  .total-amount {
+    padding-right: 2em;
+  }
+
+  .subtotal-container,
+  .shipping-container,
+  .tax-container,
+  .total-container {
+    display: flex;
+    justify-content: space-between;
   }
 }
 @media (max-width: 400px) {
