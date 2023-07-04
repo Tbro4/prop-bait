@@ -1,12 +1,26 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_CART } from "../../utils/queries";
+import { UPDATE_CART_ITEM_QUANTITY } from "../../utils/mutations";
 import AuthService from "../../utils/auth";
 import "./Cart.css";
 
 const Cart = () => {
+  const [updateCartItemQuantity] = useMutation(UPDATE_CART_ITEM_QUANTITY);
   const profile = AuthService.getProfile();
   const userId = profile ? profile.data._id : null;
+
+  const handleQuantityChange = async (cartItemId, newQuantity) => {
+    try {
+      await updateCartItemQuantity({
+        variables: { userId, cartItemId, quantity: newQuantity },
+        refetchQueries: [{ query: QUERY_USER_CART, variables: { userId } }],
+      });
+      // Optional: Show success message or perform any other action
+    } catch (err) {
+      // Handle error
+    }
+  };
 
   const { loading, error, data } = useQuery(QUERY_USER_CART, {
     variables: { userId },
@@ -79,7 +93,16 @@ const Cart = () => {
               </div>
 
               <div className="cart-qty-price">
-                <p className="cart-item-quantity">Quantity: {item.quantity}</p>
+                <p className="cart-item-quantity">
+                  Quantity:{" "}
+                  <input
+                    type="number"
+                    value={item.quantity}
+                    onChange={(e) =>
+                      handleQuantityChange(item._id, parseInt(e.target.value))
+                    }
+                  />
+                </p>
                 <p className="cart-item-price">${item.product.price}</p>
                 <p className="cart-item-subtotal">
                   Subtotal: $

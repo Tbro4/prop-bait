@@ -154,6 +154,42 @@ const resolvers = {
       // Return the updated cart items
       return updatedUser.cart;
     },
+
+    updateCartItemQuantity: async (
+      parent,
+      { userId, cartItemId, quantity }
+    ) => {
+      const user = await User.findById(userId);
+
+      // Check if the user exists
+      if (!user) {
+        throw new GraphQLError("User not found");
+      }
+
+      // Find the cart item by ID
+      const cartItem = user.cart.find(
+        (item) => item._id.toString() === cartItemId
+      );
+
+      // Update the quantity if the cart item exists
+      if (cartItem) {
+        cartItem.quantity = quantity;
+      } else {
+        throw new GraphQLError("Cart item not found");
+      }
+
+      // Save the updated user object with the modified cart
+      const updatedUser = await user.save();
+
+      // Populate the option field in the updated cart item
+      await updatedUser.populate("cart.option").execPopulate();
+
+      // Find and return the updated cart item
+      const updatedCartItem = updatedUser.cart.find(
+        (item) => item._id.toString() === cartItemId
+      );
+      return updatedCartItem;
+    },
   },
 };
 

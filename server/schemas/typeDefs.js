@@ -101,6 +101,11 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addToCart(userId: ID!, options: [CartOptionInput!]): [CartItem]
+    updateCartItemQuantity(
+      userId: ID!
+      cartItemId: ID!
+      quantity: Int!
+    ): CartItem
   }
 `;
 
