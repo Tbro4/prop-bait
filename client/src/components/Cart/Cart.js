@@ -10,11 +10,18 @@ import Button from "@mui/material/Button";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "./Cart.css";
 
-const Cart = () => {
+const Cart = ({ setView }) => {
   const [updateCartItemQuantity] = useMutation(UPDATE_CART_ITEM_QUANTITY);
   const [removeCartItem] = useMutation(REMOVE_CART_ITEM);
   const profile = AuthService.getProfile();
   const userId = profile ? profile.data._id : null;
+
+  useEffect(() => {
+    if (!profile) {
+      // User is not logged in, handle the situation (e.g., redirect to login page)
+      setView("account");
+    }
+  }, [profile]);
 
   const handleQuantityChange = async (cartItemId, newQuantity) => {
     try {
