@@ -18,10 +18,10 @@ const Cart = ({ setView }) => {
 
   useEffect(() => {
     if (!profile) {
-      // User is not logged in, handle the situation (e.g., redirect to login page)
+      // User is not logged in, load account login/signup component.
       setView("account");
     }
-  }, [profile]);
+  }, [profile, setView]);
 
   const handleQuantityChange = async (cartItemId, newQuantity) => {
     try {
@@ -53,7 +53,7 @@ const Cart = ({ setView }) => {
   //ensures the latest cart data is fetched when Cart.js is rendered
   useEffect(() => {
     refetch();
-  }, [refetch, QUERY_USER_CART, userId]);
+  }, [refetch, userId]);
 
   if (loading) {
     return <p>Loading cart data...</p>;
