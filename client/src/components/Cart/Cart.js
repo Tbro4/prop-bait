@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_CART } from "../../utils/queries";
 import {
@@ -40,9 +40,13 @@ const Cart = () => {
     }
   };
 
-  const { loading, error, data } = useQuery(QUERY_USER_CART, {
+  const { loading, error, data, refetch } = useQuery(QUERY_USER_CART, {
     variables: { userId },
   });
+  //ensures the latest cart data is fetched when Cart.js is rendered
+  useEffect(() => {
+    refetch();
+  }, [refetch, QUERY_USER_CART, userId]);
 
   if (loading) {
     return <p>Loading cart data...</p>;
@@ -147,7 +151,7 @@ const Cart = () => {
                     <DeleteForeverIcon classes={{ root: "custom-icon-root" }} />
                   </Button>
                 </div>
-                <p className="cart-item-price">${item.product.price}</p>
+                <p className="cart-item-price">${item.product.price}ea</p>
                 <p className="cart-item-subtotal">
                   Subtotal: $
                   {parseFloat(item.product.price * item.quantity).toFixed(2)}

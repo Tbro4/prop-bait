@@ -75,28 +75,6 @@ const resolvers = {
         })
       );
     },
-
-    // userCart: async (parent, { userId }) => {
-    //   const user = await User.findById(userId).populate({
-    //     path: "cart.option",
-    //     model: "Option",
-    //   });
-    //   console.log(user);
-
-    //   if (!user) {
-    //     throw new GraphQLError("User not found");
-    //   }
-
-    //   return user.cart.map(async (cartItem) => {
-    //     const product = await Product.findOne({ options: cartItem.option });
-    //     return {
-    //       _id: cartItem._id,
-    //       option: cartItem.option,
-    //       quantity: cartItem.quantity,
-    //       product: product || null,
-    //     };
-    //   });
-    // },
   },
 
   Mutation: {
