@@ -1,5 +1,47 @@
 /* Cart.css */
 
+/* CSS */
+.checkout-button {
+  background-image: linear-gradient(
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border: 0;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.9em;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.custom-button-root {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* .custom-icon-root {
+  
+} */
+
+.qty-delete {
+  display: flex;
+  flex-direction: row;
+}
+
+.remove-item-delete {
+  padding: 0;
+}
+
 .cart-container {
   text-align: center;
   padding-bottom: 10em;
@@ -94,7 +136,7 @@ h1 {
 }
 
 .qty-input {
-  width: 20px;
+  width: 35px;
 }
 
 .total-container {
@@ -139,6 +181,10 @@ h1 {
     padding-left: 0.5em;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .qty-input {
+    width: 20px;
   }
 
   .cart-checkout {

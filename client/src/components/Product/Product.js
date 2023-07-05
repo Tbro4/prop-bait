@@ -203,17 +203,21 @@ const Product = ({ productId }) => {
                     <input
                       type="number"
                       min="0"
+                      max="99" // Set the maximum value to 99
                       value={optionQuantities[option._id] || ""}
                       onChange={(e) => {
-                        const quantity = e.target.value;
+                        let quantity = e.target.value;
+                        // Ensure the quantity is within the valid range
+                        if (quantity > 99) {
+                          quantity = 99;
+                        }
                         setOptionQuantities((prevState) => ({
                           ...prevState,
                           [option._id]: quantity,
                         }));
                       }}
-                      ref={quantityInputRef} // Assign the ref to the input element
-                      onWheel={(e) => e.currentTarget.blur()} // Disable scrolling on wheel event
-                      // onKeyUp={(e) => e.currentTarget.blur()} // Disable scrolling on key up event
+                      ref={quantityInputRef}
+                      onWheel={(e) => e.currentTarget.blur()}
                     />
                   </td>
                 </tr>

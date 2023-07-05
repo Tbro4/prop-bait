@@ -136,12 +136,22 @@ const resolvers = {
           (item) => item.option.toString() === option.option
         );
 
+        let updatedQuantity = option.quantity; // Initialize with the new quantity
+
         if (existingCartItemIndex !== -1) {
-          // If the option already exists, update the quantity
-          user.cart[existingCartItemIndex].quantity += option.quantity;
+          // If the option already exists, update the quantity while limiting it to 99
+          const currentQuantity = user.cart[existingCartItemIndex].quantity;
+          updatedQuantity = Math.min(currentQuantity + option.quantity, 99);
         } else {
-          // If the option doesn't exist, add it to the cart
-          user.cart.push(option);
+          // If the option doesn't exist, limit the quantity to 99
+          updatedQuantity = Math.min(option.quantity, 99);
+        }
+
+        // Update the quantity in the cart
+        if (existingCartItemIndex !== -1) {
+          user.cart[existingCartItemIndex].quantity = updatedQuantity;
+        } else {
+          user.cart.push({ option: option.option, quantity: updatedQuantity });
         }
       }
 

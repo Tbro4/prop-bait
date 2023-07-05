@@ -6,6 +6,8 @@ import {
   REMOVE_CART_ITEM,
 } from "../../utils/mutations";
 import AuthService from "../../utils/auth";
+import Button from "@mui/material/Button";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "./Cart.css";
 
 const Cart = () => {
@@ -98,9 +100,12 @@ const Cart = () => {
                       key !== "_id" &&
                       key !== "image"
                     ) {
+                      //capitalize first letter of each key
+                      const capitalizedKey =
+                        key.charAt(0).toUpperCase() + key.slice(1);
                       return (
                         <p key={key} className="cart-item-options">
-                          {key}: {value}
+                          {capitalizedKey}: {value}
                         </p>
                       );
                     }
@@ -109,25 +114,39 @@ const Cart = () => {
               </div>
 
               <div className="cart-qty-price">
-                <p className="cart-item-quantity">
-                  Qty:{" "}
-                  <input
-                    className="qty-input"
-                    type="number"
-                    min={0}
-                    max={99}
-                    value={item.quantity}
-                    onChange={(e) =>
-                      handleQuantityChange(item._id, parseInt(e.target.value))
-                    }
-                  />
-                </p>
-                <button
-                  className="remove-item-button"
-                  onClick={() => handleRemoveItem(item._id)}
-                >
-                  Remove
-                </button>
+                <div className="qty-delete">
+                  <p className="cart-item-quantity">
+                    Qty:{" "}
+                    <input
+                      className="qty-input"
+                      type="number"
+                      value={item.quantity}
+                      onChange={(e) => {
+                        let value = e.target.value;
+
+                        // Enforce maximum length of 2 digits
+                        if (value.length > 2) {
+                          value = value.slice(0, 2);
+                        }
+
+                        // Remove leading zeros. (Allows us to delete both numbers and have a 0 for quantity)
+                        value = value.replace(/^0+/, "");
+
+                        // Update the input value and pass it to the handler function
+                        e.target.value = value;
+                        handleQuantityChange(item._id, parseInt(value) || 0);
+                      }}
+                    />
+                  </p>
+
+                  <Button
+                    className="remove-item-button"
+                    onClick={() => handleRemoveItem(item._id)}
+                    classes={{ root: "custom-button-root" }}
+                  >
+                    <DeleteForeverIcon classes={{ root: "custom-icon-root" }} />
+                  </Button>
+                </div>
                 <p className="cart-item-price">${item.product.price}</p>
                 <p className="cart-item-subtotal">
                   Subtotal: $
