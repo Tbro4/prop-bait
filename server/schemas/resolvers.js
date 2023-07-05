@@ -75,28 +75,6 @@ const resolvers = {
         })
       );
     },
-
-    // userCart: async (parent, { userId }) => {
-    //   const user = await User.findById(userId).populate({
-    //     path: "cart.option",
-    //     model: "Option",
-    //   });
-    //   console.log(user);
-
-    //   if (!user) {
-    //     throw new GraphQLError("User not found");
-    //   }
-
-    //   return user.cart.map(async (cartItem) => {
-    //     const product = await Product.findOne({ options: cartItem.option });
-    //     return {
-    //       _id: cartItem._id,
-    //       option: cartItem.option,
-    //       quantity: cartItem.quantity,
-    //       product: product || null,
-    //     };
-    //   });
-    // },
   },
 
   Mutation: {
@@ -136,12 +114,22 @@ const resolvers = {
           (item) => item.option.toString() === option.option
         );
 
+        let updatedQuantity = option.quantity; // Initialize with the new quantity
+
         if (existingCartItemIndex !== -1) {
-          // If the option already exists, update the quantity
-          user.cart[existingCartItemIndex].quantity += option.quantity;
+          // If the option already exists, update the quantity while limiting it to 99
+          const currentQuantity = user.cart[existingCartItemIndex].quantity;
+          updatedQuantity = Math.min(currentQuantity + option.quantity, 99);
         } else {
-          // If the option doesn't exist, add it to the cart
-          user.cart.push(option);
+          // If the option doesn't exist, limit the quantity to 99
+          updatedQuantity = Math.min(option.quantity, 99);
+        }
+
+        // Update the quantity in the cart
+        if (existingCartItemIndex !== -1) {
+          user.cart[existingCartItemIndex].quantity = updatedQuantity;
+        } else {
+          user.cart.push({ option: option.option, quantity: updatedQuantity });
         }
       }
 
@@ -153,6 +141,74 @@ const resolvers = {
 
       // Return the updated cart items
       return updatedUser.cart;
+    },
+
+    updateCartItemQuantity: async (
+      parent,
+      { userId, cartItemId, quantity }
+    ) => {
+      const user = await User.findById(userId);
+
+      // Check if the user exists
+      if (!user) {
+        throw new GraphQLError("User not found");
+      }
+
+      // Find the cart item by ID
+      const cartItem = user.cart.find(
+        (item) => item._id.toString() === cartItemId
+      );
+
+      // Update the quantity if the cart item exists
+      if (cartItem) {
+        cartItem.quantity = quantity;
+      } else {
+        throw new GraphQLError("Cart item not found");
+      }
+
+      // Save the updated user object with the modified cart
+      const updatedUser = await user.save();
+
+      // Populate the option field in the updated cart item
+      await updatedUser.populate("cart.option").execPopulate();
+
+      // Find and return the updated cart item
+      const updatedCartItem = updatedUser.cart.find(
+        (item) => item._id.toString() === cartItemId
+      );
+      return updatedCartItem;
+    },
+    removeCartItem: async (parent, { userId, cartItemId }) => {
+      const user = await User.findById(userId);
+
+      // Check if the user exists
+      if (!user) {
+        throw new GraphQLError("User not found");
+      }
+
+      // Find the index of the cart item to remove
+      const cartItemIndex = user.cart.findIndex(
+        (item) => item._id.toString() === cartItemId
+      );
+
+      // Check if the cart item exists
+      if (cartItemIndex !== -1) {
+        // Remove the cart item from the cart array
+        user.cart.splice(cartItemIndex, 1);
+      } else {
+        throw new GraphQLError("Cart item not found");
+      }
+
+      // Save the updated user object with the modified cart
+      const updatedUser = await user.save();
+
+      // Populate the option field in the updated cart item
+      await updatedUser.populate("cart.option").execPopulate();
+
+      // Return the removed cart item
+      return updatedUser.cart.find(
+        (item) => item._id.toString() === cartItemId
+      );
     },
   },
 };

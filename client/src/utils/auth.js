@@ -2,7 +2,16 @@ import decode from "jwt-decode";
 
 class AuthService {
   getProfile() {
-    return decode(this.getToken());
+    const token = this.getToken();
+    if (!token) {
+      return null; // No token available, user is not logged in
+    }
+
+    try {
+      return decode(token);
+    } catch (error) {
+      return null; // Invalid token, user is not logged in
+    }
   }
 
   loggedIn() {
