@@ -235,9 +235,13 @@ const Product = ({ productId }) => {
           <input
             type="number"
             min="0"
+            max="99"
             value={optionQuantities["singleOption"] || ""}
             onChange={(e) => {
-              const quantity = e.target.value;
+              let quantity = e.target.value;
+              if (quantity > 99) {
+                quantity = 99;
+              }
               setOptionQuantities((prevState) => ({
                 ...prevState,
                 singleOption: quantity,
