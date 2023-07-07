@@ -17,6 +17,46 @@
   height: auto;
 }
 
+.filter {
+  display: flex;
+  flex-direction: column; /* Updated */
+  align-items: flex-start; /* Updated */
+  margin-top: 20px;
+}
+
+.filter label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filter input {
+  margin-right: 5px;
+}
+
+.sort-filter select {
+  font-size: 20px; /* Adjust the font size according to your needs */
+}
+
+.filter-title {
+  display: flex;
+  flex-direction: row;
+}
+
+.clear-button {
+  color: rgb(204, 65, 65);
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 2em;
+  font: inherit;
+  cursor: pointer;
+}
+
+.filter-btn {
+  margin-top: 90px;
+}
+
 @media (min-width: 768px) {
   .sub-categories {
     overflow-x: unset;
@@ -82,6 +122,10 @@
 /* Media Query for smaller screens */
 @media (max-width: 768px) {
   .products h3 {
+    font-size: 14px;
+  }
+
+  .sub-names h3 {
     font-size: 14px;
   }
 }

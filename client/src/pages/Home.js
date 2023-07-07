@@ -20,24 +20,8 @@ const Home = ({
   onProductClick,
   onGoBack,
 }) => {
-  const handleGoBack = () => {
-    onGoBack(previousView);
-  };
-
   return (
     <div>
-      {view !== "mainCategories" &&
-        view !== "account" &&
-        view !== "cart" &&
-        view !== "login" &&
-        view !== "signup" && (
-          <>
-            <button onClick={handleGoBack} style={{ marginTop: "10px" }}>
-              Go Back
-            </button>
-          </>
-        )}
-
       {view === "mainCategories" && (
         <MainCategories onCategoryClick={onCategoryClick} />
       )}
@@ -47,6 +31,8 @@ const Home = ({
           category={selectedCategory}
           onSubCategoryClick={onSubCategoryClick}
           onProductClick={onProductClick}
+          onGoBack={onGoBack}
+          previousView={previousView}
         />
       )}
 
@@ -54,10 +40,18 @@ const Home = ({
         <Products
           subCategory={selectedSubCategory}
           onProductClick={onProductClick}
+          onGoBack={onGoBack}
+          previousView={previousView}
         />
       )}
 
-      {view === "product" && <Product productId={selectedProduct} />}
+      {view === "product" && (
+        <Product
+          productId={selectedProduct}
+          onGoBack={onGoBack}
+          previousView={previousView}
+        />
+      )}
 
       {view === "cart" && <Cart view={view} setView={setView} />}
 

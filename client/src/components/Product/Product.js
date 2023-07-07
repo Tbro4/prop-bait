@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
 import { ADD_TO_CART } from "../../utils/mutations";
+import Button from "@mui/material/Button";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "./Product.css";
 import AuthService from "../../utils/auth";
 
-const Product = ({ productId }) => {
+const Product = ({ productId, onGoBack, previousView }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [optionQuantities, setOptionQuantities] = useState({});
   const [addToCart] = useMutation(ADD_TO_CART);
@@ -102,6 +104,10 @@ const Product = ({ productId }) => {
     } else {
       console.log("No options selected.");
     }
+  };
+
+  const handleGoBack = () => {
+    onGoBack(previousView);
   };
 
   const renderMeasurements = () => {
@@ -235,9 +241,13 @@ const Product = ({ productId }) => {
           <input
             type="number"
             min="0"
+            max="99"
             value={optionQuantities["singleOption"] || ""}
             onChange={(e) => {
-              const quantity = e.target.value;
+              let quantity = e.target.value;
+              if (quantity > 99) {
+                quantity = 99;
+              }
               setOptionQuantities((prevState) => ({
                 ...prevState,
                 singleOption: quantity,
@@ -253,6 +263,13 @@ const Product = ({ productId }) => {
 
   return (
     <div className="Singleproduct">
+      <Button
+        className="go-back"
+        onClick={handleGoBack}
+        style={{ marginTop: "10px" }}
+      >
+        <ArrowBackIosIcon />
+      </Button>
       <div className="Singleproduct-info">
         <div className="Singleproduct-image">
           <img
