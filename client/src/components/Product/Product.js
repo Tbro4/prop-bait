@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
 import { ADD_TO_CART } from "../../utils/mutations";
+import Button from "@mui/material/Button";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "./Product.css";
 import AuthService from "../../utils/auth";
 
@@ -261,9 +263,13 @@ const Product = ({ productId, onGoBack, previousView }) => {
 
   return (
     <div className="Singleproduct">
-      <button onClick={handleGoBack} style={{ marginTop: "10px" }}>
-        Go BACK
-      </button>
+      <Button
+        className="go-back"
+        onClick={handleGoBack}
+        style={{ marginTop: "10px" }}
+      >
+        <ArrowBackIosIcon />
+      </Button>
       <div className="Singleproduct-info">
         <div className="Singleproduct-image">
           <img

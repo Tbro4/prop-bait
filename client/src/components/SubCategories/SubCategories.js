@@ -5,6 +5,7 @@ import {
   QUERY_PRODUCTS_BY_CATEGORY,
 } from "../../utils/queries";
 import { Button, Drawer } from "@mui/material";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "./SubCategories.css";
 
 const SubCategories = ({
@@ -125,9 +126,20 @@ const SubCategories = ({
 
   return (
     <div className="sub-cat">
-      <button onClick={handleGoBack} style={{ marginTop: "10px" }}>
-        Go BACK
-      </button>
+      <Button
+        className="go-back"
+        onClick={handleGoBack}
+        style={{ marginTop: "10px" }}
+      >
+        <ArrowBackIosIcon />
+      </Button>
+      <Button
+        className="filter-sort-btn"
+        style={{ marginTop: "10px" }}
+        onClick={handleFilterToggle}
+      >
+        Filter & Sort
+      </Button>
       <div className="sub-categories">
         {subCategories.map((subCategory) => (
           <div
@@ -140,7 +152,6 @@ const SubCategories = ({
         ))}
       </div>
 
-      <Button onClick={handleFilterToggle}>Filter & Sort</Button>
       <Drawer
         anchor="left"
         open={isFilterOpen}
@@ -149,6 +160,7 @@ const SubCategories = ({
           style: {
             paddingTop: "1em",
             paddingRight: "1em",
+            paddingLeft: "1em",
           },
         }}
       >

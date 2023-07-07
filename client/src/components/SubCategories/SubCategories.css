@@ -53,6 +53,10 @@
   cursor: pointer;
 }
 
+.filter-btn {
+  margin-top: 90px;
+}
+
 @media (min-width: 768px) {
   .sub-categories {
     overflow-x: unset;

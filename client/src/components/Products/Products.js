@@ -1,6 +1,8 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS_BY_SUBCATEGORY } from "../../utils/queries";
+import Button from "@mui/material/Button";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "./Products.css";
 
 const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
@@ -29,9 +31,13 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
 
   return (
     <>
-      <button onClick={handleGoBack} style={{ marginTop: "10px" }}>
-        Go BACK
-      </button>
+      <Button
+        className="go-back"
+        onClick={handleGoBack}
+        style={{ marginTop: "10px" }}
+      >
+        <ArrowBackIosIcon />
+      </Button>
       <h1>{products[0].subCategory}</h1>
       <div className="products">
         {products.map((product) => (
