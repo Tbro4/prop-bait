@@ -285,7 +285,9 @@ const Product = ({ productId, onGoBack, previousView }) => {
       </div>
       {renderMeasurements()}
       {renderOptions()}
-      <button onClick={handleAddToCart}>Add to Cart</button>
+      <button onClick={handleAddToCart} className="add-to-cart-btn">
+        Add to Cart
+      </button>
     </div>
   );
 };

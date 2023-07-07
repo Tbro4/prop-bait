@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "./Cart.css";
 
-const Cart = ({ setView }) => {
+const Cart = ({ setView, onProductClick }) => {
   const [updateCartItemQuantity] = useMutation(UPDATE_CART_ITEM_QUANTITY);
   const [removeCartItem] = useMutation(REMOVE_CART_ITEM);
   const profile = AuthService.getProfile();
@@ -75,6 +75,11 @@ const Cart = ({ setView }) => {
     subtotal += itemSubtotal;
   });
 
+  const handleProductClick = (productId) => {
+    // Pass the clicked product ID to the parent component
+    onProductClick(productId);
+  };
+
   const taxAmount = subtotal * taxRate;
   const shippingAmount = subtotal * shippingRate;
   const totalCost = subtotal + shippingAmount + taxAmount;
@@ -93,15 +98,20 @@ const Cart = ({ setView }) => {
                   className="option-image cart-image"
                   src={require(`../../images/${item.option.image}`)}
                   alt="Product"
+                  onClick={() => handleProductClick(item.product._id)}
                 />
               ) : (
                 <img
                   className="option-image cart-image"
                   src={require(`../../images/${item.product.image}`)}
                   alt="Product"
+                  onClick={() => handleProductClick(item.product._id)}
                 />
               )}
-              <div className="cart-item-details">
+              <div
+                className="cart-item-details"
+                onClick={() => handleProductClick(item.product._id)}
+              >
                 <p className="cart-item-name">{item.product.name}</p>
                 {item.option &&
                   Object.entries(item.option).map(([key, value]) => {
@@ -158,7 +168,7 @@ const Cart = ({ setView }) => {
                     <DeleteForeverIcon classes={{ root: "custom-icon-root" }} />
                   </Button>
                 </div>
-                <p className="cart-item-price">${item.product.price}ea</p>
+                <p className="cart-item-price">${item.product.price} ea.</p>
                 <p className="cart-item-subtotal">
                   Subtotal: $
                   {parseFloat(item.product.price * item.quantity).toFixed(2)}

@@ -143,15 +143,12 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
       <h1>{products[0].subCategory}</h1>
       <div className="products">
         {sortedProducts.map((product) => (
-          <div
-            key={product._id}
-            className="product"
-            onClick={() => handleProductClick(product._id)}
-          >
+          <div key={product._id} className="product">
             <div className="product-image">
               <img
                 src={require(`../../images/${product.image}`)}
                 alt={product.name}
+                onClick={() => handleProductClick(product._id)}
               />
             </div>
             <div className="product-info">

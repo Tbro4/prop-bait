@@ -232,15 +232,12 @@ const SubCategories = ({
           <div>No options available with those filters chosen</div>
         ) : (
           sortedProducts.map((product) => (
-            <div
-              key={product._id}
-              className="product"
-              onClick={() => handleProductClick(product._id)}
-            >
+            <div key={product._id} className="product">
               <div className="product-image">
                 <img
                   src={require(`../../images/${product.image}`)}
                   alt={product.product}
+                  onClick={() => handleProductClick(product._id)}
                 />
               </div>
               <div className="product-info">

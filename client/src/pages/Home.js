@@ -53,7 +53,9 @@ const Home = ({
         />
       )}
 
-      {view === "cart" && <Cart view={view} setView={setView} />}
+      {view === "cart" && (
+        <Cart onProductClick={onProductClick} view={view} setView={setView} />
+      )}
 
       {view === "account" && <Account view={view} setView={setView} />}
 
