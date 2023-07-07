@@ -128,7 +128,17 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
       </div>
       {/* Button to toggle filter */}
       <Button onClick={handleFilterToggle}>Toggle Filter</Button>
-      <Drawer anchor="left" open={isFilterOpen} onClose={handleFilterToggle}>
+      <Drawer
+        anchor="left"
+        open={isFilterOpen}
+        onClose={handleFilterToggle}
+        PaperProps={{
+          style: {
+            paddingTop: "1em",
+            paddingRight: "1em",
+          },
+        }}
+      >
         <div className="sort-filter">
           <select
             id="sortBy"
@@ -144,7 +154,17 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
           </select>
 
           <div className="filter">
-            <h3>-Brand</h3>
+            <div className="filter-title">
+              <h3>-Brand</h3>
+              {selectedBrands.length > 0 && (
+                <button
+                  className="clear-button"
+                  onClick={() => setSelectedBrands([])}
+                >
+                  Clear
+                </button>
+              )}
+            </div>
             {uniqueBrands.map((brand) => (
               <label key={brand}>
                 <input
@@ -156,7 +176,17 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
                 {brand}
               </label>
             ))}
-            <h3>-Category</h3>
+            <div className="filter-title">
+              <h3>-Category</h3>
+              {selectedSubCategories.length > 0 && (
+                <button
+                  className="clear-button"
+                  onClick={() => setSelectedSubCategories([])}
+                >
+                  Clear
+                </button>
+              )}
+            </div>
             {uniqueSubCategories.map((subcategory) => (
               <label key={subcategory}>
                 <input
