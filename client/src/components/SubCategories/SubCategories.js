@@ -118,6 +118,7 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
       <div className="sub-categories">
         {subCategories.map((subCategory) => (
           <div
+            className="sub-names"
             key={subCategory._id}
             onClick={() => handleSubCategoryClick(subCategory.subCategory)}
           >
