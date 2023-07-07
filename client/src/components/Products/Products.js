@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS_BY_SUBCATEGORY } from "../../utils/queries";
 import "./Products.css";
 
-const Products = ({ subCategory, onProductClick }) => {
+const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
   const { loading, error, data } = useQuery(QUERY_PRODUCTS_BY_SUBCATEGORY, {
     variables: { subCategory },
   });
@@ -23,8 +23,15 @@ const Products = ({ subCategory, onProductClick }) => {
     onProductClick(productId);
   };
 
+  const handleGoBack = () => {
+    onGoBack(previousView);
+  };
+
   return (
     <>
+      <button onClick={handleGoBack} style={{ marginTop: "10px" }}>
+        Go BACK
+      </button>
       <h1>{products[0].subCategory}</h1>
       <div className="products">
         {products.map((product) => (

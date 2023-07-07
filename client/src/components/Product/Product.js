@@ -5,7 +5,7 @@ import { ADD_TO_CART } from "../../utils/mutations";
 import "./Product.css";
 import AuthService from "../../utils/auth";
 
-const Product = ({ productId }) => {
+const Product = ({ productId, onGoBack, previousView }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [optionQuantities, setOptionQuantities] = useState({});
   const [addToCart] = useMutation(ADD_TO_CART);
@@ -102,6 +102,10 @@ const Product = ({ productId }) => {
     } else {
       console.log("No options selected.");
     }
+  };
+
+  const handleGoBack = () => {
+    onGoBack(previousView);
   };
 
   const renderMeasurements = () => {
@@ -257,6 +261,9 @@ const Product = ({ productId }) => {
 
   return (
     <div className="Singleproduct">
+      <button onClick={handleGoBack} style={{ marginTop: "10px" }}>
+        Go BACK
+      </button>
       <div className="Singleproduct-info">
         <div className="Singleproduct-image">
           <img

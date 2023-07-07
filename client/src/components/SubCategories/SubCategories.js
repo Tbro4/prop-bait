@@ -7,7 +7,13 @@ import {
 import { Button, Drawer } from "@mui/material";
 import "./SubCategories.css";
 
-const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
+const SubCategories = ({
+  category,
+  onSubCategoryClick,
+  onProductClick,
+  onGoBack,
+  previousView,
+}) => {
   const {
     loading: subCategoryLoading,
     error: subCategoryError,
@@ -89,7 +95,6 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
     setSelectedSortOption(e.target.value);
   };
 
-  //we map over filteredProducts in the return to display the filtered products
   const filteredProducts = products.filter((product) => {
     if (selectedBrands.length > 0 && !selectedBrands.includes(product.brand)) {
       return false; // Skip if the brand doesn't match the selected brands
@@ -103,6 +108,7 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
     return true; // Include the product in the filtered list
   });
 
+  //we map over sortedProducts in the return to display the filtered/sorted products
   let sortedProducts = [...filteredProducts];
 
   if (selectedSortOption === "price-desc") {
@@ -113,8 +119,15 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
     sortedProducts.sort((a, b) => a.name.localeCompare(b.name)); // Sort by name A-Z
   }
 
+  const handleGoBack = () => {
+    onGoBack(previousView);
+  };
+
   return (
     <div className="sub-cat">
+      <button onClick={handleGoBack} style={{ marginTop: "10px" }}>
+        Go BACK
+      </button>
       <div className="sub-categories">
         {subCategories.map((subCategory) => (
           <div
@@ -126,8 +139,8 @@ const SubCategories = ({ category, onSubCategoryClick, onProductClick }) => {
           </div>
         ))}
       </div>
-      {/* Button to toggle filter */}
-      <Button onClick={handleFilterToggle}>Toggle Filter</Button>
+
+      <Button onClick={handleFilterToggle}>Filter & Sort</Button>
       <Drawer
         anchor="left"
         open={isFilterOpen}
