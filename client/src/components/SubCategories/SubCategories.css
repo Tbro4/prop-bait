@@ -16,6 +16,10 @@
   max-width: 100%;
   height: auto;
 }
+.sub-names,
+.product-image {
+  cursor: pointer;
+}
 
 .filter {
   display: flex;

@@ -128,6 +128,7 @@ export const QUERY_USER_CART = gql`
       }
       quantity
       product {
+        _id
         name
         price
         image

@@ -17,6 +17,10 @@
   margin-left: 20px;
 }
 
+.add-to-cart-btn {
+  cursor: pointer;
+}
+
 th {
   font-weight: bold;
 }
