@@ -72,8 +72,6 @@ video {
   opacity: 0.7;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-
-  /* transition: opacity 0.2s; */
 }
 
 .main-category:hover .category-overlay {
@@ -85,7 +83,6 @@ video {
   bottom: 0;
   right: 0;
   margin: 0.25rem;
-  /* font-size: 30px; */
   border-radius: 8px;
 }
 
@@ -93,7 +90,4 @@ video {
   .main-categories {
     gap: 0.5em;
   }
-  /* .category-title {
-    font-size: 16px;
-  } */
 }

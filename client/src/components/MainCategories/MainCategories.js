@@ -1,14 +1,4 @@
 import React from "react";
-import "./MainCategories.css"; // Import the CSS file for styling
-
-import Poles from "../../images/poles2.jpg";
-import Reels from "../../images/reels2.jpg";
-import Tackle from "../../images/tackle.jpg";
-import Lures from "../../images/lures.jpg";
-import Accessories from "../../images/tools.jpg";
-import Line from "../../images/clothing.jpg";
-
-import vidClips from "../../videos/VidClips.mp4";
 
 import {
   createTheme,
@@ -17,6 +7,17 @@ import {
 } from "@mui/material/styles";
 import { Typography } from "@mui/material";
 
+import Poles from "../../images/poles2.jpg";
+import Reels from "../../images/reels2.jpg";
+import Tackle from "../../images/tackle.jpg";
+import Lures from "../../images/lures.jpg";
+import Accessories from "../../images/tools.jpg";
+import Line from "../../images/clothing.jpg";
+import vidClips from "../../videos/VidClips.mp4";
+
+import "./MainCategories.css";
+
+//Allows font in Typography components to be respponsive to screen size
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
