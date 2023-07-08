@@ -101,13 +101,28 @@
   margin-top: 10px;
 }
 
-.product-info h4 {
+/* .product-info h4 {
   margin: 5px 0;
-}
+} */
 
 .product-info button {
   margin-top: 10px;
 }
+
+.prices {
+  display: flex;
+  justify-content: space-between;
+}
+
+.prices h4 {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+/* .prices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+} */
 
 .products h3 {
   margin: 1px 0;
@@ -120,7 +135,9 @@
 }
 
 .products h4 {
-  margin: 1px 0;
+  margin: 2px 0;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 /* Media Query for smaller screens */

@@ -64,6 +64,7 @@ const Cart = ({ setView, onProductClick }) => {
   }
 
   const userCart = data.userCart;
+  console.log(userCart);
 
   let subtotal = 0;
   let shippingRate = 0.03;
@@ -71,7 +72,10 @@ const Cart = ({ setView, onProductClick }) => {
 
   // Calculate subtotal
   userCart.forEach((item) => {
-    const itemSubtotal = parseFloat(item.product.price) * item.quantity;
+    const itemSubtotal =
+      parseFloat(
+        item.product.onSale ? item.product.salePrice : item.product.price
+      ) * item.quantity;
     subtotal += itemSubtotal;
   });
 
@@ -168,10 +172,25 @@ const Cart = ({ setView, onProductClick }) => {
                     <DeleteForeverIcon classes={{ root: "custom-icon-root" }} />
                   </Button>
                 </div>
-                <p className="cart-item-price">${item.product.price} ea.</p>
+                <p
+                  className={`cart-item-price ${
+                    item.product.onSale ? "sale-price" : ""
+                  }`}
+                  style={{ color: item.product.onSale ? "red" : "inherit" }}
+                >
+                  $
+                  {item.product.onSale
+                    ? item.product.salePrice
+                    : item.product.price}{" "}
+                  ea.
+                </p>
                 <p className="cart-item-subtotal">
                   Subtotal: $
-                  {parseFloat(item.product.price * item.quantity).toFixed(2)}
+                  {parseFloat(
+                    (item.product.onSale
+                      ? item.product.salePrice
+                      : item.product.price) * item.quantity
+                  ).toFixed(2)}
                 </p>
               </div>
             </div>
