@@ -1,16 +1,15 @@
 import React from "react";
 import "./MainCategories.css"; // Import the CSS file for styling
 
-import TopPic from "../../images/homepage.jpeg";
 import Poles from "../../images/poles2.jpg";
 import Reels from "../../images/reels2.jpg";
 import Tackle from "../../images/tackle.jpg";
 import Lures from "../../images/lures.jpg";
 import Accessories from "../../images/tools.jpg";
 import Line from "../../images/clothing.jpg";
-import kidsFishing from "../../videos/kidsFishing.mp4";
-import reeling from "../../videos/Reelinggg.mp4";
-import holdingFish from "../../videos/holdingFish.mp4";
+
+import vidClips from "../../videos/VidClips.mp4";
+
 import { Typography } from "@mui/material";
 
 const MainCategories = ({ onCategoryClick }) => {
@@ -20,14 +19,7 @@ const MainCategories = ({ onCategoryClick }) => {
         className="main-category sales"
         onClick={() => onCategoryClick("Sales")}
       >
-        <video src={reeling} autoPlay loop muted />
-
-        {/* <img className="category-image" src={TopPic} alt="man fishing" />
-        <div className="category-overlay">
-          <Typography variant="h5" className="category-title">
-            Shop Sales
-          </Typography>
-        </div> */}
+        <video src={vidClips} autoPlay loop muted />
       </div>
       <div
         className="main-category rods"
