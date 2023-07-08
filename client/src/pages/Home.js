@@ -7,6 +7,7 @@ import Cart from "../components/Cart/Cart";
 import Account from "../components/Account/Account";
 import Login from "../components/Login/Login";
 import Signup from "../components/Signup/Signup";
+import Sales from "../components/Sales/Sales";
 
 const Home = ({
   view,
@@ -23,7 +24,11 @@ const Home = ({
   return (
     <div>
       {view === "mainCategories" && (
-        <MainCategories onCategoryClick={onCategoryClick} />
+        <MainCategories
+          onCategoryClick={onCategoryClick}
+          view={view}
+          setView={setView}
+        />
       )}
 
       {view === "subCategories" && (
@@ -62,6 +67,16 @@ const Home = ({
       {view === "login" && <Login view={view} setView={setView} />}
 
       {view === "signup" && <Signup view={view} setView={setView} />}
+
+      {view === "sales" && (
+        <Sales
+          onProductClick={onProductClick}
+          onGoBack={onGoBack}
+          previousView={previousView}
+          view={view}
+          setView={setView}
+        />
+      )}
     </div>
   );
 };

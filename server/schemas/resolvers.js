@@ -10,6 +10,9 @@ const resolvers = {
     products: async () => {
       return Product.find();
     },
+    onSaleProducts: async () => {
+      return Product.find({ onSale: true });
+    },
     productById: async (parent, { productId }) => {
       return Product.findById(productId).populate("options");
     },

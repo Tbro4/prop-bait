@@ -136,3 +136,17 @@ export const QUERY_USER_CART = gql`
     }
   }
 `;
+
+export const QUERY_ON_SALE_PRODUCTS = gql`
+  query OnSaleProducts {
+    onSaleProducts {
+      _id
+      brand
+      category
+      subCategory
+      name
+      price
+      image
+    }
+  }
+`;
