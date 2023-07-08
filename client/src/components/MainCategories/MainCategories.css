@@ -2,9 +2,10 @@
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   gap: 1em;
   width: 100%;
+  padding-bottom: 7em;
 }
 
 .main-category {
@@ -47,18 +48,30 @@
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+  border-radius: 8px;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  position: relative;
+  border-radius: 8px;
 }
 
 .category-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.54);
+  width: stretch;
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
-  padding: 0.5rem;
+  margin: 0;
+  padding: 0.25rem;
   opacity: 0.7;
-  /* transition: opacity 0.2s; */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .main-category:hover .category-overlay {
@@ -69,7 +82,8 @@
   position: relative;
   bottom: 0;
   right: 0;
-  margin: 0.5rem;
+  margin: 0.25rem;
+  border-radius: 8px;
 }
 
 @media (max-width: 600px) {
