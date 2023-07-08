@@ -8,6 +8,9 @@ import Tackle from "../../images/tackle.jpg";
 import Lures from "../../images/lures.jpg";
 import Accessories from "../../images/tools.jpg";
 import Line from "../../images/clothing.jpg";
+import kidsFishing from "../../videos/kidsFishing.mp4";
+import reeling from "../../videos/Reelinggg.mp4";
+import holdingFish from "../../videos/holdingFish.mp4";
 import { Typography } from "@mui/material";
 
 const MainCategories = ({ onCategoryClick }) => {
@@ -17,12 +20,14 @@ const MainCategories = ({ onCategoryClick }) => {
         className="main-category sales"
         onClick={() => onCategoryClick("Sales")}
       >
-        <img className="category-image" src={TopPic} alt="man fishing" />
+        <video src={reeling} autoPlay loop muted />
+
+        {/* <img className="category-image" src={TopPic} alt="man fishing" />
         <div className="category-overlay">
           <Typography variant="h5" className="category-title">
             Shop Sales
           </Typography>
-        </div>
+        </div> */}
       </div>
       <div
         className="main-category rods"
