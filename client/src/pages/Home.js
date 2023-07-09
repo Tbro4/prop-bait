@@ -19,6 +19,7 @@ const Home = ({
   onCategoryClick,
   onSubCategoryClick,
   onProductClick,
+  handleSalesClick,
   onGoBack,
 }) => {
   return (
@@ -26,6 +27,7 @@ const Home = ({
       {view === "mainCategories" && (
         <MainCategories
           onCategoryClick={onCategoryClick}
+          handleSalesClick={handleSalesClick}
           view={view}
           setView={setView}
         />

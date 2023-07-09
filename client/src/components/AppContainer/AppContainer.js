@@ -44,6 +44,11 @@ const AppContainer = () => {
     setView("product");
   };
 
+  const handleSalesClick = () => {
+    setPreviousViews((prevViews) => [...prevViews, view]);
+    setView("sales");
+  };
+
   const handleGoBack = () => {
     if (previousViews.length > 0) {
       const prevView = previousViews.pop();
@@ -84,6 +89,7 @@ const AppContainer = () => {
           onCategoryClick={handleCategoryClick}
           onSubCategoryClick={handleSubCategoryClick}
           onProductClick={handleProductClick}
+          handleSalesClick={handleSalesClick}
           onGoBack={handleGoBack}
           onResetView={handleResetView}
         />
