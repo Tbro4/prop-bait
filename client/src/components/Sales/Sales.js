@@ -16,7 +16,6 @@ const Sales = ({ onProductClick, onGoBack, previousView }) => {
   if (error) return <div>Error occurred</div>;
 
   const onSaleProducts = data?.onSaleProducts || [];
-  console.log(onSaleProducts);
 
   const handleFilterToggle = () => {
     setIsFilterOpen(!isFilterOpen);

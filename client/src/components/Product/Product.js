@@ -279,7 +279,20 @@ const Product = ({ productId, onGoBack, previousView }) => {
         </div>
         <div className="Singleproduct-details">
           <h3>{product.name}</h3>
-          <h4>{product.price}</h4>
+          <div className="single-product-prices">
+            <h4
+              style={
+                product.onSale
+                  ? { textDecoration: "line-through", opacity: 0.7 }
+                  : null
+              }
+            >
+              ${product.price}
+            </h4>
+            {product.onSale && (
+              <h4 style={{ color: "red" }}>${product.salePrice}</h4>
+            )}
+          </div>
           <p>{product.description}</p>
         </div>
       </div>

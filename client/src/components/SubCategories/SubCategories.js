@@ -54,7 +54,7 @@ const SubCategories = ({
 
   const subCategories = subCategoryData?.subCategoryByCategory || [];
   const products = productsData?.productsByCategory || [];
-  console.log(products);
+
   const uniqueSubCategories = [
     ...new Set(products.map((product) => product.subCategory)),
   ];
