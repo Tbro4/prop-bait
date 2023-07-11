@@ -62,6 +62,15 @@ const productSchema = new Schema({
     required: true,
     trim: true,
   },
+  salePrice: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  onSale: {
+    type: Boolean,
+    required: true,
+  },
   description: {
     type: String,
     required: true,

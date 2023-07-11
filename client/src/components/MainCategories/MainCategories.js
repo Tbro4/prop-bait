@@ -21,14 +21,14 @@ import "./MainCategories.css";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-const MainCategories = ({ onCategoryClick }) => {
+const MainCategories = ({ onCategoryClick, handleSalesClick, setView }) => {
+  // const handleNavigation = (newView) => {
+  //   setView(newView);
+  // };
   return (
     <ThemeProvider theme={theme}>
       <div className="main-categories">
-        <div
-          className="main-category sales"
-          onClick={() => onCategoryClick("Sales")}
-        >
+        <div className="main-category sales" onClick={() => handleSalesClick()}>
           <video src={vidClips} autoPlay loop muted />
         </div>
         <div

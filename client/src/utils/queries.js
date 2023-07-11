@@ -9,6 +9,8 @@ export const QUERY_PRODUCTS_BY_SUBCATEGORY = gql`
       subCategory
       name
       price
+      salePrice
+      onSale
       image
     }
   }
@@ -22,6 +24,8 @@ export const QUERY_PRODUCTS_BY_CATEGORY = gql`
       subCategory
       name
       price
+      salePrice
+      onSale
       image
     }
   }
@@ -35,6 +39,8 @@ export const QUERY_PRODUCT_BY_ID = gql`
       subCategory
       name
       price
+      salePrice
+      onSale
       image
       description
       hasMeasurement {
@@ -91,6 +97,8 @@ export const QUERY_PRODUCTS_BY_KEYWORD = gql`
       subCategory
       name
       price
+      salePrice
+      onSale
       image
     }
   }
@@ -131,8 +139,26 @@ export const QUERY_USER_CART = gql`
         _id
         name
         price
+        salePrice
+        onSale
         image
       }
+    }
+  }
+`;
+
+export const QUERY_ON_SALE_PRODUCTS = gql`
+  query OnSaleProducts {
+    onSaleProducts {
+      _id
+      brand
+      category
+      subCategory
+      name
+      price
+      salePrice
+      onSale
+      image
     }
   }
 `;

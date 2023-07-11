@@ -25,6 +25,8 @@ const typeDefs = gql`
     _id: ID
     name: String
     price: String
+    salePrice: String
+    onSale: Boolean
     description: String
     brand: String
     category: String
@@ -80,6 +82,8 @@ const typeDefs = gql`
   }
 
   type Query {
+    onSaleProducts: [Product]!
+
     productsBySubCategory(subCategory: String!): [Product]!
 
     productsByCategory(category: String!): [Product]!
@@ -91,7 +95,9 @@ const typeDefs = gql`
     productsByKeyword(keyword: String!): [Product]!
 
     users: [User]
+
     user(username: String!): User
+
     products: [Product]
 
     userCart(userId: ID!): [CartItem]

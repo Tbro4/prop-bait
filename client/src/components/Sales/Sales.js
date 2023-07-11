@@ -1,33 +1,29 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_PRODUCTS_BY_SUBCATEGORY } from "../../utils/queries";
+import { QUERY_ON_SALE_PRODUCTS } from "../../utils/queries";
 import { Button, Drawer } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import "./Products.css";
 
-const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
-  const { loading, error, data } = useQuery(QUERY_PRODUCTS_BY_SUBCATEGORY, {
-    variables: { subCategory },
-  });
+const Sales = ({ onProductClick, onGoBack, previousView }) => {
+  const { loading, error, data } = useQuery(QUERY_ON_SALE_PRODUCTS);
+
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedBrands, setSelectedBrands] = useState([]);
 
   const [selectedSortOption, setSelectedSortOption] = useState("");
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error occurred</div>;
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-  const products = data?.productsBySubCategory || [];
+  const onSaleProducts = data?.onSaleProducts || [];
 
   const handleFilterToggle = () => {
     setIsFilterOpen(!isFilterOpen);
   };
 
-  const uniqueBrands = [...new Set(products.map((product) => product.brand))];
+  const uniqueBrands = [
+    ...new Set(onSaleProducts.map((product) => product.brand)),
+  ];
 
   const handleProductClick = (productId) => {
     // Pass the clicked product ID to the parent component
@@ -49,7 +45,7 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
     setSelectedSortOption(e.target.value);
   };
 
-  const filteredProducts = products.filter((product) => {
+  const filteredProducts = onSaleProducts.filter((product) => {
     if (selectedBrands.length > 0 && !selectedBrands.includes(product.brand)) {
       return false; // Skip if the brand doesn't match the selected brands
     }
@@ -140,7 +136,7 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
           </div>
         </div>
       </Drawer>
-      <h1>{products[0].subCategory}</h1>
+      <h1>SALE!</h1>
       <div className="products">
         {sortedProducts.map((product) => (
           <div key={product._id} className="product">
@@ -175,4 +171,4 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
   );
 };
 
-export default Products;
+export default Sales;

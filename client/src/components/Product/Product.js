@@ -235,9 +235,8 @@ const Product = ({ productId, onGoBack, previousView }) => {
     } else {
       // Render a single quantity field if no options exist
       return (
-        <div>
-          <h4>No options available</h4>
-          <label>Quantity:</label>
+        <div className="qty">
+          <label>Qty:</label>
           <input
             type="number"
             min="0"
@@ -262,7 +261,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
   };
 
   return (
-    <div className="Singleproduct">
+    <div className="single-product">
       <Button
         className="go-back"
         onClick={handleGoBack}
@@ -270,18 +269,38 @@ const Product = ({ productId, onGoBack, previousView }) => {
       >
         <ArrowBackIosIcon />
       </Button>
-      <div className="Singleproduct-info">
-        <div className="Singleproduct-image">
-          <img
-            src={require(`../../images/${product.image}`)}
-            alt={product.name}
-          />
+      <div className="single-info">
+        <div className="single-image-name-price">
+          <div className="single-image">
+            <img
+              src={require(`../../images/${product.image}`)}
+              alt={product.name}
+            />
+          </div>
+          <div className="single-details">
+            <div className="single-name-price">
+              <h3 className="single-name">{product.name}</h3>
+              <div className="single-prices">
+                <h4
+                  className="single-price"
+                  style={
+                    product.onSale
+                      ? { textDecoration: "line-through", opacity: 0.7 }
+                      : null
+                  }
+                >
+                  ${product.price}
+                </h4>
+                {product.onSale && (
+                  <h4 className="single-sale-price" style={{ color: "red" }}>
+                    ${product.salePrice}
+                  </h4>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="Singleproduct-details">
-          <h3>{product.name}</h3>
-          <h4>{product.price}</h4>
-          <p>{product.description}</p>
-        </div>
+        <p className="single-description">{product.description}</p>
       </div>
       {renderMeasurements()}
       {renderOptions()}

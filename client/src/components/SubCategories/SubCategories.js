@@ -54,7 +54,7 @@ const SubCategories = ({
 
   const subCategories = subCategoryData?.subCategoryByCategory || [];
   const products = productsData?.productsByCategory || [];
-  // console.log(products);
+
   const uniqueSubCategories = [
     ...new Set(products.map((product) => product.subCategory)),
   ];
@@ -242,7 +242,20 @@ const SubCategories = ({
               </div>
               <div className="product-info">
                 <h3>{product.name}</h3>
-                <h4>{product.price}</h4>
+                <div className="prices">
+                  <h4
+                    style={
+                      product.onSale
+                        ? { textDecoration: "line-through", opacity: 0.7 }
+                        : null
+                    }
+                  >
+                    {product.price}
+                  </h4>
+                  {product.onSale && (
+                    <h4 style={{ color: "red" }}>{product.salePrice}</h4>
+                  )}
+                </div>
               </div>
             </div>
           ))
