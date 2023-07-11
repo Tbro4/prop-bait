@@ -86,7 +86,7 @@ const Cart = ({ setView, onProductClick }) => {
       const salePrice = item.product.salePrice;
       const price = item.product.price;
       const savingsAmount = salePrice - price;
-      savings += savingsAmount;
+      savings += savingsAmount * item.quantity;
     }
   });
 
