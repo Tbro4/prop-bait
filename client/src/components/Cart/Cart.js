@@ -69,6 +69,7 @@ const Cart = ({ setView, onProductClick }) => {
   let subtotal = 0;
   let shippingRate = 0.03;
   let taxRate = 0.05;
+  let savings = 0;
 
   // Calculate subtotal
   userCart.forEach((item) => {
@@ -77,6 +78,16 @@ const Cart = ({ setView, onProductClick }) => {
         item.product.onSale ? item.product.salePrice : item.product.price
       ) * item.quantity;
     subtotal += itemSubtotal;
+  });
+
+  //calculate savings
+  userCart.forEach((item) => {
+    if (item.product.onSale) {
+      const salePrice = item.product.salePrice;
+      const price = item.product.price;
+      const savingsAmount = salePrice - price;
+      savings += savingsAmount;
+    }
   });
 
   const handleProductClick = (productId) => {
@@ -172,18 +183,22 @@ const Cart = ({ setView, onProductClick }) => {
                     <DeleteForeverIcon classes={{ root: "custom-icon-root" }} />
                   </Button>
                 </div>
-                <p
-                  className={`cart-item-price ${
-                    item.product.onSale ? "sale-price" : ""
-                  }`}
-                  style={{ color: item.product.onSale ? "red" : "inherit" }}
-                >
-                  $
-                  {item.product.onSale
-                    ? item.product.salePrice
-                    : item.product.price}{" "}
-                  ea.
-                </p>
+
+                <div className="">
+                  <h4
+                    style={
+                      item.product.onSale
+                        ? { textDecoration: "line-through", opacity: 0.7 }
+                        : null
+                    }
+                  >
+                    {item.product.price}
+                  </h4>
+                  {item.product.onSale && (
+                    <h4 style={{ color: "red" }}>{item.product.salePrice}</h4>
+                  )}
+                </div>
+
                 <p className="cart-item-subtotal">
                   Subtotal: $
                   {parseFloat(
@@ -200,6 +215,10 @@ const Cart = ({ setView, onProductClick }) => {
           <div className="subtotal-container">
             <p className="subtotal">Subtotal:</p>
             <p className="subtotal-amount">${subtotal.toFixed(2)}</p>
+          </div>
+          <div className="savings-container" style={{ color: "red" }}>
+            <p className="savings">Savings:</p>
+            <p className="savings-amount">${savings.toFixed(2)}</p>
           </div>
           <div className="shipping-container">
             <p className="shipping">Shipping:</p>

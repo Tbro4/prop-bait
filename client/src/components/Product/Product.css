@@ -1,13 +1,17 @@
-.Singleproduct {
+.single-product {
   margin-bottom: 100px;
-  width: 80%;
+  width: 75%;
+}
+
+.qty {
+  margin-top: 1em;
 }
 
 .Singleproduct-info {
   display: flex;
 }
 
-.Singleproduct-image img,
+.single-image img,
 .option-image {
   max-width: 200px;
   max-height: 200px;
@@ -37,7 +41,9 @@ table {
 
 th,
 td {
-  padding: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
@@ -54,6 +60,9 @@ td.vertical-value {
 @media (max-width: 500px) {
   .Singleproduct-info {
     flex-direction: column;
+  }
+  .single-product {
+    width: 100%;
   }
 
   table {
