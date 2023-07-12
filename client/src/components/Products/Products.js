@@ -79,7 +79,15 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
         onClick={handleGoBack}
         style={{ marginTop: "10px" }}
       >
-        <ArrowBackIosIcon />
+        <ArrowBackIosIcon
+          fontSize="large"
+          sx={{
+            color: "var(--secondary-color)",
+            background: "var(--primary-color)",
+            borderRadius: "4px",
+            paddingLeft: ".25em",
+          }}
+        />
       </Button>
       <Button
         className="filter-sort-btn"

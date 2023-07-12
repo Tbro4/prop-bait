@@ -5,10 +5,29 @@
 
 .qty {
   margin-top: 1em;
+  font-weight: 600;
 }
 
+.qty-input {
+  font-size: 18px;
+}
 .Singleproduct-info {
   display: flex;
+}
+
+.single-image-name-price {
+  display: flex;
+  flex-direction: row;
+}
+
+.single-details {
+  padding-left: 2em;
+}
+
+.single-description {
+  font-weight: 600;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .single-image img,
@@ -28,10 +47,12 @@
 
 th {
   font-weight: bold;
+  background-color: var(--primary-color);
 }
 
 td {
   font-weight: normal;
+  background-color: var(--secondary-color);
 }
 
 table {
@@ -74,11 +95,14 @@ td.vertical-value {
     display: none;
   }
 
-  th.vertical-header {
+  /* th.vertical-header {
     background-color: #f2f2f2;
   }
 
   td.vertical-value {
-    padding-left: 0;
+    padding-left: 1em;
+  } */
+  td {
+    padding-left: 1em;
   }
 }

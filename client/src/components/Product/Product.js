@@ -4,6 +4,7 @@ import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
 import { ADD_TO_CART } from "../../utils/mutations";
 import Button from "@mui/material/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./Product.css";
 import AuthService from "../../utils/auth";
 
@@ -128,7 +129,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
         if (isSmallScreen) {
           const rows = measurements.map(([key, value]) => (
             <tr key={key}>
-              <th>{key}:</th>
+              <th>{key}</th>
               <td>{value}</td>
             </tr>
           ));
@@ -238,6 +239,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
         <div className="qty">
           <label>Qty:</label>
           <input
+            className="qty-input"
             type="number"
             min="0"
             max="99"
@@ -255,6 +257,17 @@ const Product = ({ productId, onGoBack, previousView }) => {
             ref={quantityInputRef}
             onWheel={(e) => e.currentTarget.blur()}
           />
+          <Button onClick={handleAddToCart} className="add-to-cart-btn">
+            <AddShoppingCartIcon
+              fontSize="large"
+              sx={{
+                color: "var(--secondary-color)",
+                background: "var(--primary-color)",
+                borderRadius: "4px",
+                padding: "2px",
+              }}
+            />
+          </Button>
         </div>
       );
     }
@@ -267,7 +280,15 @@ const Product = ({ productId, onGoBack, previousView }) => {
         onClick={handleGoBack}
         style={{ marginTop: "10px" }}
       >
-        <ArrowBackIosIcon />
+        <ArrowBackIosIcon
+          fontSize="large"
+          sx={{
+            color: "var(--secondary-color)",
+            background: "var(--primary-color)",
+            borderRadius: "4px",
+            paddingLeft: ".25em",
+          }}
+        />
       </Button>
       <div className="single-info">
         <div className="single-image-name-price">
@@ -304,9 +325,6 @@ const Product = ({ productId, onGoBack, previousView }) => {
       </div>
       {renderMeasurements()}
       {renderOptions()}
-      <button onClick={handleAddToCart} className="add-to-cart-btn">
-        Add to Cart
-      </button>
     </div>
   );
 };
