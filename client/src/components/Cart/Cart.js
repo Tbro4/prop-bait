@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_CART } from "../../utils/queries";
 import {
@@ -8,13 +8,25 @@ import {
 import AuthService from "../../utils/auth";
 import Button from "@mui/material/Button";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import Snackbar from "@mui/material/Snackbar";
+
 import "./Cart.css";
 
 const Cart = ({ setView, onProductClick }) => {
   const [updateCartItemQuantity] = useMutation(UPDATE_CART_ITEM_QUANTITY);
   const [removeCartItem] = useMutation(REMOVE_CART_ITEM);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+
   const profile = AuthService.getProfile();
   const userId = profile ? profile.data._id : null;
+
+  const handleSnackbarOpen = () => {
+    setSnackbarOpen(true);
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
 
   useEffect(() => {
     if (!profile) {
@@ -41,10 +53,8 @@ const Cart = ({ setView, onProductClick }) => {
         variables: { userId, cartItemId },
         refetchQueries: [{ query: QUERY_USER_CART, variables: { userId } }],
       });
-      // Optional: Show success message or perform any other action
-    } catch (err) {
-      // Handle error
-    }
+      handleSnackbarOpen();
+    } catch (err) {}
   };
 
   const { loading, error, data, refetch } = useQuery(QUERY_USER_CART, {
@@ -64,7 +74,6 @@ const Cart = ({ setView, onProductClick }) => {
   }
 
   const userCart = data.userCart;
-  console.log(userCart);
 
   let subtotal = 0;
   let shippingRate = 0.03;
@@ -102,7 +111,7 @@ const Cart = ({ setView, onProductClick }) => {
   return (
     <div className="cart-container">
       <br />
-      <h1>{profile.data.username}'s cart</h1>
+      <h1 className="username">{profile.data.username}'s cart</h1>
 
       <div className="cart-checkout">
         <div className="cart-items">
@@ -187,7 +196,7 @@ const Cart = ({ setView, onProductClick }) => {
                   </Button>
                 </div>
 
-                <div className="">
+                <div className="cart-prices">
                   <h4
                     style={
                       item.product.onSale
@@ -235,9 +244,32 @@ const Cart = ({ setView, onProductClick }) => {
             <p className="total">TOTAL:</p>
             <p className="total-amount">${totalCost.toFixed(2)}</p>
           </div>
-          <button className="checkout-button">CHECKOUT</button>
+          <Button
+            className="checkout-button"
+            sx={{
+              color: "var(--secondary-color)",
+              background: "var(--primary-color)",
+              borderRadius: "4px",
+              padding: ".35em",
+              fontWeight: "bold",
+              transition: ".4s",
+              "&:hover": {
+                color: "var(--primary-color)",
+                backgroundColor: "var(--secondary-color)",
+              },
+            }}
+          >
+            CHECKOUT
+          </Button>
         </div>
       </div>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+        message="Item removed from cart"
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      />
     </div>
   );
 };

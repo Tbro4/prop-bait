@@ -1,7 +1,7 @@
 /* Cart.css */
 
 /* CSS */
-.checkout-button {
+/* .checkout-button {
   background-image: linear-gradient(
     var(--primary-color),
     var(--secondary-color)
@@ -20,6 +20,10 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+} */
+
+.username {
+  margin-bottom: 2em;
 }
 
 .custom-button-root {

@@ -13,20 +13,6 @@ const Product = ({ productId, onGoBack, previousView }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [optionQuantities, setOptionQuantities] = useState({});
   const [addToCart] = useMutation(ADD_TO_CART);
-  // const [open, setOpen] = useState(false); // Add this state for Snackbar
-
-  // const handleOpenSnackbar = () => {
-  //   console.log("snackbar!!");
-  //   setOpen(true);
-  // };
-
-  // const handleCloseSnackbar = () => {
-  //   setOpen(false);
-  // };
-
-  // const message = AuthService.loggedIn() ? "Added to cart" : "Please login";
-
-  //Using this to disable scrolling within a qty field (scroll was causing numbers to change unintentionally)
 
   const handleOpenSnackbar = (message) => {
     setSnackbarMessage(message);
@@ -130,13 +116,13 @@ const Product = ({ productId, onGoBack, previousView }) => {
           },
         });
 
-        handleOpenSnackbar("Option(s) added to cart");
+        handleOpenSnackbar("Item(s) added to cart");
         setOptionQuantities({});
       } catch (error) {
         console.log("Error adding to cart:", error);
       }
     } else {
-      handleOpenSnackbar("Please select options");
+      handleOpenSnackbar("Please add a quantity greater than zero");
     }
   };
 
@@ -168,7 +154,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
           ));
 
           return (
-            <div>
+            <div className="measurements-table">
               <table>
                 <tbody>{rows}</tbody>
               </table>
@@ -176,7 +162,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
           );
         } else {
           return (
-            <div>
+            <div className="measurements-table">
               <table>
                 <thead>
                   <tr>{tableHeaders}</tr>
@@ -240,6 +226,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
                   )}
                   <td>
                     <input
+                      className="qty-input"
                       type="number"
                       min="0"
                       max="99" // Set the maximum value to 99
@@ -275,6 +262,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
                 borderRadius: "4px",
                 padding: "3px",
                 width: "100%",
+
                 transition: ".4s",
                 "&:hover": {
                   color: "var(--primary-color)",
