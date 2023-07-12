@@ -86,6 +86,11 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
             background: "var(--primary-color)",
             borderRadius: "4px",
             paddingLeft: ".25em",
+            transition: ".4s",
+            "&:hover": {
+              color: "var(--primary-color)",
+              backgroundColor: "var(--secondary-color)",
+            },
           }}
         />
       </Button>
@@ -93,6 +98,18 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
         className="filter-sort-btn"
         style={{ marginTop: "10px" }}
         onClick={handleFilterToggle}
+        sx={{
+          color: "var(--secondary-color)",
+          background: "var(--primary-color)",
+          borderRadius: "4px",
+          padding: ".35em",
+          fontWeight: "bold",
+          transition: ".4s",
+          "&:hover": {
+            color: "var(--primary-color)",
+            backgroundColor: "var(--secondary-color)",
+          },
+        }}
       >
         Filter & Sort
       </Button>

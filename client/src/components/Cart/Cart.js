@@ -180,7 +180,10 @@ const Cart = ({ setView, onProductClick }) => {
                     onClick={() => handleRemoveItem(item._id)}
                     classes={{ root: "custom-button-root" }}
                   >
-                    <DeleteForeverIcon classes={{ root: "custom-icon-root" }} />
+                    <DeleteForeverIcon
+                      classes={{ root: "custom-icon-root" }}
+                      fontSize="large"
+                    />
                   </Button>
                 </div>
 

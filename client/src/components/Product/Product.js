@@ -7,13 +7,42 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./Product.css";
 import AuthService from "../../utils/auth";
+import Snackbar from "@mui/material/Snackbar";
 
 const Product = ({ productId, onGoBack, previousView }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [optionQuantities, setOptionQuantities] = useState({});
   const [addToCart] = useMutation(ADD_TO_CART);
+  // const [open, setOpen] = useState(false); // Add this state for Snackbar
+
+  // const handleOpenSnackbar = () => {
+  //   console.log("snackbar!!");
+  //   setOpen(true);
+  // };
+
+  // const handleCloseSnackbar = () => {
+  //   setOpen(false);
+  // };
+
+  // const message = AuthService.loggedIn() ? "Added to cart" : "Please login";
 
   //Using this to disable scrolling within a qty field (scroll was causing numbers to change unintentionally)
+
+  const handleOpenSnackbar = (message) => {
+    setSnackbarMessage(message);
+    setOpen(true);
+  };
+
+  const handleCloseSnackbar = () => {
+    setOpen(false);
+  };
+
+  const [open, setOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+
+  const message = !AuthService.loggedIn()
+    ? "Please login or signup"
+    : snackbarMessage || "Item added to cart";
   const quantityInputRef = useRef(null);
 
   useEffect(() => {
@@ -59,7 +88,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
 
   const handleAddToCart = async () => {
     if (!AuthService.loggedIn()) {
-      console.log("Please login/signup");
+      handleOpenSnackbar("Please login or signup");
       return;
     }
 
@@ -82,28 +111,32 @@ const Product = ({ productId, onGoBack, previousView }) => {
     } else {
       // Handle product without options
       const quantity = optionQuantities["singleOption"];
-      if (quantity && parseInt(quantity) > 0) {
-        selectedOptions.push({
-          option: product._id,
-          quantity: parseInt(quantity),
-        });
+      if (!quantity || parseInt(quantity) < 1) {
+        handleOpenSnackbar("Quantity cannot be zero");
+        return;
       }
+      selectedOptions.push({
+        option: product._id,
+        quantity: parseInt(quantity),
+      });
     }
 
     if (selectedOptions.length > 0) {
       try {
-        const { data } = await addToCart({
+        await addToCart({
           variables: {
             userId: AuthService.getProfile().data._id,
             options: selectedOptions,
           },
         });
-        console.log("Options added to cart:", data.addToCart);
+
+        handleOpenSnackbar("Option(s) added to cart");
+        setOptionQuantities({});
       } catch (error) {
         console.log("Error adding to cart:", error);
       }
     } else {
-      console.log("No options selected.");
+      handleOpenSnackbar("Please select options");
     }
   };
 
@@ -163,8 +196,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
   const renderOptions = () => {
     if (product?.options && product.options.length > 0) {
       return (
-        <div>
-          <h4>Options:</h4>
+        <div className="multiple-options">
           <table>
             <thead>
               <tr>
@@ -231,6 +263,26 @@ const Product = ({ productId, onGoBack, previousView }) => {
               ))}
             </tbody>
           </table>
+          <Button
+            onClick={handleAddToCart}
+            className="add-to-cart-btn multi-opt-btn"
+          >
+            <AddShoppingCartIcon
+              fontSize="large"
+              sx={{
+                color: "var(--secondary-color)",
+                background: "var(--primary-color)",
+                borderRadius: "4px",
+                padding: "3px",
+                width: "100%",
+                transition: ".4s",
+                "&:hover": {
+                  color: "var(--primary-color)",
+                  backgroundColor: "var(--secondary-color)",
+                },
+              }}
+            />
+          </Button>
         </div>
       );
     } else {
@@ -265,6 +317,11 @@ const Product = ({ productId, onGoBack, previousView }) => {
                 background: "var(--primary-color)",
                 borderRadius: "4px",
                 padding: "2px",
+                transition: ".4s",
+                "&:hover": {
+                  color: "var(--primary-color)",
+                  backgroundColor: "var(--secondary-color)",
+                },
               }}
             />
           </Button>
@@ -287,6 +344,11 @@ const Product = ({ productId, onGoBack, previousView }) => {
             background: "var(--primary-color)",
             borderRadius: "4px",
             paddingLeft: ".25em",
+            transition: ".4s",
+            "&:hover": {
+              color: "var(--primary-color)",
+              backgroundColor: "var(--secondary-color)",
+            },
           }}
         />
       </Button>
@@ -325,6 +387,13 @@ const Product = ({ productId, onGoBack, previousView }) => {
       </div>
       {renderMeasurements()}
       {renderOptions()}
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleCloseSnackbar}
+        message={message}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      />
     </div>
   );
 };
