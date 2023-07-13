@@ -204,10 +204,10 @@ const Cart = ({ setView, onProductClick }) => {
                         : null
                     }
                   >
-                    {item.product.price}
+                    ${item.product.price}
                   </h4>
                   {item.product.onSale && (
-                    <h4 style={{ color: "red" }}>{item.product.salePrice}</h4>
+                    <h4 style={{ color: "red" }}>${item.product.salePrice}</h4>
                   )}
                 </div>
 
