@@ -61,7 +61,13 @@ const Home = ({
       )}
 
       {view === "cart" && (
-        <Cart onProductClick={onProductClick} view={view} setView={setView} />
+        <Cart
+          onProductClick={onProductClick}
+          view={view}
+          setView={setView}
+          onGoBack={onGoBack}
+          previousView={previousView}
+        />
       )}
 
       {view === "account" && <Account view={view} setView={setView} />}
@@ -77,6 +83,7 @@ const Home = ({
           previousView={previousView}
           view={view}
           setView={setView}
+          isCalledFromCart={false}
         />
       )}
     </div>

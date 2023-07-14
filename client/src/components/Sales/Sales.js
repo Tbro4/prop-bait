@@ -4,7 +4,12 @@ import { QUERY_ON_SALE_PRODUCTS } from "../../utils/queries";
 import { Button, Drawer } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
-const Sales = ({ onProductClick, onGoBack, previousView }) => {
+const Sales = ({
+  onProductClick,
+  onGoBack,
+  previousView,
+  isCalledFromCart,
+}) => {
   const { loading, error, data } = useQuery(QUERY_ON_SALE_PRODUCTS);
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -70,26 +75,28 @@ const Sales = ({ onProductClick, onGoBack, previousView }) => {
 
   return (
     <>
-      <Button
-        className="go-back"
-        onClick={handleGoBack}
-        style={{ marginTop: "10px" }}
-      >
-        <ArrowBackIosIcon
-          fontSize="large"
-          sx={{
-            color: "var(--secondary-color)",
-            background: "var(--primary-color)",
-            borderRadius: "4px",
-            paddingLeft: ".25em",
-            transition: ".4s",
-            "&:hover": {
-              color: "var(--primary-color)",
-              backgroundColor: "var(--secondary-color)",
-            },
-          }}
-        />
-      </Button>
+      {!isCalledFromCart && (
+        <Button
+          className="go-back"
+          onClick={handleGoBack}
+          style={{ marginTop: "10px" }}
+        >
+          <ArrowBackIosIcon
+            fontSize="large"
+            sx={{
+              color: "var(--secondary-color)",
+              background: "var(--primary-color)",
+              borderRadius: "4px",
+              paddingLeft: ".25em",
+              transition: ".4s",
+              "&:hover": {
+                color: "var(--primary-color)",
+                backgroundColor: "var(--secondary-color)",
+              },
+            }}
+          />
+        </Button>
+      )}
       <Button
         className="filter-sort-btn"
         style={{ marginTop: "10px" }}

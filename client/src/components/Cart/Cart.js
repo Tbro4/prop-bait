@@ -10,14 +10,16 @@ import AuthService from "../../utils/auth";
 import Button from "@mui/material/Button";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Snackbar from "@mui/material/Snackbar";
+import Sales from "../Sales/Sales";
 
 import "./Cart.css";
 
-const Cart = ({ setView, onProductClick }) => {
+const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
   const [updateCartItemQuantity] = useMutation(UPDATE_CART_ITEM_QUANTITY);
   const [removeCartItem] = useMutation(REMOVE_CART_ITEM);
   const [createOrder] = useMutation(CREATE_ORDER);
   const [orderComplete, setOrderComplete] = useState(false);
+  const [isCartEmpty, setIsCartEmpty] = useState(false);
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -70,6 +72,24 @@ const Cart = ({ setView, onProductClick }) => {
     refetch();
   }, [refetch, userId]);
 
+  const userCart = data?.userCart;
+
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
+
+    if (error) {
+      return;
+    }
+
+    if (userCart.length === 0) {
+      setIsCartEmpty(true);
+    } else {
+      setIsCartEmpty(false);
+    }
+  }, [loading, error, userCart]);
+
   if (loading) {
     return <p>Loading cart data...</p>;
   }
@@ -78,8 +98,24 @@ const Cart = ({ setView, onProductClick }) => {
     return <p>Error retrieving cart data.</p>;
   }
 
-  const userCart = data.userCart;
   console.log(userCart);
+
+  // Rest of the component code...
+
+  // useEffect(() => {
+  //   refetch();
+  // }, [refetch, userId]);
+
+  // if (loading) {
+  //   return <p>Loading cart data...</p>;
+  // }
+
+  // if (error) {
+  //   return <p>Error retrieving cart data.</p>;
+  // }
+
+  // const userCart = data.userCart;
+  // console.log(userCart);
 
   const cartItems = userCart.map((cartItem) => ({
     option: cartItem.option ? cartItem.option._id : cartItem.product._id,
@@ -151,184 +187,202 @@ const Cart = ({ setView, onProductClick }) => {
   const totalCost = subtotal + shippingAmount + taxAmount;
 
   return (
-    <div className="cart-container">
-      <br />
-      <h1 className="username">{profile.data.username}'s cart</h1>
+    <>
+      <div className="cart-container">
+        <br />
+        <h1 className="username">{profile.data.username}'s cart</h1>
 
-      <div className="cart-checkout">
-        <div className="cart-items">
-          {userCart.map((item) => (
-            <div key={item._id} className="cart-item">
-              {item.option && item.option.image ? (
-                <img
-                  className="option-image cart-image"
-                  src={require(`../../images/${item.option.image}`)}
-                  alt="Product"
-                  onClick={() => handleProductClick(item.product._id)}
-                />
-              ) : (
-                <img
-                  className="option-image cart-image"
-                  src={require(`../../images/${item.product.image}`)}
-                  alt="Product"
-                  onClick={() => handleProductClick(item.product._id)}
-                />
-              )}
-              <div
-                className="cart-item-details"
-                onClick={() => handleProductClick(item.product._id)}
-              >
-                <p className="cart-item-name">{item.product.name}</p>
-                {item.option &&
-                  Object.entries(item.option).map(([key, value]) => {
-                    if (
-                      value &&
-                      key !== "__typename" &&
-                      key !== "_id" &&
-                      key !== "image"
-                    ) {
-                      //capitalize first letter of each key
-                      const capitalizedKey =
-                        key.charAt(0).toUpperCase() + key.slice(1);
-                      return (
-                        <p key={key} className="cart-item-options">
-                          {capitalizedKey}: {value}
-                        </p>
-                      );
-                    }
-                    return null;
-                  })}
+        <div className="cart-checkout">
+          <div className="cart-items">
+            {/* Display a message if the cart is empty */}
+            {isCartEmpty && (
+              <div className="empty-cart-message">
+                <p>No items in cart! Check out these great sales below!</p>
               </div>
-
-              <div className="cart-qty-price">
-                <div className="qty-delete">
-                  <p className="cart-item-quantity">
-                    Qty:{" "}
-                    <input
-                      className="qty-input"
-                      type="number"
-                      value={item.quantity}
-                      onChange={(e) => {
-                        let value = e.target.value;
-
-                        // Enforce maximum length of 2 digits
-                        if (value.length > 2) {
-                          value = value.slice(0, 2);
-                        }
-
-                        // Remove leading zeros. (Allows us to delete both numbers and have a 0 for quantity)
-                        value = value.replace(/^0+/, "");
-
-                        // Update the input value and pass it to the handler function
-                        e.target.value = value;
-                        handleQuantityChange(item._id, parseInt(value) || 0);
-                      }}
-                    />
-                  </p>
-
-                  <Button
-                    className="remove-item-button"
-                    onClick={() => handleRemoveItem(item._id)}
-                    classes={{ root: "custom-button-root" }}
-                  >
-                    <DeleteForeverIcon
-                      classes={{ root: "custom-icon-root" }}
-                      fontSize="large"
-                    />
-                  </Button>
-                </div>
-
-                <div className="cart-prices">
-                  <h4
-                    style={
-                      item.product.onSale
-                        ? { textDecoration: "line-through", opacity: 0.7 }
-                        : null
-                    }
-                  >
-                    ${item.product.price}
-                  </h4>
-                  {item.product.onSale && (
-                    <h4 style={{ color: "red" }}>${item.product.salePrice}</h4>
-                  )}
-                </div>
-
-                <p className="cart-item-subtotal">
-                  Subtotal: $
-                  {parseFloat(
-                    (item.product.onSale
-                      ? item.product.salePrice
-                      : item.product.price) * item.quantity
-                  ).toFixed(2)}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="checkout">
-          <div className="subtotal-container">
-            <p className="subtotal">Subtotal:</p>
-            <p className="subtotal-amount">${subtotal.toFixed(2)}</p>
-          </div>
-          <div className="savings-container" style={{ color: "red" }}>
-            <p className="savings">Savings:</p>
-            <p className="savings-amount">${savings.toFixed(2)}</p>
-          </div>
-          <div className="shipping-container">
-            <p className="shipping">Shipping:</p>
-            <p className="shipping-amount">${shippingAmount.toFixed(2)}</p>
-          </div>
-          <div className="tax-container">
-            <p className="tax">Est. tax:</p>
-            <p className="tax-amount">${taxAmount.toFixed(2)}</p>
-          </div>
-          <div className="total-container">
-            <p className="total">TOTAL:</p>
-            <p className="total-amount">${totalCost.toFixed(2)}</p>
-          </div>
-          {/* Display a message if there are items with Qty 0 in cart */}
-          {hasZeroQuantityItem &&
-            userCart.some((item) => item.quantity === 0) && (
-              <p className="remove-items-message">
-                Remove items with Qty: 0 before checking out.
-              </p>
             )}
-          <Button
-            className="checkout-button"
-            sx={{
-              color: "var(--secondary-color)",
-              background: "var(--primary-color)",
-              borderRadius: "4px",
-              padding: ".35em",
-              fontWeight: "bold",
-              transition: ".4s",
-              "&:hover": {
-                color: "var(--primary-color)",
-                backgroundColor: "var(--secondary-color)",
-              },
-            }}
-            onClick={handleCheckout}
-            disabled={userCart.length === 0 || hasZeroQuantityItem()}
-          >
-            CHECKOUT
-          </Button>
+            {userCart.map((item) => (
+              <div key={item._id} className="cart-item">
+                {item.option && item.option.image ? (
+                  <img
+                    className="option-image cart-image"
+                    src={require(`../../images/${item.option.image}`)}
+                    alt="Product"
+                    onClick={() => handleProductClick(item.product._id)}
+                  />
+                ) : (
+                  <img
+                    className="option-image cart-image"
+                    src={require(`../../images/${item.product.image}`)}
+                    alt="Product"
+                    onClick={() => handleProductClick(item.product._id)}
+                  />
+                )}
+                <div
+                  className="cart-item-details"
+                  onClick={() => handleProductClick(item.product._id)}
+                >
+                  <p className="cart-item-name">{item.product.name}</p>
+                  {item.option &&
+                    Object.entries(item.option).map(([key, value]) => {
+                      if (
+                        value &&
+                        key !== "__typename" &&
+                        key !== "_id" &&
+                        key !== "image"
+                      ) {
+                        //capitalize first letter of each key
+                        const capitalizedKey =
+                          key.charAt(0).toUpperCase() + key.slice(1);
+                        return (
+                          <p key={key} className="cart-item-options">
+                            {capitalizedKey}: {value}
+                          </p>
+                        );
+                      }
+                      return null;
+                    })}
+                </div>
+
+                <div className="cart-qty-price">
+                  <div className="qty-delete">
+                    <p className="cart-item-quantity">
+                      Qty:{" "}
+                      <input
+                        className="qty-input"
+                        type="number"
+                        value={item.quantity}
+                        onChange={(e) => {
+                          let value = e.target.value;
+
+                          // Enforce maximum length of 2 digits
+                          if (value.length > 2) {
+                            value = value.slice(0, 2);
+                          }
+
+                          // Remove leading zeros. (Allows us to delete both numbers and have a 0 for quantity)
+                          value = value.replace(/^0+/, "");
+
+                          // Update the input value and pass it to the handler function
+                          e.target.value = value;
+                          handleQuantityChange(item._id, parseInt(value) || 0);
+                        }}
+                      />
+                    </p>
+
+                    <Button
+                      className="remove-item-button"
+                      onClick={() => handleRemoveItem(item._id)}
+                      classes={{ root: "custom-button-root" }}
+                    >
+                      <DeleteForeverIcon
+                        classes={{ root: "custom-icon-root" }}
+                        fontSize="large"
+                      />
+                    </Button>
+                  </div>
+
+                  <div className="cart-prices">
+                    <h4
+                      style={
+                        item.product.onSale
+                          ? { textDecoration: "line-through", opacity: 0.7 }
+                          : null
+                      }
+                    >
+                      ${item.product.price}
+                    </h4>
+                    {item.product.onSale && (
+                      <h4 style={{ color: "red" }}>
+                        ${item.product.salePrice}
+                      </h4>
+                    )}
+                  </div>
+
+                  <p className="cart-item-subtotal">
+                    Subtotal: $
+                    {parseFloat(
+                      (item.product.onSale
+                        ? item.product.salePrice
+                        : item.product.price) * item.quantity
+                    ).toFixed(2)}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="checkout">
+            <div className="subtotal-container">
+              <p className="subtotal">Subtotal:</p>
+              <p className="subtotal-amount">${subtotal.toFixed(2)}</p>
+            </div>
+            <div className="savings-container" style={{ color: "red" }}>
+              <p className="savings">Savings:</p>
+              <p className="savings-amount">${savings.toFixed(2)}</p>
+            </div>
+            <div className="shipping-container">
+              <p className="shipping">Shipping:</p>
+              <p className="shipping-amount">${shippingAmount.toFixed(2)}</p>
+            </div>
+            <div className="tax-container">
+              <p className="tax">Est. tax:</p>
+              <p className="tax-amount">${taxAmount.toFixed(2)}</p>
+            </div>
+            <div className="total-container">
+              <p className="total">TOTAL:</p>
+              <p className="total-amount">${totalCost.toFixed(2)}</p>
+            </div>
+            {/* Display a message if there are items with Qty 0 in cart */}
+            {hasZeroQuantityItem &&
+              userCart.some((item) => item.quantity === 0) && (
+                <p className="remove-items-message">
+                  Remove items with Qty: 0 before checking out.
+                </p>
+              )}
+            <Button
+              className="checkout-button"
+              sx={{
+                color: "var(--secondary-color)",
+                background: "var(--primary-color)",
+                borderRadius: "4px",
+                padding: ".35em",
+                fontWeight: "bold",
+                transition: ".4s",
+                "&:hover": {
+                  color: "var(--primary-color)",
+                  backgroundColor: "var(--secondary-color)",
+                },
+              }}
+              onClick={handleCheckout}
+              disabled={userCart.length === 0 || hasZeroQuantityItem()}
+            >
+              CHECKOUT
+            </Button>
+          </div>
         </div>
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={3000}
+          onClose={handleSnackbarClose}
+          message="Item removed from cart"
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        />
+        <Snackbar
+          open={orderComplete}
+          autoHideDuration={3000}
+          onClose={() => setOrderComplete(false)}
+          message="Order complete! View your order in your account page"
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        />
       </div>
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={3000}
-        onClose={handleSnackbarClose}
-        message="Item removed from cart"
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      <Sales
+        onProductClick={onProductClick}
+        onGoBack={onGoBack}
+        previousView={previousView}
+        view={view}
+        setView={setView}
+        isCalledFromCart={true}
       />
-      <Snackbar
-        open={orderComplete}
-        autoHideDuration={3000}
-        onClose={() => setOrderComplete(false)}
-        message="Order complete! View your order in your account page"
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-      />
-    </div>
+    </>
   );
 };
 
