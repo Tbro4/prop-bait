@@ -4,6 +4,7 @@ import { QUERY_USER_CART } from "../../utils/queries";
 import {
   UPDATE_CART_ITEM_QUANTITY,
   REMOVE_CART_ITEM,
+  CREATE_ORDER,
 } from "../../utils/mutations";
 import AuthService from "../../utils/auth";
 import Button from "@mui/material/Button";
@@ -15,6 +16,7 @@ import "./Cart.css";
 const Cart = ({ setView, onProductClick }) => {
   const [updateCartItemQuantity] = useMutation(UPDATE_CART_ITEM_QUANTITY);
   const [removeCartItem] = useMutation(REMOVE_CART_ITEM);
+  const [createOrder] = useMutation(CREATE_ORDER);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const profile = AuthService.getProfile();
@@ -41,10 +43,7 @@ const Cart = ({ setView, onProductClick }) => {
         variables: { userId, cartItemId, quantity: newQuantity },
         refetchQueries: [{ query: QUERY_USER_CART, variables: { userId } }],
       });
-      // Optional: Show success message or perform any other action
-    } catch (err) {
-      // Handle error
-    }
+    } catch (err) {}
   };
 
   const handleRemoveItem = async (cartItemId) => {
@@ -74,6 +73,41 @@ const Cart = ({ setView, onProductClick }) => {
   }
 
   const userCart = data.userCart;
+  console.log(userCart);
+
+  // const cartItems = userCart.map((cartItem) => ({
+  //   option: cartItem.option
+  //     ? {
+  //         _id: cartItem.option._id,
+  //         color: cartItem.option.color,
+  //         image: cartItem.option.image,
+  //         test: cartItem.option.test,
+  //         diameter: cartItem.option.diameter,
+  //         size: cartItem.option.size,
+  //         weight: cartItem.option.weight,
+  //         length: cartItem.option.length,
+  //         type: cartItem.option.type,
+  //         // Include other necessary fields
+  //       }
+  //     : null,
+  //   quantity: cartItem.quantity,
+  //   product: {
+  //     _id: cartItem.product._id,
+  //     name: cartItem.product.name,
+  //     price: cartItem.product.price,
+  //     salePrice: cartItem.product.salePrice,
+  //     onSale: cartItem.product.onSale,
+  //     image: cartItem.product.image,
+  //     // Include other necessary fields
+  //   },
+  // }));
+
+  const cartItems = userCart.map((cartItem) => ({
+    option: cartItem.option ? cartItem.option._id : cartItem.product._id,
+    quantity: cartItem.quantity,
+  }));
+
+  console.log(cartItems);
 
   let subtotal = 0;
   let shippingRate = 0.03;
@@ -98,6 +132,21 @@ const Cart = ({ setView, onProductClick }) => {
       savings += savingsAmount * item.quantity;
     }
   });
+
+  const handleCheckout = async () => {
+    try {
+      // Call the createOrder mutation and pass the userCart data
+      const { data } = await createOrder({
+        variables: { userId, userCart: cartItems },
+      });
+
+      // Optional: Handle successful checkout, e.g., show success message, redirect, etc.
+      console.log("Order created:", data);
+    } catch (error) {
+      // Handle error during checkout
+      console.error("Error during checkout:", error);
+    }
+  };
 
   const handleProductClick = (productId) => {
     // Pass the clicked product ID to the parent component
@@ -258,6 +307,7 @@ const Cart = ({ setView, onProductClick }) => {
                 backgroundColor: "var(--secondary-color)",
               },
             }}
+            onClick={handleCheckout}
           >
             CHECKOUT
           </Button>

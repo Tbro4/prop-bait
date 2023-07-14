@@ -71,3 +71,22 @@ export const REMOVE_CART_ITEM = gql`
     }
   }
 `;
+
+export const CREATE_ORDER = gql`
+  mutation createOrder($userId: ID!, $userCart: [CartOptionInput!]!) {
+    createOrder(userId: $userId, userCart: $userCart) {
+      _id
+      userId
+      userCart {
+        product {
+          _id
+        }
+        option {
+          _id
+        }
+        quantity
+      }
+      createdAt
+    }
+  }
+`;

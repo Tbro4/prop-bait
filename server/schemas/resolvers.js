@@ -213,6 +213,31 @@ const resolvers = {
         (item) => item._id.toString() === cartItemId
       );
     },
+    createOrder: async (parent, { userId, userCart }) => {
+      try {
+        const user = await User.findById(userId);
+
+        if (!user) {
+          throw new GraphQLError("User not found");
+        }
+
+        const order = {
+          userId,
+          userCart,
+          createdAt: new Date().toISOString(),
+        };
+
+        // Push the order to the User's document
+        user.orders.push(order);
+
+        // Save the updated User document
+        await user.save();
+
+        return order;
+      } catch (error) {
+        throw new GraphQLError("Error creating order");
+      }
+    },
   },
 };
 
