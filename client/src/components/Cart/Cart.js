@@ -17,6 +17,8 @@ const Cart = ({ setView, onProductClick }) => {
   const [updateCartItemQuantity] = useMutation(UPDATE_CART_ITEM_QUANTITY);
   const [removeCartItem] = useMutation(REMOVE_CART_ITEM);
   const [createOrder] = useMutation(CREATE_ORDER);
+  const [orderComplete, setOrderComplete] = useState(false);
+
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const profile = AuthService.getProfile();
@@ -44,6 +46,10 @@ const Cart = ({ setView, onProductClick }) => {
         refetchQueries: [{ query: QUERY_USER_CART, variables: { userId } }],
       });
     } catch (err) {}
+  };
+
+  const hasZeroQuantityItem = () => {
+    return userCart.some((cartItem) => cartItem.quantity === 0);
   };
 
   const handleRemoveItem = async (cartItemId) => {
@@ -74,33 +80,6 @@ const Cart = ({ setView, onProductClick }) => {
 
   const userCart = data.userCart;
   console.log(userCart);
-
-  // const cartItems = userCart.map((cartItem) => ({
-  //   option: cartItem.option
-  //     ? {
-  //         _id: cartItem.option._id,
-  //         color: cartItem.option.color,
-  //         image: cartItem.option.image,
-  //         test: cartItem.option.test,
-  //         diameter: cartItem.option.diameter,
-  //         size: cartItem.option.size,
-  //         weight: cartItem.option.weight,
-  //         length: cartItem.option.length,
-  //         type: cartItem.option.type,
-  //         // Include other necessary fields
-  //       }
-  //     : null,
-  //   quantity: cartItem.quantity,
-  //   product: {
-  //     _id: cartItem.product._id,
-  //     name: cartItem.product.name,
-  //     price: cartItem.product.price,
-  //     salePrice: cartItem.product.salePrice,
-  //     onSale: cartItem.product.onSale,
-  //     image: cartItem.product.image,
-  //     // Include other necessary fields
-  //   },
-  // }));
 
   const cartItems = userCart.map((cartItem) => ({
     option: cartItem.option ? cartItem.option._id : cartItem.product._id,
@@ -134,6 +113,11 @@ const Cart = ({ setView, onProductClick }) => {
   });
 
   const handleCheckout = async () => {
+    if (hasZeroQuantityItem()) {
+      // Display an error message or take any other desired action
+      console.log("Remove items with quantity zero from the cart");
+      return;
+    }
     try {
       // Call the createOrder mutation and pass the userCart data
       const { data } = await createOrder({
@@ -142,6 +126,15 @@ const Cart = ({ setView, onProductClick }) => {
 
       // Optional: Handle successful checkout, e.g., show success message, redirect, etc.
       console.log("Order created:", data);
+      // Clear the cart by removing all cart items
+      for (const item of userCart) {
+        await removeCartItem({
+          variables: { userId, cartItemId: item._id },
+          refetchQueries: [{ query: QUERY_USER_CART, variables: { userId } }],
+        });
+
+        setOrderComplete(true);
+      }
     } catch (error) {
       // Handle error during checkout
       console.error("Error during checkout:", error);
@@ -293,6 +286,13 @@ const Cart = ({ setView, onProductClick }) => {
             <p className="total">TOTAL:</p>
             <p className="total-amount">${totalCost.toFixed(2)}</p>
           </div>
+          {/* Display a message if there are items with Qty 0 in cart */}
+          {hasZeroQuantityItem &&
+            userCart.some((item) => item.quantity === 0) && (
+              <p className="remove-items-message">
+                Remove items with Qty: 0 before checking out.
+              </p>
+            )}
           <Button
             className="checkout-button"
             sx={{
@@ -308,6 +308,7 @@ const Cart = ({ setView, onProductClick }) => {
               },
             }}
             onClick={handleCheckout}
+            disabled={userCart.length === 0 || hasZeroQuantityItem()}
           >
             CHECKOUT
           </Button>
@@ -318,6 +319,13 @@ const Cart = ({ setView, onProductClick }) => {
         autoHideDuration={3000}
         onClose={handleSnackbarClose}
         message="Item removed from cart"
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      />
+      <Snackbar
+        open={orderComplete}
+        autoHideDuration={3000}
+        onClose={() => setOrderComplete(false)}
+        message="Order complete! View your order in your account page"
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
       />
     </div>
