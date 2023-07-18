@@ -8,6 +8,7 @@ import Account from "../components/Account/Account";
 import Login from "../components/Login/Login";
 import Signup from "../components/Signup/Signup";
 import Sales from "../components/Sales/Sales";
+import Orders from "../components/Orders/Orders";
 
 const Home = ({
   view,
@@ -86,6 +87,8 @@ const Home = ({
           isCalledFromCart={false}
         />
       )}
+
+      {view === "orders" && <Orders view={view} setView={setView} />}
     </div>
   );
 };

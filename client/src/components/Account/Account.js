@@ -22,8 +22,11 @@ const Account = ({ setView }) => {
           <Button variant="contained" onClick={logout}>
             Logout
           </Button>
-          <Button variant="contained" onClick={() => handleNavigation("list")}>
-            View List
+          <Button
+            variant="contained"
+            onClick={() => handleNavigation("orders")}
+          >
+            View Orders
           </Button>
           <Button variant="contained" onClick={() => handleNavigation("cart")}>
             View Cart

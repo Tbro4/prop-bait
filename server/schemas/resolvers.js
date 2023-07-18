@@ -78,6 +78,55 @@ const resolvers = {
         })
       );
     },
+    userOrders: async (parent, { userId }) => {
+      const user = await User.findById(userId);
+
+      if (!user) {
+        throw new GraphQLError("User not found");
+      }
+
+      return user.orders.map((order) => ({
+        _id: order._id,
+        createdAt: order.createdAt,
+      }));
+    },
+    userOrderCart: async (parent, { orderId }) => {
+      const order = await User.findOne({ "orders._id": orderId });
+
+      if (!order) {
+        throw new GraphQLError("Order not found");
+      }
+
+      const userCart = order.orders.find(
+        (o) => o._id.toString() === orderId
+      ).userCart;
+
+      return Promise.all(
+        userCart.map(async (cartItem) => {
+          let product = null;
+          let option = null;
+
+          product = await Product.findOne({
+            options: { $elemMatch: { _id: cartItem.option } },
+          });
+
+          if (!product) {
+            product = await Product.findById(cartItem.option);
+          } else {
+            option = product.options.find(
+              (opt) => opt._id.toString() === cartItem.option.toString()
+            );
+          }
+
+          return {
+            _id: cartItem._id,
+            option: option || null,
+            quantity: cartItem.quantity,
+            product: product || null,
+          };
+        })
+      );
+    },
   },
 
   Mutation: {

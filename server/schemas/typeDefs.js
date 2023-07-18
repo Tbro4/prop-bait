@@ -110,6 +110,10 @@ const typeDefs = gql`
     products: [Product]
 
     userCart(userId: ID!): [CartItem]
+
+    userOrders(userId: ID!): [Order]
+
+    userOrderCart(orderId: ID!): [CartItem]
   }
 
   type Mutation {
