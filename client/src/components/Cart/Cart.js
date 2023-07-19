@@ -100,23 +100,6 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
 
   console.log(userCart);
 
-  // Rest of the component code...
-
-  // useEffect(() => {
-  //   refetch();
-  // }, [refetch, userId]);
-
-  // if (loading) {
-  //   return <p>Loading cart data...</p>;
-  // }
-
-  // if (error) {
-  //   return <p>Error retrieving cart data.</p>;
-  // }
-
-  // const userCart = data.userCart;
-  // console.log(userCart);
-
   const cartItems = userCart.map((cartItem) => ({
     option: cartItem.option ? cartItem.option._id : cartItem.product._id,
     quantity: cartItem.quantity,
