@@ -23,8 +23,12 @@ const Home = ({
   handleSalesClick,
   onGoBack,
 }) => {
+  // Define a common style for the components' container with margin-top
+  const componentContainerStyle = {
+    marginTop: "52px", // Adjust the value as needed
+  };
   return (
-    <div>
+    <div style={componentContainerStyle}>
       {view === "mainCategories" && (
         <MainCategories
           onCategoryClick={onCategoryClick}

@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import { useState, useEffect } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
@@ -88,6 +88,24 @@ const SearchOptionItem = styled("div")(
   })
 );
 
+const Banner = styled("div")(({ theme }) => ({
+  position: "sticky",
+  top: "20px", // Adjust this value to match the height of your AppBar (in pixels)
+  backgroundColor: "#FFA500", // Customize the banner background color
+  textAlign: "center",
+  color: "white",
+  fontSize: "14px",
+  fontWeight: "bold",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+}));
+
+const BannerText = styled("p")(({ theme }) => ({
+  margin: 0,
+  padding: "4px 8px", // Adjust the padding to control the spacing between bannerTexts
+}));
+
 export default function AppBarTop({
   onResetView,
   onCategoryClick,
@@ -98,6 +116,10 @@ export default function AppBarTop({
   const [getSearchOptions, { data }] = useLazyQuery(QUERY_PRODUCTS_BY_KEYWORD);
   const [showOptions, setShowOptions] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const bannerTexts = [
+    "Free shipping on $150+",
+    "Shimano and Daiwa products 25% off!",
+  ];
 
   const handleSearchInputChange = (event) => {
     const keyword = event.target.value;
@@ -259,6 +281,11 @@ export default function AppBarTop({
             )}
           </Search>
         </Toolbar>
+        <Banner>
+          {bannerTexts.map((text, index) => (
+            <BannerText key={index}>{text}</BannerText>
+          ))}
+        </Banner>
       </AppBar>
     </Box>
   );
