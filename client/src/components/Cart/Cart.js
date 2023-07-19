@@ -5,6 +5,7 @@ import {
   UPDATE_CART_ITEM_QUANTITY,
   REMOVE_CART_ITEM,
   CREATE_ORDER,
+  CLEAR_CART,
 } from "../../utils/mutations";
 import AuthService from "../../utils/auth";
 import Button from "@mui/material/Button";
@@ -15,16 +16,19 @@ import Sales from "../Sales/Sales";
 import "./Cart.css";
 
 const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
+  const profile = AuthService.getProfile();
+  const userId = profile ? profile.data._id : null;
+
   const [updateCartItemQuantity] = useMutation(UPDATE_CART_ITEM_QUANTITY);
   const [removeCartItem] = useMutation(REMOVE_CART_ITEM);
+  const [clearCart] = useMutation(CLEAR_CART, {
+    refetchQueries: [{ query: QUERY_USER_CART, variables: { userId } }],
+  });
   const [createOrder] = useMutation(CREATE_ORDER);
   const [orderComplete, setOrderComplete] = useState(false);
   const [isCartEmpty, setIsCartEmpty] = useState(false);
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-
-  const profile = AuthService.getProfile();
-  const userId = profile ? profile.data._id : null;
 
   const handleSnackbarOpen = () => {
     setSnackbarOpen(true);
@@ -98,14 +102,10 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
     return <p>Error retrieving cart data.</p>;
   }
 
-  console.log(userCart);
-
   const cartItems = userCart.map((cartItem) => ({
     option: cartItem.option ? cartItem.option._id : cartItem.product._id,
     quantity: cartItem.quantity,
   }));
-
-  console.log(cartItems);
 
   let subtotal = 0;
   let shippingRate = 0.03;
@@ -137,6 +137,7 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
       console.log("Remove items with quantity zero from the cart");
       return;
     }
+
     try {
       // Call the createOrder mutation and pass the userCart data
       const { data } = await createOrder({
@@ -145,15 +146,12 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
 
       // Optional: Handle successful checkout, e.g., show success message, redirect, etc.
       console.log("Order created:", data);
-      // Clear the cart by removing all cart items
-      for (const item of userCart) {
-        await removeCartItem({
-          variables: { userId, cartItemId: item._id },
-          refetchQueries: [{ query: QUERY_USER_CART, variables: { userId } }],
-        });
 
-        setOrderComplete(true);
-      }
+      // Clear the cart by calling the clearCart mutation
+      await clearCart({ variables: { userId } });
+
+      // Optionally set the orderComplete state here
+      setOrderComplete(true);
     } catch (error) {
       // Handle error during checkout
       console.error("Error during checkout:", error);

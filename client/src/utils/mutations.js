@@ -72,6 +72,14 @@ export const REMOVE_CART_ITEM = gql`
   }
 `;
 
+export const CLEAR_CART = gql`
+  mutation clearCart($userId: ID!) {
+    clearCart(userId: $userId) {
+      _id
+    }
+  }
+`;
+
 export const CREATE_ORDER = gql`
   mutation createOrder($userId: ID!, $userCart: [CartOptionInput!]!) {
     createOrder(userId: $userId, userCart: $userCart) {

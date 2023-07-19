@@ -262,6 +262,25 @@ const resolvers = {
         (item) => item._id.toString() === cartItemId
       );
     },
+    clearCart: async (parent, { userId }) => {
+      try {
+        const user = await User.findById(userId);
+
+        if (!user) {
+          throw new GraphQLError("User not found");
+        }
+
+        // Clear the cart by setting it to an empty array
+        user.cart = [];
+
+        // Save the updated User document
+        await user.save();
+
+        return user;
+      } catch (error) {
+        throw new GraphQLError("Error clearing cart");
+      }
+    },
     createOrder: async (parent, { userId, userCart }) => {
       try {
         const user = await User.findById(userId);

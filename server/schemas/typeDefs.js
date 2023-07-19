@@ -128,6 +128,8 @@ const typeDefs = gql`
 
     removeCartItem(userId: ID!, cartItemId: ID!): CartItem
 
+    clearCart(userId: ID!): User
+
     createOrder(userId: ID!, userCart: [CartOptionInput!]!): Order
   }
 `;
