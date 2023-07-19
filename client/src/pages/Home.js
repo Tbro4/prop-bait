@@ -8,6 +8,7 @@ import Account from "../components/Account/Account";
 import Login from "../components/Login/Login";
 import Signup from "../components/Signup/Signup";
 import Sales from "../components/Sales/Sales";
+import Orders from "../components/Orders/Orders";
 
 const Home = ({
   view,
@@ -61,7 +62,13 @@ const Home = ({
       )}
 
       {view === "cart" && (
-        <Cart onProductClick={onProductClick} view={view} setView={setView} />
+        <Cart
+          onProductClick={onProductClick}
+          view={view}
+          setView={setView}
+          onGoBack={onGoBack}
+          previousView={previousView}
+        />
       )}
 
       {view === "account" && <Account view={view} setView={setView} />}
@@ -77,8 +84,11 @@ const Home = ({
           previousView={previousView}
           view={view}
           setView={setView}
+          isCalledFromCart={false}
         />
       )}
+
+      {view === "orders" && <Orders view={view} setView={setView} />}
     </div>
   );
 };

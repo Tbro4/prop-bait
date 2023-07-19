@@ -147,6 +147,43 @@ export const QUERY_USER_CART = gql`
   }
 `;
 
+export const QUERY_USER_ORDERS = gql`
+  query UserOrders($userId: ID!) {
+    userOrders(userId: $userId) {
+      _id
+      createdAt
+    }
+  }
+`;
+
+export const QUERY_USER_ORDER_CART = gql`
+  query UserOrderCart($orderId: ID!) {
+    userOrderCart(orderId: $orderId) {
+      _id
+      option {
+        _id
+        image
+        color
+        test
+        diameter
+        size
+        weight
+        length
+        type
+      }
+      quantity
+      product {
+        _id
+        name
+        price
+        salePrice
+        onSale
+        image
+      }
+    }
+  }
+`;
+
 export const QUERY_ON_SALE_PRODUCTS = gql`
   query OnSaleProducts {
     onSaleProducts {

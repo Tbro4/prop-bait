@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
     cart: [CartItem]
+    orders: [Order]
   }
 
   type CartItem {
@@ -19,6 +20,14 @@ const typeDefs = gql`
   input CartOptionInput {
     option: ID
     quantity: Int
+    product: ID
+  }
+
+  type Order {
+    _id: ID
+    userId: ID
+    userCart: [CartItem]
+    createdAt: String
   }
 
   type Product {
@@ -101,6 +110,10 @@ const typeDefs = gql`
     products: [Product]
 
     userCart(userId: ID!): [CartItem]
+
+    userOrders(userId: ID!): [Order]
+
+    userOrderCart(orderId: ID!): [CartItem]
   }
 
   type Mutation {
@@ -114,6 +127,10 @@ const typeDefs = gql`
     ): CartItem
 
     removeCartItem(userId: ID!, cartItemId: ID!): CartItem
+
+    clearCart(userId: ID!): User
+
+    createOrder(userId: ID!, userCart: [CartOptionInput!]!): Order
   }
 `;
 

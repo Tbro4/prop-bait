@@ -1,25 +1,5 @@
-/* Cart.css */
-
-/* CSS */
-.checkout-button {
-  background-image: linear-gradient(
-    var(--primary-color),
-    var(--secondary-color)
-  );
-  border: 0;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: Montserrat, sans-serif;
-  font-size: 0.9em;
-  margin: 5px;
-  padding: 10px 15px;
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+.username {
+  margin-bottom: 2em;
 }
 
 .custom-button-root {
@@ -38,12 +18,22 @@
   padding: 0;
 }
 
+.remove-items-message {
+  color: red;
+  font-weight: bold;
+}
+
 .cart-container {
   text-align: center;
-  padding-bottom: 10em;
+  padding-bottom: 3em;
 }
 .cart-checkout {
   display: flex;
+}
+
+.empty-cart-message {
+  font-size: xx-large;
+  font-weight: 600;
 }
 
 h1 {
@@ -62,7 +52,7 @@ h1 {
   align-items: flex-start;
   margin-bottom: 20px;
   padding-bottom: 2em;
-  border-bottom: 0.5px solid var(--primary-color);
+  border-bottom: 0.5px solid black;
 }
 
 .cart-item-subtotal {
@@ -126,7 +116,7 @@ h1 {
   padding: 10px 20px;
   margin-top: 2em;
   background-color: var(--primary-color);
-  color: rgb(46, 44, 44);
+  color: black;
   border: none;
   cursor: pointer;
 }
@@ -193,6 +183,8 @@ h1 {
     margin: 0px;
     width: stretch;
     padding-right: 2em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid black;
   }
 
   .subtotal-container,
