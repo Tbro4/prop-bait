@@ -9,6 +9,7 @@ import Login from "../components/Login/Login";
 import Signup from "../components/Signup/Signup";
 import Sales from "../components/Sales/Sales";
 import Orders from "../components/Orders/Orders";
+import Footer from "../components/Footer/Footer";
 
 const Home = ({
   view,
@@ -93,6 +94,7 @@ const Home = ({
       )}
 
       {view === "orders" && <Orders view={view} setView={setView} />}
+      <Footer />
     </div>
   );
 };
