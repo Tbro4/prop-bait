@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Button from "@mui/material/Button";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
 
@@ -43,7 +43,7 @@ const Signup = ({ setView }) => {
       <main className="flex-row justify-center mb-4">
         <div className="col-12 col-lg-10">
           <div className="card">
-            <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+            <h3 className="card-header bg-dark text-light p-2">Sign Up</h3>
             <div className="card-body">
               {data ? (
                 <p>
@@ -76,13 +76,13 @@ const Signup = ({ setView }) => {
                     value={formState.password}
                     onChange={handleChange}
                   />
-                  <button
+                  <Button
                     className="btn btn-block btn-primary"
                     style={{ cursor: "pointer" }}
                     type="submit"
                   >
                     Submit
-                  </button>
+                  </Button>
                 </form>
               )}
 

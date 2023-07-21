@@ -1,0 +1,29 @@
+/* .top-btns Button,
+.bottom-btns Button {
+  display: flex;
+
+  justify-content: space-between;
+} */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5em;
+  margin-bottom: 18em;
+}
+
+.top-btns,
+.bottom-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-btns Button,
+.bottom-btns Button {
+  flex: 1;
+  width: 250px; /* Adjust the width as needed */
+  margin: 5px;
+}
