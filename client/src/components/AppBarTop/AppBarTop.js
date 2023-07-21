@@ -4,7 +4,7 @@ import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import { Link } from "react-router-dom";
+
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
@@ -184,8 +184,6 @@ export default function AppBarTop({
           <Typography
             variant="h6"
             noWrap
-            component={Link}
-            to="/"
             onClick={handleLogoClick}
             sx={{
               display: { xs: "flex", sm: "block" },
@@ -194,6 +192,7 @@ export default function AppBarTop({
               color: "black",
               paddingRight: "20px",
               fontWeight: "600",
+              cursor: "pointer",
             }}
           >
             {"{prop} bait"}&nbsp;<i className="fi fi-bs-fishing-rod"></i>

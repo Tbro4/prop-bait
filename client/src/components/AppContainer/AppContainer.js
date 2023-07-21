@@ -78,6 +78,7 @@ const AppContainer = () => {
           onCategoryClick={handleCategoryClick}
           onSubCategoryClick={handleSubCategoryClick}
           onProductClick={handleProductClick}
+          onResetView={handleResetView}
         />
         <AppBarBottom view={view} setView={setView} />
         <Home
