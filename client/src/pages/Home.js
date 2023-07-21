@@ -26,7 +26,7 @@ const Home = ({
 }) => {
   // Define a common style for the components' container with margin-top
   const componentContainerStyle = {
-    marginTop: "2.5em", // Adjust the value as needed
+    marginTop: "3em", // Adjust the value as needed
   };
   return (
     <div style={componentContainerStyle}>
