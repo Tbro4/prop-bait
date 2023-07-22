@@ -15,9 +15,9 @@ const Account = ({ setView }) => {
 
   return (
     <div className="container">
-      <h2>Hello, {Auth.loggedIn() && Auth.getProfile().data.username}</h2>
       {Auth.loggedIn() ? (
         <>
+          <h2>Hello, {Auth.loggedIn() && Auth.getProfile().data.username}</h2>
           <div className="top-btns">
             <Button
               variant="contained"

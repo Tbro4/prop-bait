@@ -8,9 +8,13 @@ import "./Orders.css";
 const Orders = () => {
   const profile = AuthService.getProfile();
   const userId = profile ? profile.data._id : null;
-  const { loading, error, data } = useQuery(QUERY_USER_ORDERS, {
+  const { loading, error, data, refetch } = useQuery(QUERY_USER_ORDERS, {
     variables: { userId },
   });
+
+  useEffect(() => {
+    refetch();
+  }, [refetch, userId]);
 
   const client = useApolloClient();
   const [selectedOrder, setSelectedOrder] = useState(null);
