@@ -94,31 +94,32 @@ const Orders = () => {
   return (
     <div
       className="order-page"
-      style={{ marginBottom: "6em", marginTop: "3em" }}
+      style={{ marginBottom: "15em", marginTop: "3em" }}
     >
       <h1>Your Orders</h1>
       {data.userOrders.length > 0 ? (
-        <ul style={{ listStyleType: "none", padding: 0 }}>
+        <div className="order-buttons-wrapper">
           {data.userOrders.map((order) => (
-            <li key={order._id}>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => handleOrderClick(order._id, order.createdAt)}
-              >
-                {formatDate(order.createdAt)}
-              </Button>
-            </li>
+            <Button
+              key={order._id}
+              variant="contained"
+              color="primary"
+              onClick={() => handleOrderClick(order._id, order.createdAt)}
+              style={{ marginRight: "10px" }}
+            >
+              {formatDate(order.createdAt)}
+            </Button>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>No orders found.</p>
       )}
       {selectedOrder && (
         <div className="order-items">
-          <h2>
-            Order # {orderDisplayId} Placed on {formatDate(orderDisplayDate)}
-          </h2>
+          <h3>Order # </h3>
+          <h2>{orderDisplayId}</h2>
+          <h3>Placed on</h3>
+          <h2>{formatDate(orderDisplayDate)}</h2>
           {selectedOrder.map((item) => (
             <div key={item._id} className="cart-item">
               {item.option && item.option.image ? (
