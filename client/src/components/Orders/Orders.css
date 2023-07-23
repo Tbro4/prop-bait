@@ -7,3 +7,32 @@
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+
+.order-checkout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-subtotal-container,
+.order-shipping-container,
+.order-tax-container,
+.order-total-container,
+.order-savings-container {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.order-savings-container {
+  font-weight: 600;
+}
+
+.order-checkout p {
+  margin: 10px 0;
+}
+
+.order-total-container {
+  font-weight: bold;
+  border-top: 1px solid black;
+}

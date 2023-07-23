@@ -107,12 +107,8 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
     quantity: cartItem.quantity,
   }));
 
-  let subtotal = 0;
-  let shippingRate = 0.03;
-  let taxRate = 0.05;
-  let savings = 0;
-
   // Calculate subtotal
+  let subtotal = 0;
   userCart.forEach((item) => {
     const itemSubtotal =
       parseFloat(
@@ -120,6 +116,10 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
       ) * item.quantity;
     subtotal += itemSubtotal;
   });
+
+  let shippingRate = subtotal > 150 ? 0 : 0.03;
+  let taxRate = 0.05;
+  let savings = 0;
 
   //calculate savings
   userCart.forEach((item) => {
@@ -301,8 +301,8 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
               <p className="savings-amount">${savings.toFixed(2)}</p>
             </div>
             <div className="shipping-container">
-              <p className="shipping">Shipping:</p>
-              <p className="shipping-amount">${shippingAmount.toFixed(2)}</p>
+              <p className="shipping">Shipping:</p>$
+              {shippingRate === 0 ? "0.00" : shippingAmount.toFixed(2)}
             </div>
             <div className="tax-container">
               <p className="tax">Est. tax:</p>

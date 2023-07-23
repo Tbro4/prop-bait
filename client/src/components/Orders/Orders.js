@@ -78,7 +78,8 @@ const Orders = () => {
   };
 
   const calculateShipping = (subtotal) => {
-    const shippingRate = 0.03;
+    //apply free shipping over $150
+    const shippingRate = subtotal > 150 ? 0 : 0.03;
     return subtotal * shippingRate;
   };
 
@@ -189,35 +190,35 @@ const Orders = () => {
               </div>
             </div>
           ))}
-          <div className="checkout order-checkout">
-            <div className="subtotal-container">
-              <p className="subtotal">Subtotal:</p>
-              <p className="subtotal-amount">
+          <div className="order-checkout">
+            <div className="order-subtotal-container">
+              <p className="order-subtotal">Subtotal:</p>
+              <p className="order-subtotal-amount">
                 ${calculateSubtotal(selectedOrder).toFixed(2)}
               </p>
             </div>
-            <div className="savings-container" style={{ color: "red" }}>
-              <p className="savings">Savings:</p>
-              <p className="savings-amount">
+            <div className="order-savings-container" style={{ color: "red" }}>
+              <p className="order-savings">Savings:</p>
+              <p className="order-savings-amount">
                 ${calculateTotalSavings(selectedOrder).toFixed(2)}
               </p>
             </div>
-            <div className="shipping-container">
-              <p className="shipping">Shipping:</p>
-              <p className="shipping-amount">
+            <div className="order-shipping-container">
+              <p className="order-shipping">Shipping:</p>
+              <p className="order-shipping-amount">
                 $
                 {calculateShipping(calculateSubtotal(selectedOrder)).toFixed(2)}
               </p>
             </div>
-            <div className="tax-container">
-              <p className="tax">Est. tax:</p>
-              <p className="tax-amount">
+            <div className="order-tax-container">
+              <p className="order-tax">Est. tax:</p>
+              <p className="order-tax-amount">
                 ${calculateTax(calculateSubtotal(selectedOrder)).toFixed(2)}
               </p>
             </div>
-            <div className="total-container">
-              <p className="total">TOTAL:</p>
-              <p className="total-amount">
+            <div className="order-total-container">
+              <p className="order-total">TOTAL:</p>
+              <p className="order-total-amount">
                 $
                 {calculateTotal(
                   calculateSubtotal(selectedOrder),

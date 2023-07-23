@@ -90,10 +90,10 @@ const SearchOptionItem = styled("div")(
 
 const Banner = styled("div")(({ theme }) => ({
   position: "sticky",
-  top: "20px", // Adjust this value to match the height of your AppBar (in pixels)
-  backgroundColor: "#FFA500", // Customize the banner background color
+  top: "20px",
+  backgroundColor: theme.palette.secondary.main,
   textAlign: "center",
-  color: "white",
+  color: theme.palette.primary.main,
   fontSize: "14px",
   fontWeight: "bold",
   display: "flex",
