@@ -29,6 +29,7 @@ const MainCategories = ({ onCategoryClick, handleSalesClick, setView }) => {
     <ThemeProvider theme={theme}>
       <div className="main-categories">
         <div className="main-category sales" onClick={() => handleSalesClick()}>
+          <div className="sales-banner">&nbsp;HUGE SALE!</div>
           <video src={vidClips} autoPlay loop muted />
         </div>
         <div

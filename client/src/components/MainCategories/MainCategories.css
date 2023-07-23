@@ -1,3 +1,25 @@
+.sales-banner {
+  position: absolute;
+  top: 10%;
+  right: -7%;
+
+  width: 60%;
+  height: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: bottom right;
+  transform: rotate(-40deg);
+  background-color: #ff0000;
+  border: 3px solid #fff;
+  color: #fff;
+
+  font-weight: bolder;
+
+  font-size: 40px;
+  z-index: 999;
+}
+
 .main-categories {
   display: grid;
   grid-auto-flow: row;
@@ -16,6 +38,7 @@
 .sales {
   grid-column: 1/3;
   grid-row: 1/2;
+  position: relative;
 }
 .rods {
   grid-column: 1/2;
@@ -86,8 +109,31 @@ video {
   border-radius: 8px;
 }
 
+@media (max-width: 1200px) {
+  .sales-banner {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 800px) {
+  .sales-banner {
+    font-size: 30px;
+    border: 2px solid #fff;
+  }
+}
+
 @media (max-width: 600px) {
+  .sales-banner {
+    font-size: 25px;
+  }
   .main-categories {
     gap: 0.5em;
+  }
+}
+
+@media (max-width: 450px) {
+  .sales-banner {
+    font-size: 19px;
+    border: 1px solid #fff;
   }
 }
