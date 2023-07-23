@@ -301,8 +301,10 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
               <p className="savings-amount">${savings.toFixed(2)}</p>
             </div>
             <div className="shipping-container">
-              <p className="shipping">Shipping:</p>$
-              {shippingRate === 0 ? "0.00" : shippingAmount.toFixed(2)}
+              <p className="shipping">Shipping:</p>
+              <p className="shiping-amount">
+                ${shippingRate === 0 ? "0.00" : shippingAmount.toFixed(2)}
+              </p>
             </div>
             <div className="tax-container">
               <p className="tax">Est. tax:</p>
