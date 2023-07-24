@@ -199,7 +199,7 @@ export default function AppBarTop({
           </Typography>
           <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon sx={{ color: "var(--secondary-color)" }} />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
