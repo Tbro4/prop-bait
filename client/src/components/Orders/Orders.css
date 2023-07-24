@@ -36,3 +36,14 @@
   font-weight: bold;
   border-top: 1px solid black;
 }
+
+.order-date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  font-size: medium;
+}
+
+.placed-on {
+  padding-left: 1em;
+}

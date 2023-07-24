@@ -64,6 +64,7 @@
 th {
   font-weight: bold;
   background-color: var(--primary-color);
+  color: white;
   padding-left: 0.25em;
 }
 

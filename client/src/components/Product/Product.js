@@ -323,7 +323,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
       <Button
         className="go-back"
         onClick={handleGoBack}
-        style={{ marginTop: "10px" }}
+        style={{ marginTop: "10px", marginLeft: "-1em" }}
       >
         <ArrowBackIosIcon
           fontSize="large"

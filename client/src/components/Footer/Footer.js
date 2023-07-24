@@ -27,14 +27,14 @@ const Footer = () => {
         <h2>Contact</h2>
 
         <address>
-          1234 Denver, CO
+          Tyler Brooks 1234 Denver, CO
           <br />
           <a className="footer__btn" href="mailto:thetylerbrooks@gmail.com">
             Email Us
           </a>
           <div>
             <Button
-              className="remove-item-button"
+              className="linkedin-button"
               href="https://www.linkedin.com/"
               target="blank"
               classes={{ root: "custom-button-root" }}
@@ -42,10 +42,18 @@ const Footer = () => {
               <LinkedInIcon
                 classes={{ root: "custom-icon-root" }}
                 fontSize="large"
+                // sx={{
+                //   borderRadius: "3px",
+                //   transition: ".4s",
+                //   "&:hover": {
+                //     color: "var(--secondary-color)",
+                //     backgroundColor: "var(--primary-color)",
+                //   },
+                // }}
               />
             </Button>
             <Button
-              className="remove-item-button"
+              className="github-button"
               href="https://github.com/Tbro4"
               target="blank"
               classes={{ root: "custom-button-root" }}
@@ -53,10 +61,18 @@ const Footer = () => {
               <GitHubIcon
                 classes={{ root: "custom-icon-root" }}
                 fontSize="large"
+                // sx={{
+                //   borderRadius: "3px",
+                //   transition: ".4s",
+                //   "&:hover": {
+                //     color: "var(--secondary-color)",
+                //     backgroundColor: "var(--primary-color)",
+                //   },
+                // }}
               />
             </Button>
             <Button
-              className="remove-item-button"
+              className="youtube-button"
               href="https://www.youtube.com/channel/UCON4NsNWaLm0t_arPoQEq_w"
               target="blank"
               classes={{ root: "custom-button-root" }}
@@ -67,7 +83,7 @@ const Footer = () => {
               />
             </Button>
             <Button
-              className="remove-item-button"
+              className="instagram-button"
               href="https://www.instagram.com"
               target="blank"
               classes={{ root: "custom-button-root" }}
@@ -78,7 +94,7 @@ const Footer = () => {
               />
             </Button>
             <Button
-              className="remove-item-button"
+              className="facebook-button"
               href="https://www.facebook.com"
               target="blank"
               classes={{ root: "custom-button-root" }}

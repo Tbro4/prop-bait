@@ -77,7 +77,7 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
       <Button
         className="go-back"
         onClick={handleGoBack}
-        style={{ marginTop: "10px" }}
+        style={{ marginTop: "10px", marginLeft: "-1em" }}
       >
         <ArrowBackIosIcon
           fontSize="large"
@@ -96,7 +96,7 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
       </Button>
       <Button
         className="filter-sort-btn"
-        style={{ marginTop: "10px" }}
+        style={{ marginTop: "10px", paddingLeft: "8px", paddingRight: "8px" }}
         onClick={handleFilterToggle}
         sx={{
           color: "var(--secondary-color)",

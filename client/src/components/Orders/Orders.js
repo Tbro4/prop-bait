@@ -103,10 +103,11 @@ const Orders = () => {
           {data.userOrders.map((order) => (
             <Button
               key={order._id}
+              className="order-btns"
               variant="contained"
               color="primary"
               onClick={() => handleOrderClick(order._id, order.createdAt)}
-              style={{ marginRight: "10px" }}
+              style={{ margin: ".5em" }}
             >
               {formatDate(order.createdAt)}
             </Button>
@@ -117,10 +118,12 @@ const Orders = () => {
       )}
       {selectedOrder && (
         <div className="order-items">
-          <h3>Order # </h3>
-          <h2>{orderDisplayId}</h2>
-          <h3>Placed on</h3>
-          <h2>{formatDate(orderDisplayDate)}</h2>
+          <div className="order-date">
+            <span>Order # {orderDisplayId}</span>
+            <span className="placed-on">
+              Placed on {formatDate(orderDisplayDate)}{" "}
+            </span>
+          </div>
           {selectedOrder.map((item) => (
             <div key={item._id} className="cart-item">
               {item.option && item.option.image ? (

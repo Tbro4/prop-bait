@@ -257,6 +257,7 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
                     >
                       <DeleteForeverIcon
                         classes={{ root: "custom-icon-root" }}
+                        sx={{ color: "#264653" }}
                         fontSize="large"
                       />
                     </Button>
@@ -324,7 +325,7 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
             <Button
               className="checkout-button"
               sx={{
-                color: "var(--secondary-color)",
+                color: "white",
                 background: "var(--primary-color)",
                 borderRadius: "4px",
                 padding: ".35em",
