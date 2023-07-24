@@ -231,6 +231,7 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
                       <input
                         className="qty-input"
                         type="number"
+                        min="0"
                         value={item.quantity}
                         onChange={(e) => {
                           let value = e.target.value;
