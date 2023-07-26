@@ -73,13 +73,16 @@ const Login = ({ props, setView }) => {
                     onChange={handleChange}
                   />
                   <Button
-                    className="btn btn-block btn-primary"
-                    style={{
-                      cursor: "pointer",
-                      fontSize: "18px",
-                      fontWeight: "600",
-                    }}
+                    className="submit-btn"
                     type="submit"
+                    sx={{
+                      padding: "3px 20px",
+                      marginTop: "1em",
+                      width: "155px",
+
+                      color: "white",
+                      backgroundColor: "var(--custom-color)",
+                    }}
                   >
                     Submit
                   </Button>

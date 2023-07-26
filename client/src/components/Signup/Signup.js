@@ -77,11 +77,17 @@ const Signup = ({ setView }) => {
                     onChange={handleChange}
                   />
                   <Button
-                    className="btn btn-block btn-primary"
+                    className="submit-btn"
                     style={{
                       cursor: "pointer",
-                      fontSize: "18px",
-                      fontWeight: "600",
+                    }}
+                    sx={{
+                      padding: "3px 20px",
+                      marginTop: "1em",
+                      width: "155px",
+
+                      color: "white",
+                      backgroundColor: "var(--custom-color)",
                     }}
                     type="submit"
                   >

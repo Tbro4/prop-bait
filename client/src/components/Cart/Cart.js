@@ -325,23 +325,6 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
               )}
             <Button
               className="checkout-button"
-              sx={{
-                color: "white",
-                background: "var(--primary-color)",
-                borderRadius: "4px",
-                padding: ".35em",
-                fontWeight: "bold",
-                transition: ".4s",
-                "&:hover": {
-                  color: "var(--primary-color)",
-                  backgroundColor: "var(--secondary-color)",
-                },
-                "&:disabled": {
-                  color: "gray", // Change the text color when disabled
-                  backgroundColor: "lightgray", // Change the background color when disabled
-                  cursor: "not-allowed", // Change the cursor to 'not-allowed' when disabled
-                },
-              }}
               onClick={handleCheckout}
               disabled={userCart.length === 0 || hasZeroQuantityItem()}
             >

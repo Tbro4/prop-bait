@@ -2,12 +2,12 @@
   margin-bottom: 2em;
 }
 
-.custom-button-root {
+/* .custom-button-root {
   background-color: transparent;
   border: none;
   padding: 0;
   margin: 0;
-}
+} */
 
 .qty-delete {
   display: flex;
@@ -115,10 +115,20 @@ h1 {
 .checkout button {
   padding: 10px 20px;
   margin-top: 2em;
-  background-color: #264653;
+  background-color: var(--custom-color);
   color: white;
   border: none;
   cursor: pointer;
+}
+
+.checkout-button:hover {
+  color: var(--custom-color);
+  background-color: var(--custom-color);
+}
+.checkout-button:disabled {
+  color: gray;
+  background-color: lightgray;
+  cursor: not-allowed;
 }
 
 .qty-input {

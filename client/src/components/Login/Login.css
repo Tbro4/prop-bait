@@ -19,3 +19,8 @@ form {
   border-radius: 4px;
   justify-content: center;
 }
+
+.submit-btn:hover {
+  color: var(--custom-color);
+  background-color: var(--custom-color);
+}

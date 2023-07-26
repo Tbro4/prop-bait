@@ -12,6 +12,9 @@ const theme = createTheme({
     secondary: {
       main: "#c7e5e1",
     },
+    custom: {
+      main: "#264653",
+    },
   },
 });
 
@@ -71,6 +74,7 @@ const AppContainer = () => {
         style={{
           "--primary-color": theme.palette.primary.main,
           "--secondary-color": theme.palette.secondary.main,
+          "--custom-color": theme.palette.custom.main,
         }}
       >
         <AppBarTop
