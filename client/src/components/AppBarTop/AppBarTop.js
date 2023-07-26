@@ -305,7 +305,10 @@ export default function AppBarTop({
             )}
           </Search>
           <animated.div style={springProps}>
-            <InfoIcon style={{ marginLeft: "15px" }} />
+            <InfoIcon
+              style={{ marginLeft: "15px" }}
+              sx={{ cursor: "pointer" }}
+            />
           </animated.div>
         </Toolbar>
         <Banner>

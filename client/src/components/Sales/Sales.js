@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ON_SALE_PRODUCTS } from "../../utils/queries";
 import { Button, Drawer } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import InfoIcon from "@mui/icons-material/Info";
 
 const Sales = ({
   onProductClick,
@@ -144,6 +145,14 @@ const Sales = ({
             <option value="price-asc">Price Low to High</option>
             <option value="name-asc">A-Z</option>
           </select>
+
+          <InfoIcon
+            style={{
+              marginLeft: "15px",
+              fill: "#2a9d8f",
+            }}
+            sx={{ cursor: "pointer" }}
+          />
 
           <div className="filter">
             <div className="filter-title">

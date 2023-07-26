@@ -121,6 +121,20 @@ h1 {
   cursor: pointer;
 }
 
+.checkout-info {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+}
+
+.info-btn {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-top: 25px;
+}
+
 .checkout-button:hover {
   color: var(--custom-color);
   background-color: var(--custom-color);

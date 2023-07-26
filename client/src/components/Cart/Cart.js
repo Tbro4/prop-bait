@@ -10,6 +10,7 @@ import {
 import AuthService from "../../utils/auth";
 import Button from "@mui/material/Button";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import InfoIcon from "@mui/icons-material/Info";
 import Snackbar from "@mui/material/Snackbar";
 import Sales from "../Sales/Sales";
 
@@ -323,13 +324,24 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
                   Remove items with Qty: 0 before checking out.
                 </p>
               )}
-            <Button
-              className="checkout-button"
-              onClick={handleCheckout}
-              disabled={userCart.length === 0 || hasZeroQuantityItem()}
-            >
-              CHECKOUT
-            </Button>
+            <div className="checkout-info">
+              <Button
+                className="checkout-button"
+                onClick={handleCheckout}
+                disabled={userCart.length === 0 || hasZeroQuantityItem()}
+              >
+                CHECKOUT
+              </Button>
+
+              <div className="info-btn">
+                <InfoIcon
+                  style={{
+                    fill: "#2a9d8f",
+                  }}
+                  sx={{ cursor: "pointer" }}
+                />
+              </div>
+            </div>
           </div>
         </div>
         <Snackbar

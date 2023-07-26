@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS_BY_SUBCATEGORY } from "../../utils/queries";
 import { Button, Drawer } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import InfoIcon from "@mui/icons-material/Info";
 import "./Products.css";
 
 const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
@@ -141,6 +142,14 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
             <option value="price-asc">Price Low to High</option>
             <option value="name-asc">A-Z</option>
           </select>
+
+          <InfoIcon
+            style={{
+              marginLeft: "15px",
+              fill: "#2a9d8f",
+            }}
+            sx={{ cursor: "pointer" }}
+          />
 
           <div className="filter">
             <div className="filter-title">
