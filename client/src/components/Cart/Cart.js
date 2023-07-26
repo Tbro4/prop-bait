@@ -336,6 +336,11 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
                   color: "var(--primary-color)",
                   backgroundColor: "var(--secondary-color)",
                 },
+                "&:disabled": {
+                  color: "gray", // Change the text color when disabled
+                  backgroundColor: "lightgray", // Change the background color when disabled
+                  cursor: "not-allowed", // Change the cursor to 'not-allowed' when disabled
+                },
               }}
               onClick={handleCheckout}
               disabled={userCart.length === 0 || hasZeroQuantityItem()}

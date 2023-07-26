@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useSpring, animated } from "react-spring";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -8,6 +9,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import InfoIcon from "@mui/icons-material/Info";
 import { useLazyQuery } from "@apollo/client";
 import { QUERY_PRODUCTS_BY_KEYWORD } from "../../utils/queries";
 import "./AppBarTop.css";
@@ -116,10 +118,33 @@ export default function AppBarTop({
   const [getSearchOptions, { data }] = useLazyQuery(QUERY_PRODUCTS_BY_KEYWORD);
   const [showOptions, setShowOptions] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const [shouldAnimate, setShouldAnimate] = useState(true);
   const bannerTexts = [
     "Free shipping on $150+",
     "Shimano and Daiwa products 25% off!",
   ];
+  useEffect(() => {
+    // Delay the animation start by 2 seconds after the component mounts
+    const animationTimeout = setTimeout(() => {
+      setShouldAnimate(true);
+    }, 3000);
+
+    return () => {
+      clearTimeout(animationTimeout); // Cleanup the timeout to avoid memory leaks
+    };
+  }, []);
+
+  // Define the spring configuration
+  const springProps = useSpring({
+    to: { scale: shouldAnimate ? 0.8 : 1.3 }, // If shouldAnimate is true, scale to 1.1, otherwise scale back to 1
+    config: { tension: 350, friction: 3 }, // Adjust the tension and friction for the desired animation effect
+  });
+  useEffect(() => {
+    // Disable the animation after it has played for the first time
+    setTimeout(() => {
+      setShouldAnimate(false);
+    }, 3000); // Adjust the time (in milliseconds) as per your requirement
+  }, []);
 
   const handleSearchInputChange = (event) => {
     const keyword = event.target.value;
@@ -279,6 +304,9 @@ export default function AppBarTop({
               </SearchOptions>
             )}
           </Search>
+          <animated.div style={springProps}>
+            <InfoIcon style={{ marginLeft: "15px" }} />
+          </animated.div>
         </Toolbar>
         <Banner>
           {bannerTexts.map((text, index) => (
