@@ -8,6 +8,10 @@
   justify-content: flex-start;
 }
 
+.order-btns {
+  width: 220px;
+}
+
 .order-checkout {
   display: flex;
   flex-direction: column;
@@ -46,4 +50,12 @@
 
 .placed-on {
   padding-left: 1em;
+}
+
+@media (max-width: 500px) {
+  .order-buttons-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
