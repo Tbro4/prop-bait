@@ -18,7 +18,7 @@ const Account = ({ setView }) => {
       {Auth.loggedIn() ? (
         <>
           <h2>Hello, {Auth.loggedIn() && Auth.getProfile().data.username}</h2>
-          <div className="top-btns">
+          <div className="option-btns">
             <Button
               variant="contained"
               onClick={() => handleNavigation("orders")}
@@ -32,7 +32,7 @@ const Account = ({ setView }) => {
               View Cart
             </Button>
           </div>
-          <div className="bottom-btns">
+          <div className="option-btns">
             <Button
               variant="contained"
               onClick={() => handleNavigation("mainCategories")}
@@ -46,10 +46,15 @@ const Account = ({ setView }) => {
         </>
       ) : (
         <Stack spacing={2}>
-          <Button variant="contained" onClick={() => handleNavigation("login")}>
+          <Button
+            className="loginSignupBtn"
+            variant="contained"
+            onClick={() => handleNavigation("login")}
+          >
             Login
           </Button>
           <Button
+            className="loginSignupBtn"
             variant="contained"
             onClick={() => handleNavigation("signup")}
           >

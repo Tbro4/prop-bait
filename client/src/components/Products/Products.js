@@ -123,6 +123,9 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
             paddingRight: "1em",
             paddingLeft: "1em",
           },
+          sx: {
+            background: "#c7e5e1",
+          },
         }}
       >
         <div className="sort-filter">

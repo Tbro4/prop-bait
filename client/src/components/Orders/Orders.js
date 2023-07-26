@@ -95,7 +95,7 @@ const Orders = () => {
   return (
     <div
       className="order-page"
-      style={{ marginBottom: "15em", marginTop: "3em" }}
+      style={{ marginBottom: "15em", marginTop: "4em" }}
     >
       <h1>Your Orders</h1>
       {data.userOrders.length > 0 ? (

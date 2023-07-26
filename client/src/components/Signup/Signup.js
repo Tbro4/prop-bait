@@ -78,7 +78,11 @@ const Signup = ({ setView }) => {
                   />
                   <Button
                     className="btn btn-block btn-primary"
-                    style={{ cursor: "pointer" }}
+                    style={{
+                      cursor: "pointer",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
                     type="submit"
                   >
                     Submit

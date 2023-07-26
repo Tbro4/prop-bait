@@ -42,14 +42,6 @@ const Footer = () => {
               <LinkedInIcon
                 classes={{ root: "custom-icon-root" }}
                 fontSize="large"
-                // sx={{
-                //   borderRadius: "3px",
-                //   transition: ".4s",
-                //   "&:hover": {
-                //     color: "var(--secondary-color)",
-                //     backgroundColor: "var(--primary-color)",
-                //   },
-                // }}
               />
             </Button>
             <Button
@@ -61,14 +53,6 @@ const Footer = () => {
               <GitHubIcon
                 classes={{ root: "custom-icon-root" }}
                 fontSize="large"
-                // sx={{
-                //   borderRadius: "3px",
-                //   transition: ".4s",
-                //   "&:hover": {
-                //     color: "var(--secondary-color)",
-                //     backgroundColor: "var(--primary-color)",
-                //   },
-                // }}
               />
             </Button>
             <Button

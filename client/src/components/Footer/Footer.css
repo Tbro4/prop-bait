@@ -44,7 +44,6 @@ address {
 }
 
 .footer__logo {
-  /* font-family: "Pacifico", cursive; */
   font-weight: 400;
   text-transform: lowercase;
   font-size: 1.5rem;
@@ -72,12 +71,13 @@ address {
   justify-content: center;
   height: 36px;
   max-width: max-content;
-  background-color: rgb(33, 33, 33, 0.07);
+  background-color: var(--secondary-color);
   border-radius: 100px;
-  color: #2f2f2f;
+  color: var(--primary-color);
   line-height: 0;
   margin: 0.6em 0;
-  font-size: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
   padding: 0 1.3em;
 }
 

@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.sub-names {
+  text-decoration: underline;
+}
+
 .sub-categories > div {
   flex-shrink: 2;
   margin-right: 20px;
