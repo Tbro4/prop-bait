@@ -44,7 +44,6 @@ address {
 }
 
 .footer__logo {
-  /* font-family: "Pacifico", cursive; */
   font-weight: 400;
   text-transform: lowercase;
   font-size: 1.5rem;
@@ -72,13 +71,18 @@ address {
   justify-content: center;
   height: 36px;
   max-width: max-content;
-  background-color: rgb(33, 33, 33, 0.07);
+  background-color: var(--secondary-color);
   border-radius: 100px;
-  color: #2f2f2f;
+  color: var(--primary-color);
   line-height: 0;
   margin: 0.6em 0;
   font-size: 1rem;
+  font-weight: 600;
   padding: 0 1.3em;
+}
+
+.MuiButton-root.footer__btn {
+  font-size: 0.75rem;
 }
 
 .footer ul {
@@ -96,6 +100,7 @@ address {
 
 .footer__nav {
   display: flex;
+
   flex-flow: row wrap;
 }
 
@@ -126,6 +131,15 @@ address {
 
 .heart {
   color: #2f2f2f;
+}
+
+.MuiSvgIcon-root {
+  border-radius: 3px;
+  transition: 0.4s;
+}
+.MuiSvgIcon-root:hover {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 @media screen and (min-width: 24.375em) {

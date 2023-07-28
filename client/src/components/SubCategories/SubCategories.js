@@ -6,6 +6,7 @@ import {
 } from "../../utils/queries";
 import { Button, Drawer } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import InfoIcon from "@mui/icons-material/Info";
 import "./SubCategories.css";
 
 const SubCategories = ({
@@ -129,7 +130,7 @@ const SubCategories = ({
       <Button
         className="go-back"
         onClick={handleGoBack}
-        style={{ marginTop: "10px" }}
+        sx={{ marginTop: "10px", marginLeft: "-1em" }}
       >
         <ArrowBackIosIcon
           fontSize="large"
@@ -148,7 +149,7 @@ const SubCategories = ({
       </Button>
       <Button
         className="filter-sort-btn"
-        style={{ marginTop: "10px" }}
+        style={{ marginTop: "10px", paddingLeft: "8px", paddingRight: "8px" }}
         onClick={handleFilterToggle}
         sx={{
           color: "var(--secondary-color)",
@@ -187,6 +188,9 @@ const SubCategories = ({
             paddingRight: "1em",
             paddingLeft: "1em",
           },
+          sx: {
+            background: "#c7e5e1",
+          },
         }}
       >
         <div className="sort-filter">
@@ -202,6 +206,14 @@ const SubCategories = ({
             <option value="price-asc">Price Low to High</option>
             <option value="name-asc">A-Z</option>
           </select>
+
+          <InfoIcon
+            style={{
+              marginLeft: "15px",
+              fill: "#2a9d8f",
+            }}
+            sx={{ cursor: "pointer" }}
+          />
 
           <div className="filter">
             <div className="filter-title">

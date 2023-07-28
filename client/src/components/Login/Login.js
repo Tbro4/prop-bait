@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
-
+import Button from "@mui/material/Button";
+import "./Login.css";
 import Auth from "../../utils/auth";
 
 const Login = ({ props, setView }) => {
@@ -43,18 +44,10 @@ const Login = ({ props, setView }) => {
 
   return (
     <>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
       <main className="flex-row justify-center mb-4">
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
         <div className="col-12 col-lg-10">
           <div className="card">
-            <h4 className="card-header bg-dark text-light p-2">Login</h4>
+            <h3 className="card-header bg-dark text-light p-2">Login</h3>
             <div className="card-body">
               {data ? (
                 <p>
@@ -62,7 +55,7 @@ const Login = ({ props, setView }) => {
                   <Link to="/">back to the homepage.</Link>
                 </p>
               ) : (
-                <form onSubmit={handleFormSubmit}>
+                <form onSubmit={handleFormSubmit} className="login-signup-form">
                   <input
                     className="form-input"
                     placeholder="Your email"
@@ -79,13 +72,20 @@ const Login = ({ props, setView }) => {
                     value={formState.password}
                     onChange={handleChange}
                   />
-                  <button
-                    className="btn btn-block btn-primary"
-                    style={{ cursor: "pointer" }}
+                  <Button
+                    className="submit-btn"
                     type="submit"
+                    sx={{
+                      padding: "3px 20px",
+                      marginTop: "1em",
+                      width: "155px",
+
+                      color: "white",
+                      backgroundColor: "var(--custom-color)",
+                    }}
                   >
                     Submit
-                  </button>
+                  </Button>
                 </form>
               )}
 

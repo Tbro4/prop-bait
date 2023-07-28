@@ -2,13 +2,6 @@
   margin-bottom: 2em;
 }
 
-.custom-button-root {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
 .qty-delete {
   display: flex;
   flex-direction: row;
@@ -115,14 +108,38 @@ h1 {
 .checkout button {
   padding: 10px 20px;
   margin-top: 2em;
-  background-color: var(--primary-color);
-  color: black;
+  background-color: var(--custom-color);
+  color: white;
   border: none;
   cursor: pointer;
 }
 
+.checkout-info {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+}
+
+.info-btn {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-top: 25px;
+}
+
+.checkout-button:hover {
+  color: var(--custom-color);
+  background-color: var(--custom-color);
+}
+.checkout-button:disabled {
+  color: gray;
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
 .qty-input {
-  width: 35px;
+  width: 45px;
 }
 
 .total-container {
@@ -171,7 +188,7 @@ h1 {
   }
 
   .qty-input {
-    width: 20px;
+    width: 2em;
   }
 
   .cart-checkout {

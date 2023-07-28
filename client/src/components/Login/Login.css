@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5em;
+  padding-bottom: 18em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-input {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+  justify-content: center;
+}
+
+.submit-btn:hover {
+  color: var(--custom-color);
+  background-color: var(--custom-color);
+}

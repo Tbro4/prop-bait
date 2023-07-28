@@ -10,6 +10,7 @@ import {
 import AuthService from "../../utils/auth";
 import Button from "@mui/material/Button";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import InfoIcon from "@mui/icons-material/Info";
 import Snackbar from "@mui/material/Snackbar";
 import Sales from "../Sales/Sales";
 
@@ -107,12 +108,8 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
     quantity: cartItem.quantity,
   }));
 
-  let subtotal = 0;
-  let shippingRate = 0.03;
-  let taxRate = 0.05;
-  let savings = 0;
-
   // Calculate subtotal
+  let subtotal = 0;
   userCart.forEach((item) => {
     const itemSubtotal =
       parseFloat(
@@ -120,6 +117,10 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
       ) * item.quantity;
     subtotal += itemSubtotal;
   });
+
+  let shippingRate = subtotal > 150 ? 0 : 0.03;
+  let taxRate = 0.05;
+  let savings = 0;
 
   //calculate savings
   userCart.forEach((item) => {
@@ -231,6 +232,7 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
                       <input
                         className="qty-input"
                         type="number"
+                        min="0"
                         value={item.quantity}
                         onChange={(e) => {
                           let value = e.target.value;
@@ -257,6 +259,7 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
                     >
                       <DeleteForeverIcon
                         classes={{ root: "custom-icon-root" }}
+                        sx={{ color: "#264653" }}
                         fontSize="large"
                       />
                     </Button>
@@ -302,7 +305,9 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
             </div>
             <div className="shipping-container">
               <p className="shipping">Shipping:</p>
-              <p className="shipping-amount">${shippingAmount.toFixed(2)}</p>
+              <p className="shiping-amount">
+                {shippingRate === 0 ? "Free!" : `$${shippingAmount.toFixed(2)}`}
+              </p>
             </div>
             <div className="tax-container">
               <p className="tax">Est. tax:</p>
@@ -319,25 +324,24 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
                   Remove items with Qty: 0 before checking out.
                 </p>
               )}
-            <Button
-              className="checkout-button"
-              sx={{
-                color: "var(--secondary-color)",
-                background: "var(--primary-color)",
-                borderRadius: "4px",
-                padding: ".35em",
-                fontWeight: "bold",
-                transition: ".4s",
-                "&:hover": {
-                  color: "var(--primary-color)",
-                  backgroundColor: "var(--secondary-color)",
-                },
-              }}
-              onClick={handleCheckout}
-              disabled={userCart.length === 0 || hasZeroQuantityItem()}
-            >
-              CHECKOUT
-            </Button>
+            <div className="checkout-info">
+              <Button
+                className="checkout-button"
+                onClick={handleCheckout}
+                disabled={userCart.length === 0 || hasZeroQuantityItem()}
+              >
+                CHECKOUT
+              </Button>
+
+              <div className="info-btn">
+                <InfoIcon
+                  style={{
+                    fill: "#2a9d8f",
+                  }}
+                  sx={{ cursor: "pointer" }}
+                />
+              </div>
+            </div>
           </div>
         </div>
         <Snackbar

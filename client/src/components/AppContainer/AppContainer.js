@@ -7,12 +7,14 @@ import AppBarBottom from "../AppBarBottom/AppBarBottom";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#00bcd4", // Color for AppBarTop
+      main: "#2a9d8f",
     },
     secondary: {
-      main: "#e0f7fa", // Color for AppBarBottom
+      main: "#c7e5e1",
     },
-    // Add more color overrides or other theme options as needed
+    custom: {
+      main: "#264653",
+    },
   },
 });
 
@@ -72,6 +74,7 @@ const AppContainer = () => {
         style={{
           "--primary-color": theme.palette.primary.main,
           "--secondary-color": theme.palette.secondary.main,
+          "--custom-color": theme.palette.custom.main,
         }}
       >
         <AppBarTop

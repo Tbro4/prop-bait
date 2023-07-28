@@ -8,9 +8,13 @@ import "./Orders.css";
 const Orders = () => {
   const profile = AuthService.getProfile();
   const userId = profile ? profile.data._id : null;
-  const { loading, error, data } = useQuery(QUERY_USER_ORDERS, {
+  const { loading, error, data, refetch } = useQuery(QUERY_USER_ORDERS, {
     variables: { userId },
   });
+
+  useEffect(() => {
+    refetch();
+  }, [refetch, userId]);
 
   const client = useApolloClient();
   const [selectedOrder, setSelectedOrder] = useState(null);
@@ -74,7 +78,8 @@ const Orders = () => {
   };
 
   const calculateShipping = (subtotal) => {
-    const shippingRate = 0.03;
+    //apply free shipping over $150
+    const shippingRate = subtotal > 150 ? 0 : 0.03;
     return subtotal * shippingRate;
   };
 
@@ -90,31 +95,35 @@ const Orders = () => {
   return (
     <div
       className="order-page"
-      style={{ marginBottom: "6em", marginTop: "3em" }}
+      style={{ marginBottom: "15em", marginTop: "4em" }}
     >
       <h1>Your Orders</h1>
       {data.userOrders.length > 0 ? (
-        <ul style={{ listStyleType: "none", padding: 0 }}>
+        <div className="order-buttons-wrapper">
           {data.userOrders.map((order) => (
-            <li key={order._id}>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => handleOrderClick(order._id, order.createdAt)}
-              >
-                {formatDate(order.createdAt)}
-              </Button>
-            </li>
+            <Button
+              key={order._id}
+              className="order-btns"
+              variant="contained"
+              color="primary"
+              onClick={() => handleOrderClick(order._id, order.createdAt)}
+              style={{ margin: ".5em" }}
+            >
+              {formatDate(order.createdAt)}
+            </Button>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>No orders found.</p>
       )}
       {selectedOrder && (
         <div className="order-items">
-          <h2>
-            Order # {orderDisplayId} Placed on {formatDate(orderDisplayDate)}
-          </h2>
+          <div className="order-date">
+            <span>Order # {orderDisplayId}</span>
+            <span className="placed-on">
+              Placed on {formatDate(orderDisplayDate)}{" "}
+            </span>
+          </div>
           {selectedOrder.map((item) => (
             <div key={item._id} className="cart-item">
               {item.option && item.option.image ? (
@@ -184,35 +193,35 @@ const Orders = () => {
               </div>
             </div>
           ))}
-          <div className="checkout order-checkout">
-            <div className="subtotal-container">
-              <p className="subtotal">Subtotal:</p>
-              <p className="subtotal-amount">
+          <div className="order-checkout">
+            <div className="order-subtotal-container">
+              <p className="order-subtotal">Subtotal:</p>
+              <p className="order-subtotal-amount">
                 ${calculateSubtotal(selectedOrder).toFixed(2)}
               </p>
             </div>
-            <div className="savings-container" style={{ color: "red" }}>
-              <p className="savings">Savings:</p>
-              <p className="savings-amount">
+            <div className="order-savings-container" style={{ color: "red" }}>
+              <p className="order-savings">Savings:</p>
+              <p className="order-savings-amount">
                 ${calculateTotalSavings(selectedOrder).toFixed(2)}
               </p>
             </div>
-            <div className="shipping-container">
-              <p className="shipping">Shipping:</p>
-              <p className="shipping-amount">
+            <div className="order-shipping-container">
+              <p className="order-shipping">Shipping:</p>
+              <p className="order-shipping-amount">
                 $
                 {calculateShipping(calculateSubtotal(selectedOrder)).toFixed(2)}
               </p>
             </div>
-            <div className="tax-container">
-              <p className="tax">Est. tax:</p>
-              <p className="tax-amount">
+            <div className="order-tax-container">
+              <p className="order-tax">Est. tax:</p>
+              <p className="order-tax-amount">
                 ${calculateTax(calculateSubtotal(selectedOrder)).toFixed(2)}
               </p>
             </div>
-            <div className="total-container">
-              <p className="total">TOTAL:</p>
-              <p className="total-amount">
+            <div className="order-total-container">
+              <p className="order-total">TOTAL:</p>
+              <p className="order-total-amount">
                 $
                 {calculateTotal(
                   calculateSubtotal(selectedOrder),
