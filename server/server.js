@@ -8,6 +8,7 @@ const http = require("http");
 const cors = require("cors");
 const { json } = require("body-parser");
 const { authMiddleware } = require("./utils/auth");
+const path = require("path");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -38,10 +39,8 @@ const startApolloServer = async (typeDefs, resolvers) => {
   );
 
   db.once("open", () => {
-    app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
-    });
+    console.log(`API server running on port ${PORT}!`);
+    console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
   });
 };
 
@@ -50,4 +49,8 @@ startApolloServer(typeDefs, resolvers);
 // Catch-all route for client-side routing
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
+httpServer.listen(PORT, () => {
+  console.log(`Express server running on port ${PORT}!`);
 });
