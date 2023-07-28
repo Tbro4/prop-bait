@@ -16,10 +16,6 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const httpServer = http.createServer(app);
 
-app.get("/", (req, res) => {
-  res.send("Welcome to the Prop Bait API!");
-});
-
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -30,7 +26,7 @@ const server = new ApolloServer({
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
 
-  app.use(express.static("src/images"));
+  app.use(express.static("client/build"));
 
   app.use(
     "/graphql",
@@ -50,3 +46,8 @@ const startApolloServer = async (typeDefs, resolvers) => {
 };
 
 startApolloServer(typeDefs, resolvers);
+
+// Catch-all route for client-side routing
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
