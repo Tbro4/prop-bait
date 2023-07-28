@@ -16,6 +16,10 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const httpServer = http.createServer(app);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Prop Bait API!");
+});
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
