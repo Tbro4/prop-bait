@@ -1,5 +1,5 @@
-.order-items {
-  margin-top: 5em;
+.order-btns {
+  width: 220px;
 }
 
 .order-buttons-wrapper {
@@ -8,14 +8,25 @@
   justify-content: flex-start;
 }
 
-.order-btns {
-  width: 220px;
-}
-
 .order-checkout {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.order-checkout p {
+  margin: 10px 0;
+}
+
+.order-date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  font-size: medium;
+}
+
+.order-items {
+  margin-top: 5em;
 }
 
 .order-subtotal-container,
@@ -32,20 +43,9 @@
   font-weight: 600;
 }
 
-.order-checkout p {
-  margin: 10px 0;
-}
-
 .order-total-container {
   font-weight: bold;
   border-top: 1px solid black;
-}
-
-.order-date {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1em;
-  font-size: medium;
 }
 
 .placed-on {
