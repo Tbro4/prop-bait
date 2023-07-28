@@ -9,7 +9,7 @@ const cors = require("cors");
 const { json } = require("body-parser");
 const { authMiddleware } = require("./utils/auth");
 const path = require("path");
-const root = path.join(__dirname, "..");
+const root = path.join(__dirname, "..", "..");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
