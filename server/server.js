@@ -49,7 +49,7 @@ startApolloServer(typeDefs, resolvers);
 
 // Catch-all route for client-side routing
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  res.sendFile(path.join(root, "client/build", "index.html"));
 });
 
 httpServer.listen(PORT, () => {
