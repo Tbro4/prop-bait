@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.17d31ab2.css",
-    "main.js": "/static/js/main.2891f7d8.js",
-    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "main.css": "/static/css/main.feeb8c3b.css",
+    "main.js": "/static/js/main.c2f86597.js",
+    "static/js/27.95291165.chunk.js": "/static/js/27.95291165.chunk.js",
     "static/media/VidClips.mp4": "/static/media/VidClips.81621f88c685549dea2b.mp4",
     "static/media/lures.jpg": "/static/media/lures.d7866724d084e508397d.jpg",
     "static/media/clothing.jpg": "/static/media/clothing.47c1aae3a7d873bb5c1f.jpg",
@@ -137,13 +137,10 @@
     "static/media/Plumkin.jpeg": "/static/media/Plumkin.0318fd47da8bfe0e1c1b.jpeg",
     "static/media/Money Maker.jpeg": "/static/media/Money Maker.5338ed98c7e4cc812570.jpeg",
     "static/media/Black Blue.jpeg": "/static/media/Black Blue.b377d2985cf8c2e26386.jpeg",
-    "index.html": "/index.html",
-    "main.17d31ab2.css.map": "/static/css/main.17d31ab2.css.map",
-    "main.2891f7d8.js.map": "/static/js/main.2891f7d8.js.map",
-    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+    "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.17d31ab2.css",
-    "static/js/main.2891f7d8.js"
+    "static/css/main.feeb8c3b.css",
+    "static/js/main.c2f86597.js"
   ]
 }
