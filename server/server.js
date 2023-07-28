@@ -9,6 +9,7 @@ const cors = require("cors");
 const { json } = require("body-parser");
 const { authMiddleware } = require("./utils/auth");
 const path = require("path");
+const root = path.join(__dirname, "..");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -27,7 +28,7 @@ const server = new ApolloServer({
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
 
-  app.use(express.static("client/build"));
+  app.use(express.static(path.join(root, "client/build")));
 
   app.use(
     "/graphql",
