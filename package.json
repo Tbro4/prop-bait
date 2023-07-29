@@ -26,7 +26,6 @@
   "bugs": {
     "url": "https://github.com/Tbro4/prop-bait/issues"
   },
-  "homepage": "https://github.com/Tbro4/prop-bait#readme",
   "dependencies": {
     "graphql": "^16.6.0"
   }
