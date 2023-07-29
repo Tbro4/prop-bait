@@ -27,7 +27,7 @@ const server = new ApolloServer({
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
 
-  app.use(express.static(path.join(__dirname, "..", "client", "build")));
+  app.use(express.static(path.resolve(__dirname, "./client/build")));
 
   app.use(
     "/graphql",
@@ -47,8 +47,8 @@ const startApolloServer = async (typeDefs, resolvers) => {
 startApolloServer(typeDefs, resolvers);
 
 // Catch-all route for client-side routing
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
 httpServer.listen(PORT, () => {
