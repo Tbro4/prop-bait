@@ -27,8 +27,6 @@ const server = new ApolloServer({
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
 
-  app.use(express.static(path.resolve(__dirname, "./client/build")));
-
   app.use(
     "/graphql",
     cors(),
@@ -37,6 +35,10 @@ const startApolloServer = async (typeDefs, resolvers) => {
       context: async ({ req }) => ({ token: req.headers.token }),
     })
   );
+
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../client/build")));
+  }
 
   db.once("open", () => {
     console.log(`API server running on port ${PORT}!`);
@@ -47,8 +49,8 @@ const startApolloServer = async (typeDefs, resolvers) => {
 startApolloServer(typeDefs, resolvers);
 
 // Catch-all route for client-side routing
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 httpServer.listen(PORT, () => {

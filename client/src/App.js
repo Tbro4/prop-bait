@@ -11,17 +11,9 @@ import { Container } from "@mui/system";
 import AppContainer from "./components/AppContainer/AppContainer";
 
 // Construct our main GraphQL API endpoint
-// Function to get the GraphQL endpoint URI based on the environment
-const getGraphQLEndpoint = () => {
-  if (process.env.NODE_ENV === "production") {
-    return "https://calm-dawn-80232-682649ddc0c6.herokuapp.com/graphql";
-  } else {
-    return "/graphql"; // Use the local endpoint for development
-  }
-};
 
 const httpLink = createHttpLink({
-  uri: getGraphQLEndpoint(),
+  uri: "/graphql",
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
