@@ -40,6 +40,11 @@ const startApolloServer = async (typeDefs, resolvers) => {
     app.use(express.static(path.join(__dirname, "../client/build")));
   }
 
+  // Catch-all route for client-side routing
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  });
+
   db.once("open", () => {
     console.log(`API server running on port ${PORT}!`);
     console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
@@ -47,11 +52,6 @@ const startApolloServer = async (typeDefs, resolvers) => {
 };
 
 startApolloServer(typeDefs, resolvers);
-
-// Catch-all route for client-side routing
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
 
 httpServer.listen(PORT, () => {
   console.log(`Express server running on port ${PORT}!`);
