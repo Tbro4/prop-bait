@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MainCategories from "../components/MainCategories/MainCategories";
 import SubCategories from "../components/SubCategories/SubCategories";
 import Products from "../components/Products/Products";
@@ -24,6 +24,11 @@ const Home = ({
   handleSalesClick,
   onGoBack,
 }) => {
+  //Scroll to top whenever view changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [view]);
+
   // Define a common style for the components' container with margin-top
   const componentContainerStyle = {
     marginTop: "3em", // Adjust the value as needed
