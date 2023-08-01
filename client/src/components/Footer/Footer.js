@@ -153,7 +153,16 @@ const Footer = () => {
       </ul>
 
       <div className="legal">
-        <p>&copy; 2023 Something. All rights reserved.</p>
+        <p>
+          &copy; 2023 Something. All rights reserved.
+          <a
+            href="https://www.flaticon.com/free-icons/sports-and-competition"
+            title="sports and competition icons"
+          >
+            Sports and competition icons created by Roundicons Premium -
+            Flaticon
+          </a>
+        </p>
       </div>
     </footer>
   );
