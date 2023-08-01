@@ -113,6 +113,10 @@ td.vertical-value {
     margin-top: 1em;
   }
 
+  .table-data {
+    white-space: normal; /* Allow text to wrap within the <td> element */
+  }
+
   table {
     width: 25%;
   }

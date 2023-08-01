@@ -220,7 +220,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
                       key !== "__typename" &&
                       value !== null && (
                         <React.Fragment key={key}>
-                          <td>{value}</td>
+                          <td className="table-data">{value}</td>
                         </React.Fragment>
                       )
                   )}
