@@ -166,16 +166,18 @@ const SubCategories = ({
       >
         Filter & Sort
       </Button>
-      <div className="sub-categories">
-        {subCategories.map((subCategory) => (
-          <div
-            className="sub-names"
-            key={subCategory._id}
-            onClick={() => handleSubCategoryClick(subCategory.subCategory)}
-          >
-            <h3>{subCategory.subCategory}</h3>
-          </div>
-        ))}
+      <div className="sub-cat-container">
+        <div className="sub-categories">
+          {subCategories.map((subCategory) => (
+            <div
+              className="sub-names"
+              key={subCategory._id}
+              onClick={() => handleSubCategoryClick(subCategory.subCategory)}
+            >
+              <h3>{subCategory.subCategory}</h3>
+            </div>
+          ))}
+        </div>
       </div>
 
       <Drawer
