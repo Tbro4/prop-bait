@@ -98,3 +98,12 @@ export const CREATE_ORDER = gql`
     }
   }
 `;
+
+export const DELETE_ACCOUNT = gql`
+  mutation deleteAccount($userId: ID!) {
+    deleteAccount(userId: $userId) {
+      _id
+      # Any other fields you might want in the response after account deletion
+    }
+  }
+`;

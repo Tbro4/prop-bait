@@ -306,6 +306,17 @@ const resolvers = {
         throw new GraphQLError("Error creating order");
       }
     },
+    deleteAccount: async (parent, { userId }) => {
+      try {
+        // Delete the user and clear any associated data
+        // Note: You may need to adjust this based on your database schema and relationships
+        await User.findByIdAndDelete(userId);
+
+        return { _id: userId };
+      } catch (error) {
+        throw new GraphQLError("Error deleting the account");
+      }
+    },
   },
 };
 
