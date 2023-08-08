@@ -1,5 +1,5 @@
 const { GraphQLError } = require("graphql");
-const { User, Product, Option, ProductSubCategory } = require("../models");
+const { User, Product, ProductSubCategory } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {

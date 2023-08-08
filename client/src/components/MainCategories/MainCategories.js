@@ -22,9 +22,6 @@ let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 const MainCategories = ({ onCategoryClick, handleSalesClick, setView }) => {
-  // const handleNavigation = (newView) => {
-  //   setView(newView);
-  // };
   return (
     <ThemeProvider theme={theme}>
       <div className="main-categories">

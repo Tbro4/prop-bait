@@ -28,7 +28,7 @@ const Search = styled("div")(({ theme }) => ({
     width: "50%",
   },
   [theme.breakpoints.up("sm")]: {
-    width: "auto", // Adjust the width for small screens (sm breakpoint)
+    width: "auto",
   },
 }));
 
@@ -139,7 +139,7 @@ export default function AppBarTop({
 
   // Define the spring configuration
   const springProps = useSpring({
-    to: { scale: shouldAnimate ? 0.8 : 1.3 }, // If shouldAnimate is true, scale to 1.1, otherwise scale back to 1
+    to: { scale: shouldAnimate ? 0.8 : 1.3 }, // If shouldAnimate is true, scale to 1.3, otherwise scale back to .8
     config: { tension: 350, friction: 3 }, // Adjust the tension and friction for the desired animation effect
   });
   useEffect(() => {

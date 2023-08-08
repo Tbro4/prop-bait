@@ -57,7 +57,6 @@ export const UPDATE_CART_ITEM_QUANTITY = gql`
     ) {
       _id
       quantity
-      # Include any other fields you need in the response
     }
   }
 `;
@@ -67,7 +66,6 @@ export const REMOVE_CART_ITEM = gql`
     removeCartItem(userId: $userId, cartItemId: $cartItemId) {
       _id
       quantity
-      # Include any other fields you need in the response
     }
   }
 `;
@@ -103,7 +101,6 @@ export const DELETE_ACCOUNT = gql`
   mutation deleteAccount($userId: ID!) {
     deleteAccount(userId: $userId) {
       _id
-      # Any other fields you might want in the response after account deletion
     }
   }
 `;

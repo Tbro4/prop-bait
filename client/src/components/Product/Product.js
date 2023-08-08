@@ -229,7 +229,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
                       className="qty-input"
                       type="number"
                       min="0"
-                      max="99" // Set the maximum value to 99
+                      max="99"
                       value={optionQuantities[option._id] || ""}
                       onChange={(e) => {
                         let quantity = e.target.value;

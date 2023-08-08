@@ -77,7 +77,7 @@ td {
 
 table {
   border-collapse: collapse;
-  border-radius: 4px; /* Rounded corners */
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -98,7 +98,6 @@ td.vertical-value {
   padding-left: 10px;
 }
 
-/* Media query for small screens */
 @media (max-width: 500px) {
   .Singleproduct-info {
     flex-direction: column;
