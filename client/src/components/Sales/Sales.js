@@ -147,11 +147,15 @@ const Sales = ({
           </select>
 
           <InfoIcon
-            style={{
+            sx={{
               marginLeft: "15px",
+              cursor: "pointer",
               fill: "#2a9d8f",
+              "&:hover": {
+                color: "var(--primary-color)",
+                fill: "var(--secondary-color)",
+              },
             }}
-            sx={{ cursor: "pointer" }}
           />
 
           <div className="filter">

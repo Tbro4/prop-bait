@@ -335,10 +335,14 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
 
               <div className="info-btn">
                 <InfoIcon
-                  style={{
+                  sx={{
+                    cursor: "pointer",
                     fill: "#2a9d8f",
+                    "&:hover": {
+                      color: "var(--primary-color)",
+                      fill: "var(--secondary-color)",
+                    },
                   }}
-                  sx={{ cursor: "pointer" }}
                 />
               </div>
             </div>
