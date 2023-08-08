@@ -131,6 +131,8 @@ const typeDefs = gql`
     clearCart(userId: ID!): User
 
     createOrder(userId: ID!, userCart: [CartOptionInput!]!): Order
+
+    deleteAccount(userId: ID!): User
   }
 `;
 

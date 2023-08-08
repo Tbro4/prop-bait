@@ -1,12 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Stack } from "@mui/material";
+import AuthService from "../../utils/auth";
 import Auth from "../../utils/auth";
+import { useMutation } from "@apollo/client";
+import { DELETE_ACCOUNT } from "../../utils/mutations";
 import "./Account.css";
 
 const Account = ({ setView }) => {
+  const [profile, setProfile] = useState(AuthService.getProfile());
+  const userId = profile ? profile.data._id : null;
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [deleteAccount] = useMutation(DELETE_ACCOUNT, {
+    variables: { userId },
+    onCompleted: () => {
+      // Handle any post-deletion logic, e.g., redirecting to the login page
+    },
+    onError: (error) => {
+      console.log("error removing account");
+    },
+  });
+
+  const handleDeleteAccount = () => {
+    // Show the confirmation dialog
+    setShowConfirmation(true);
+  };
+
+  const handleConfirmation = (confirmed) => {
+    // Hide the confirmation dialog
+    setShowConfirmation(false);
+
+    if (confirmed) {
+      // If confirmed, call the deleteAccount mutation
+      Auth.logout();
+      deleteAccount();
+      setProfile(null);
+    }
+  };
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    setProfile(null);
   };
 
   const handleNavigation = (newView) => {
@@ -42,7 +75,19 @@ const Account = ({ setView }) => {
             <Button variant="contained" onClick={logout}>
               Logout
             </Button>
+            <div className="option-btns">
+              <Button variant="contained" onClick={handleDeleteAccount}>
+                Delete Account
+              </Button>
+            </div>
           </div>
+          {showConfirmation && (
+            <div>
+              Are you sure you want to delete your account?
+              <button onClick={() => handleConfirmation(true)}>Yes</button>
+              <button onClick={() => handleConfirmation(false)}>No</button>
+            </div>
+          )}
         </>
       ) : (
         <Stack spacing={2}>
