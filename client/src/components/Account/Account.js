@@ -7,7 +7,7 @@ import { DELETE_ACCOUNT } from "../../utils/mutations";
 import "./Account.css";
 
 const Account = ({ setView }) => {
-  const profile = AuthService.getProfile();
+  const [profile, setProfile] = useState(AuthService.getProfile());
   const userId = profile ? profile.data._id : null;
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [deleteAccount] = useMutation(DELETE_ACCOUNT, {
@@ -33,11 +33,13 @@ const Account = ({ setView }) => {
       // If confirmed, call the deleteAccount mutation
       Auth.logout();
       deleteAccount();
+      setProfile(null);
     }
   };
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    setProfile(null);
   };
 
   const handleNavigation = (newView) => {
