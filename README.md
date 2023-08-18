@@ -37,7 +37,7 @@ Follow these steps to set up the project on your machine.
 ## Prerequisites
 
 - Node.js and npm must be installed. You can download them from [here](https://nodejs.org/).
-- [MongoDB Atlas](https://www.mongodb.com/atlas/database). Setup a cluster and find the connection string to add to the sample.env file.
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database). Setup a cluster and find the connection string to add to the sample.env file (Step 5). The string should look something like this: "mongodb+srv://<username>:<password>@cluster0.aphdd.mongodb.net/?retryWrites=true&w=majority".
 
 ## Installation 
 
