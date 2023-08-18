@@ -29,7 +29,7 @@ Follow these steps to set up the project on your machine.
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/Tbro4/prop-bait.git
+   git clone git@github.com:Tbro4/prop-bait.git
 
 2. Navigate to the project root directory:
 
