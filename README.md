@@ -15,6 +15,21 @@ CLICK [HERE](https://calm-dawn-80232-682649ddc0c6.herokuapp.com/) TO TRY THE LIV
 
 ![ezgif com-optimize](https://github.com/Tbro4/prop-bait/assets/77757900/8e952eab-9571-4700-9797-6e8264525e1c)
 
+# Table of Contents
+
+  - [Installation Instructions](#installation-instructions)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Usage](#usage)
+  - [Features](#features)
+    - [Login/Signup](#login/signup)
+    - [Multiple Search Options](#multiple-search-options)
+    - [Add To Cart](#add-to-cart)
+    - [Edit Cart / Place Order](#edit-cart-/-place-order)
+  - [Contributing](#contributing)
+  - [License](#license)
+
+
 ## Installation Instructions
 
 Follow these steps to set up the project on your machine.
