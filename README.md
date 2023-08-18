@@ -22,10 +22,10 @@ CLICK [HERE](https://calm-dawn-80232-682649ddc0c6.herokuapp.com/) TO TRY THE LIV
     - [Installation](#installation)
   - [Usage](#usage)
   - [Features](#features)
-    - [Login/Signup](#login/signup)
+    - [Login/Signup](#login-and-signup)
     - [Multiple Search Options](#multiple-search-options)
     - [Add To Cart](#add-to-cart)
-    - [Edit Cart / Place Order](#edit-cart-/-place-order)
+    - [Edit Cart/Place Order](#edit-cart-and-place-order)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -81,14 +81,14 @@ This command will start both the server and client, allowing you to work on both
 
 ## Features
 
- **- Login/Signup**
+### Login and Signup
 
 Users must signup or login to an account in order to add items to their cart and place an order. JWTs are used to keep track of logged-in status. 
 
 ![ezgif com-video-to-gif (5)](https://github.com/Tbro4/prop-bait/assets/77757900/5e53638e-3ae7-4163-9cb8-24510a28046b)
 
 
-**- Multiple Search Options**
+### Multiple Search Options
 
 The search bar displays categories, subcategories, and individual products based on the search input.
 
@@ -100,14 +100,14 @@ Users may also search for products by clicking on category images and subcategor
 ![ezgif com-video-to-gif](https://github.com/Tbro4/prop-bait/assets/77757900/be413e8f-8db5-4566-b109-608224e13ce3)
 
 
-**- Add To Cart**
+### Add To Cart
 
 Users may add products to a cart. Quantity is limited to 99 for any individual product. 
 
 ![ezgif com-video-to-gif (1)](https://github.com/Tbro4/prop-bait/assets/77757900/77647710-29c0-45bc-9726-a325a0f38043)
 
 
-**- Edit Cart / Place Order**
+### Edit Cart and Place Order
 
 Users may edit item quantites in the cart itself. Subtotals, Tax, Shipping, and Total are updated instantly upon quantity changes.  
 
