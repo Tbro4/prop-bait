@@ -15,6 +15,55 @@ CLICK [HERE](https://calm-dawn-80232-682649ddc0c6.herokuapp.com/) TO TRY THE LIV
 
 ![ezgif com-optimize](https://github.com/Tbro4/prop-bait/assets/77757900/8e952eab-9571-4700-9797-6e8264525e1c)
 
+## Installation Instructions
+
+Follow these steps to set up the project on your machine.
+
+## Prerequisites
+
+- Node.js and npm must be installed. You can download them from [here](https://nodejs.org/).
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database). Setup a cluster and find the connection string to add to the sample.env file.
+
+## Installation 
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/Tbro4/prop-bait.git
+
+2. Navigate to the project root directory:
+
+   ```sh
+   cd prop-bait
+   
+3. Install dependencies for the server and client:
+
+   ```sh
+   npm install
+
+5. Rename "example.env" to ".env" and add your MongoDB Atlas connection URI after "MONGODB_URI=". (You do not need to have the string in quotations)
+
+6. Seed the database:
+
+   ```sh
+   npm run seed
+
+## Usage
+
+1. To start the development server and client concurrently, run:
+
+   ```sh
+   npm run develop
+
+This command will start both the server and client, allowing you to work on both sides of the app simultaneously.
+
+2. Access the app in your browser at http://localhost:3000.
+
+
+
+
+
+
 ## Features
 
  **- Login/Signup**
