@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS_BY_SUBCATEGORY } from "../../utils/queries";
-import { Button, Drawer } from "@mui/material";
+import {
+  Button,
+  Drawer,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
+import Typography from "@mui/material/Typography";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import InfoIcon from "@mui/icons-material/Info";
 import "./Products.css";
@@ -12,6 +19,20 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
   });
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedBrands, setSelectedBrands] = useState([]);
+
+  const [open, setOpen] = useState(false);
+
+  const componentTitle = "Filter & Sort";
+  const componentDescription =
+    "There are three common sort options available. The filter options are dynamically generated based on the available brands and categories currently displayed in the component. In the future, I may add the ability to filter by different product measurements such as size, weight, and length.";
+
+  const handleInfoClick = () => {
+    setOpen(true);
+  };
+
+  const handleInfoClose = () => {
+    setOpen(false);
+  };
 
   const [selectedSortOption, setSelectedSortOption] = useState("");
 
@@ -144,12 +165,36 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
           </select>
 
           <InfoIcon
-            style={{
+            sx={{
               marginLeft: "15px",
+              cursor: "pointer",
               fill: "#2a9d8f",
+              "&:hover": {
+                color: "var(--primary-color)",
+                fill: "var(--secondary-color)",
+              },
             }}
-            sx={{ cursor: "pointer" }}
+            onClick={handleInfoClick}
           />
+          <Dialog
+            open={open}
+            onClose={handleInfoClose}
+            PaperProps={{
+              sx: { bgcolor: "#c7e5e1", border: "3px solid #2a9d8f" },
+            }}
+          >
+            <DialogTitle style={{ textAlign: "center" }}>
+              {componentTitle}
+            </DialogTitle>
+            <DialogContent>
+              <Typography
+                variant="body1"
+                style={{ lineHeight: "1.5", marginBottom: "10px" }}
+              >
+                {componentDescription}
+              </Typography>
+            </DialogContent>
+          </Dialog>
 
           <div className="filter">
             <div className="filter-title">

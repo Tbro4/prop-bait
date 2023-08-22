@@ -4,7 +4,14 @@ import {
   QUERY_SUBCATEGORIES_BY_CATEGORY,
   QUERY_PRODUCTS_BY_CATEGORY,
 } from "../../utils/queries";
-import { Button, Drawer } from "@mui/material";
+import {
+  Button,
+  Drawer,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
+import Typography from "@mui/material/Typography";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import InfoIcon from "@mui/icons-material/Info";
 import "./SubCategories.css";
@@ -35,6 +42,20 @@ const SubCategories = ({
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedSubCategories, setSelectedSubCategories] = useState([]);
   const [selectedSortOption, setSelectedSortOption] = useState("");
+
+  const [open, setOpen] = useState(false);
+
+  const componentTitle = "Filter & Sort";
+  const componentDescription =
+    "There are three common sort options available. The filter options are dynamically generated based on the available brands and categories currently displayed in the component. In the future, I may add the ability to filter by different product measurements such as size, weight, and length.";
+
+  const handleInfoClick = () => {
+    setOpen(true);
+  };
+
+  const handleInfoClose = () => {
+    setOpen(false);
+  };
 
   const handleFilterToggle = () => {
     setIsFilterOpen(!isFilterOpen);
@@ -219,7 +240,27 @@ const SubCategories = ({
                 fill: "var(--secondary-color)",
               },
             }}
+            onClick={handleInfoClick}
           />
+          <Dialog
+            open={open}
+            onClose={handleInfoClose}
+            PaperProps={{
+              sx: { bgcolor: "#c7e5e1", border: "3px solid #2a9d8f" },
+            }}
+          >
+            <DialogTitle style={{ textAlign: "center" }}>
+              {componentTitle}
+            </DialogTitle>
+            <DialogContent>
+              <Typography
+                variant="body1"
+                style={{ lineHeight: "1.5", marginBottom: "10px" }}
+              >
+                {componentDescription}
+              </Typography>
+            </DialogContent>
+          </Dialog>
 
           <div className="filter">
             <div className="filter-title">

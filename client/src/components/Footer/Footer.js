@@ -68,7 +68,7 @@ const Footer = () => {
             </Button>
             <Button
               className="instagram-button"
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/tylerbrooks_music/"
               target="blank"
               classes={{ root: "custom-button-root" }}
             >
