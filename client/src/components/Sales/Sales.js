@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_ON_SALE_PRODUCTS } from "../../utils/queries";
-import { Button, Drawer } from "@mui/material";
+import {
+  Button,
+  Drawer,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
+
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import InfoIcon from "@mui/icons-material/Info";
 
@@ -15,6 +22,19 @@ const Sales = ({
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedBrands, setSelectedBrands] = useState([]);
+
+  const [open, setOpen] = useState(false);
+
+  const componentTitle = "Filter & Sort";
+  const componentDescription = "Here is how the filter/sort works!...";
+
+  const handleInfoClick = () => {
+    setOpen(true);
+  };
+
+  const handleInfoClose = () => {
+    setOpen(false);
+  };
 
   const [selectedSortOption, setSelectedSortOption] = useState("");
 
@@ -156,7 +176,14 @@ const Sales = ({
                 fill: "var(--secondary-color)",
               },
             }}
+            onClick={handleInfoClick}
           />
+          <Dialog open={open} onClose={handleInfoClose}>
+            <DialogTitle>{componentTitle}</DialogTitle>
+            <DialogContent>
+              <p>{componentDescription}</p>
+            </DialogContent>
+          </Dialog>
 
           <div className="filter">
             <div className="filter-title">

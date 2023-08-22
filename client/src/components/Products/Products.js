@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS_BY_SUBCATEGORY } from "../../utils/queries";
-import { Button, Drawer } from "@mui/material";
+import {
+  Button,
+  Drawer,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import InfoIcon from "@mui/icons-material/Info";
 import "./Products.css";
@@ -12,6 +18,19 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
   });
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedBrands, setSelectedBrands] = useState([]);
+
+  const [open, setOpen] = useState(false);
+
+  const componentTitle = "Filter & Sort";
+  const componentDescription = "Here is how the filter/sort works!...";
+
+  const handleInfoClick = () => {
+    setOpen(true);
+  };
+
+  const handleInfoClose = () => {
+    setOpen(false);
+  };
 
   const [selectedSortOption, setSelectedSortOption] = useState("");
 
@@ -144,12 +163,23 @@ const Products = ({ subCategory, onProductClick, onGoBack, previousView }) => {
           </select>
 
           <InfoIcon
-            style={{
+            sx={{
               marginLeft: "15px",
+              cursor: "pointer",
               fill: "#2a9d8f",
+              "&:hover": {
+                color: "var(--primary-color)",
+                fill: "var(--secondary-color)",
+              },
             }}
-            sx={{ cursor: "pointer" }}
+            onClick={handleInfoClick}
           />
+          <Dialog open={open} onClose={handleInfoClose}>
+            <DialogTitle>{componentTitle}</DialogTitle>
+            <DialogContent>
+              <p>{componentDescription}</p>
+            </DialogContent>
+          </Dialog>
 
           <div className="filter">
             <div className="filter-title">

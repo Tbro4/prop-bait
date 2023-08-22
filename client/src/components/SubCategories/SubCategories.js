@@ -4,7 +4,13 @@ import {
   QUERY_SUBCATEGORIES_BY_CATEGORY,
   QUERY_PRODUCTS_BY_CATEGORY,
 } from "../../utils/queries";
-import { Button, Drawer } from "@mui/material";
+import {
+  Button,
+  Drawer,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import InfoIcon from "@mui/icons-material/Info";
 import "./SubCategories.css";
@@ -35,6 +41,19 @@ const SubCategories = ({
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedSubCategories, setSelectedSubCategories] = useState([]);
   const [selectedSortOption, setSelectedSortOption] = useState("");
+
+  const [open, setOpen] = useState(false);
+
+  const componentTitle = "Filter & Sort";
+  const componentDescription = "Here is how the filter/sort works!...";
+
+  const handleInfoClick = () => {
+    setOpen(true);
+  };
+
+  const handleInfoClose = () => {
+    setOpen(false);
+  };
 
   const handleFilterToggle = () => {
     setIsFilterOpen(!isFilterOpen);
@@ -219,7 +238,14 @@ const SubCategories = ({
                 fill: "var(--secondary-color)",
               },
             }}
+            onClick={handleInfoClick}
           />
+          <Dialog open={open} onClose={handleInfoClose}>
+            <DialogTitle>{componentTitle}</DialogTitle>
+            <DialogContent>
+              <p>{componentDescription}</p>
+            </DialogContent>
+          </Dialog>
 
           <div className="filter">
             <div className="filter-title">

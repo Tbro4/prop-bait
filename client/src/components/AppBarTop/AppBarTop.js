@@ -5,6 +5,7 @@ import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+import { Dialog, DialogContent, DialogTitle } from "@mui/material";
 
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
@@ -88,8 +89,9 @@ const SearchOptionItem = styled("div")(
     "&:hover": {
       backgroundColor: theme.palette.action.hover,
     },
-    fontWeight: isCategory ? "bold" : "normal",
+
     fontStyle: isSubcategory ? "italic" : "normal",
+    fontWeight: isCategory ? "bold" : isSubcategory ? 500 : "normal",
   })
 );
 
@@ -122,10 +124,15 @@ export default function AppBarTop({
   const [showOptions, setShowOptions] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [shouldAnimate, setShouldAnimate] = useState(true);
+  const [open, setOpen] = useState(false);
   const bannerTexts = [
     "Free shipping on $150+",
     "Shimano and Daiwa products 25% off!",
   ];
+
+  const componentTitle = "Search Input";
+  const componentDescription = "Here is how the search input works!...";
+
   useEffect(() => {
     // Delay the animation start by 2 seconds after the component mounts
     const animationTimeout = setTimeout(() => {
@@ -203,6 +210,14 @@ export default function AppBarTop({
     } else {
       onProductClick(option);
     }
+  };
+
+  const handleInfoClick = () => {
+    setOpen(true);
+  };
+
+  const handleInfoClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -311,8 +326,15 @@ export default function AppBarTop({
             <InfoIcon
               style={{ marginLeft: "15px" }}
               sx={{ cursor: "pointer" }}
+              onClick={handleInfoClick}
             />
           </animated.div>
+          <Dialog open={open} onClose={handleInfoClose}>
+            <DialogTitle>{componentTitle}</DialogTitle>
+            <DialogContent>
+              <p>{componentDescription}</p>
+            </DialogContent>
+          </Dialog>
         </Toolbar>
         <Banner>
           {bannerTexts.map((text, index) => (

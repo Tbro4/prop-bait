@@ -8,7 +8,7 @@ import {
   CLEAR_CART,
 } from "../../utils/mutations";
 import AuthService from "../../utils/auth";
-import Button from "@mui/material/Button";
+import { Button, Dialog, DialogContent, DialogTitle } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import InfoIcon from "@mui/icons-material/Info";
 import Snackbar from "@mui/material/Snackbar";
@@ -30,6 +30,19 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
   const [isCartEmpty, setIsCartEmpty] = useState(false);
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+
+  const [open, setOpen] = useState(false);
+
+  const componentTitle = "Checkout";
+  const componentDescription = "Here is how the checkout works!...";
+
+  const handleInfoClick = () => {
+    setOpen(true);
+  };
+
+  const handleInfoClose = () => {
+    setOpen(false);
+  };
 
   const handleSnackbarOpen = () => {
     setSnackbarOpen(true);
@@ -343,7 +356,14 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
                       fill: "var(--secondary-color)",
                     },
                   }}
+                  onClick={handleInfoClick}
                 />
+                <Dialog open={open} onClose={handleInfoClose}>
+                  <DialogTitle>{componentTitle}</DialogTitle>
+                  <DialogContent>
+                    <p>{componentDescription}</p>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
           </div>
