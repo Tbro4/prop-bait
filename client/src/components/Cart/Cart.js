@@ -9,6 +9,7 @@ import {
 } from "../../utils/mutations";
 import AuthService from "../../utils/auth";
 import { Button, Dialog, DialogContent, DialogTitle } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import InfoIcon from "@mui/icons-material/Info";
 import Snackbar from "@mui/material/Snackbar";
@@ -34,7 +35,10 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
   const [open, setOpen] = useState(false);
 
   const componentTitle = "Checkout";
-  const componentDescription = "Here is how the checkout works!...";
+  const componentDescription =
+    "The checkout button creates an order from the current cart and attaches an 'orderID' and current time and date. It then clears the cart. Orders can be viewed from the user's account page.\n\n" +
+    "If the user has no items in their cart or has any items with a quantity of zero, the checkout button will be inactive. Items with 'Qty: 0' will trigger a message to remove the item, or update the quantity to greater than zero.\n\n" +
+    "You will also notice the subtotals and totals update immediately, and that shipping becomes 'free' when the total is above $150.";
 
   const handleInfoClick = () => {
     setOpen(true);
@@ -43,6 +47,8 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
   const handleInfoClose = () => {
     setOpen(false);
   };
+
+  const paragraphs = componentDescription.split("\n");
 
   const handleSnackbarOpen = () => {
     setSnackbarOpen(true);
@@ -358,10 +364,26 @@ const Cart = ({ setView, view, onGoBack, previousView, onProductClick }) => {
                   }}
                   onClick={handleInfoClick}
                 />
-                <Dialog open={open} onClose={handleInfoClose}>
-                  <DialogTitle>{componentTitle}</DialogTitle>
+                <Dialog
+                  open={open}
+                  onClose={handleInfoClose}
+                  PaperProps={{
+                    sx: { bgcolor: "#c7e5e1", border: "3px solid #2a9d8f" },
+                  }}
+                >
+                  <DialogTitle style={{ textAlign: "center" }}>
+                    {componentTitle}
+                  </DialogTitle>
                   <DialogContent>
-                    <p>{componentDescription}</p>
+                    {paragraphs.map((paragraph, index) => (
+                      <Typography
+                        key={index}
+                        variant="body1"
+                        style={{ lineHeight: "1.5", marginBottom: "10px" }}
+                      >
+                        {paragraph}
+                      </Typography>
+                    ))}
                   </DialogContent>
                 </Dialog>
               </div>

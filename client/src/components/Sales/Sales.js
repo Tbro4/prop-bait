@@ -8,7 +8,7 @@ import {
   DialogContent,
   DialogTitle,
 } from "@mui/material";
-
+import Typography from "@mui/material/Typography";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import InfoIcon from "@mui/icons-material/Info";
 
@@ -26,7 +26,8 @@ const Sales = ({
   const [open, setOpen] = useState(false);
 
   const componentTitle = "Filter & Sort";
-  const componentDescription = "Here is how the filter/sort works!...";
+  const componentDescription =
+    "There are three common sort options available. The filter options are dynamically generated based on the available brands and categories currently displayed in the component. In the future, I may add the ability to filter by different product measurements such as size, weight, and length.";
 
   const handleInfoClick = () => {
     setOpen(true);
@@ -178,10 +179,23 @@ const Sales = ({
             }}
             onClick={handleInfoClick}
           />
-          <Dialog open={open} onClose={handleInfoClose}>
-            <DialogTitle>{componentTitle}</DialogTitle>
+          <Dialog
+            open={open}
+            onClose={handleInfoClose}
+            PaperProps={{
+              sx: { bgcolor: "#c7e5e1", border: "3px solid #2a9d8f" },
+            }}
+          >
+            <DialogTitle style={{ textAlign: "center" }}>
+              {componentTitle}
+            </DialogTitle>
             <DialogContent>
-              <p>{componentDescription}</p>
+              <Typography
+                variant="body1"
+                style={{ lineHeight: "1.5", marginBottom: "10px" }}
+              >
+                {componentDescription}
+              </Typography>
             </DialogContent>
           </Dialog>
 

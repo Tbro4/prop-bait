@@ -131,7 +131,8 @@ export default function AppBarTop({
   ];
 
   const componentTitle = "Search Input";
-  const componentDescription = "Here is how the search input works!...";
+  const componentDescription =
+    'Whenever the value of the search input changes a GraphQL query is triggered using the "getSearchOptions" function. Any categories, subcategories, or individual products with a matching value to the input are displayed as options.';
 
   useEffect(() => {
     // Delay the animation start by 2 seconds after the component mounts
@@ -329,10 +330,23 @@ export default function AppBarTop({
               onClick={handleInfoClick}
             />
           </animated.div>
-          <Dialog open={open} onClose={handleInfoClose}>
-            <DialogTitle>{componentTitle}</DialogTitle>
+          <Dialog
+            open={open}
+            onClose={handleInfoClose}
+            PaperProps={{
+              sx: { bgcolor: "#c7e5e1", border: "3px solid #2a9d8f" },
+            }}
+          >
+            <DialogTitle style={{ textAlign: "center" }}>
+              {componentTitle}
+            </DialogTitle>
             <DialogContent>
-              <p>{componentDescription}</p>
+              <Typography
+                variant="body1"
+                style={{ lineHeight: "1.5", marginBottom: "10px" }}
+              >
+                {componentDescription}
+              </Typography>
             </DialogContent>
           </Dialog>
         </Toolbar>

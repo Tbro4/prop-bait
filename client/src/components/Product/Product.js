@@ -2,9 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
 import { ADD_TO_CART } from "../../utils/mutations";
-import Button from "@mui/material/Button";
+import { Button, Dialog, DialogContent, DialogTitle } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import InfoIcon from "@mui/icons-material/Info";
 import "./Product.css";
 import AuthService from "../../utils/auth";
 import Snackbar from "@mui/material/Snackbar";
@@ -13,6 +15,20 @@ const Product = ({ productId, onGoBack, previousView }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [optionQuantities, setOptionQuantities] = useState({});
   const [addToCart] = useMutation(ADD_TO_CART);
+
+  const [openInfo, setOpenInfo] = useState(false);
+
+  const componentTitle = "Product Measurements";
+  const componentDescription =
+    " Since products contain different measurement types (there are 18 different types), this product measurement table is dynamically generated based on the product keys that do not contain a 'null' value";
+
+  const handleInfoClick = () => {
+    setOpenInfo(true);
+  };
+
+  const handleInfoClose = () => {
+    setOpenInfo(false);
+  };
 
   const handleOpenSnackbar = (message) => {
     setSnackbarMessage(message);
@@ -158,6 +174,38 @@ const Product = ({ productId, onGoBack, previousView }) => {
               <table>
                 <tbody>{rows}</tbody>
               </table>
+              <InfoIcon
+                sx={{
+                  marginLeft: "15px",
+                  marginTop: "15px",
+                  cursor: "pointer",
+                  fill: "#2a9d8f",
+                  "&:hover": {
+                    color: "var(--primary-color)",
+                    fill: "var(--secondary-color)",
+                  },
+                }}
+                onClick={handleInfoClick}
+              />
+              <Dialog
+                open={openInfo}
+                onClose={handleInfoClose}
+                PaperProps={{
+                  sx: { bgcolor: "#c7e5e1", border: "3px solid #2a9d8f" },
+                }}
+              >
+                <DialogTitle style={{ textAlign: "center" }}>
+                  {componentTitle}
+                </DialogTitle>
+                <DialogContent>
+                  <Typography
+                    variant="body1"
+                    style={{ lineHeight: "1.5", marginBottom: "10px" }}
+                  >
+                    {componentDescription}
+                  </Typography>
+                </DialogContent>
+              </Dialog>
             </div>
           );
         } else {
@@ -171,6 +219,38 @@ const Product = ({ productId, onGoBack, previousView }) => {
                   <tr>{tableData}</tr>
                 </tbody>
               </table>
+              <InfoIcon
+                sx={{
+                  marginLeft: "15px",
+                  marginTop: "15px",
+                  cursor: "pointer",
+                  fill: "#2a9d8f",
+                  "&:hover": {
+                    color: "var(--primary-color)",
+                    fill: "var(--secondary-color)",
+                  },
+                }}
+                onClick={handleInfoClick}
+              />
+              <Dialog
+                open={openInfo}
+                onClose={handleInfoClose}
+                PaperProps={{
+                  sx: { bgcolor: "#c7e5e1", border: "3px solid #2a9d8f" },
+                }}
+              >
+                <DialogTitle style={{ textAlign: "center" }}>
+                  {componentTitle}
+                </DialogTitle>
+                <DialogContent>
+                  <Typography
+                    variant="body1"
+                    style={{ lineHeight: "1.5", marginBottom: "10px" }}
+                  >
+                    {componentDescription}
+                  </Typography>
+                </DialogContent>
+              </Dialog>
             </div>
           );
         }
@@ -374,6 +454,7 @@ const Product = ({ productId, onGoBack, previousView }) => {
         <p className="single-description">{product.description}</p>
       </div>
       {renderMeasurements()}
+
       {renderOptions()}
       <Snackbar
         open={open}
